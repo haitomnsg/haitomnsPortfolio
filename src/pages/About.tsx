@@ -10,7 +10,7 @@ const academicEducation = [
     duration: "2020 – 2022",
   },
   {
-    degree: "Master of Science (MS) in Strategic Design an Management", // "an" seems like a typo in image, should be "and"
+    degree: "Master of Science (MS) in Strategic Design an Management",
     institution: "Parsons School of Design",
     duration: "2018 – 2020",
   },
@@ -100,17 +100,36 @@ interface SectionCardProps {
 
 const SectionCard: React.FC<SectionCardProps> = ({ title, icon: Icon, items, cardClassName }) => (
   <Card className={`shadow-lg flex flex-col ${cardClassName}`}>
-    <CardHeader className="flex flex-row items-center space-x-3 pb-3">
-      <Icon className="w-6 h-6 text-primary" />
-      <CardTitle className="text-xl font-semibold">{title}</CardTitle>
+    <CardHeader className="flex flex-col items-start pt-5 pb-4"> {/* Changed layout to flex-col, items-start */}
+      <Icon className="w-7 h-7 text-primary mb-3" /> {/* Icon on top, increased size and margin */}
+      <CardTitle className="text-2xl font-semibold">{title}</CardTitle> {/* Increased title size */}
     </CardHeader>
     <CardContent className="pt-0 flex-grow">
-      <ul className="space-y-4 list-disc list-inside text-muted-foreground">
+      <ul className="space-y-6"> {/* Increased space-y for timeline items */}
         {items.map((item, index) => (
-          <li key={index} className="ml-2">
-            <span className="font-medium text-foreground">{item.primary}</span>
-            <div className="text-sm ml-0">{item.secondary}</div>
-            {item.tertiary && <div className="text-sm ml-0">{item.tertiary}</div>}
+          <li key={index} className="relative pl-5"> {/* Padding left for dot and line */}
+            {/* Dot */}
+            <div
+              className="absolute left-0 w-2 h-2 bg-foreground rounded-full"
+              style={{ top: '0.375em' }} // Position dot vertically (adjust as needed for font)
+            ></div>
+            {/* Line - only if not the last item */}
+            {index < items.length - 1 && (
+              <div
+                className="absolute w-0.5 bg-border -z-10" // Line style
+                style={{
+                  left: '0.1875rem', // (dot_width/2 - line_width/2) = (8px/2 - 2px/2) = 3px
+                  top: 'calc(0.375em + 0.25rem)', // Start from center of the dot
+                  bottom: 'calc(-1.5rem + 0.375em + 0.25rem)', // Extend into space-y to meet next dot's center
+                }}
+              ></div>
+            )}
+            {/* Content */}
+            <div>
+              <span className="font-medium text-foreground leading-snug">{item.primary}</span>
+              <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.secondary}</div>
+              {item.tertiary && <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.tertiary}</div>}
+            </div>
           </li>
         ))}
       </ul>

@@ -44,6 +44,9 @@
 
 /* Add more @font-face rules if you have other weights/styles like Italic, Light, etc. */
 
+html {
+  scroll-behavior: smooth; /* Added for smooth scrolling */
+}
 
 @layer base {
   :root {
