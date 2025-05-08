@@ -54,39 +54,38 @@ html {
     --primary: 0 0% 0%; /* #000000 - Primary action/element color */
     --primary-foreground: 0 0% 100%; /* #ffffff - Text on primary background */
 
-    --secondary: 210 40% 96.1%; /* A light gray, can be used for secondary backgrounds if needed */
-    --secondary-foreground: 0 0% 30.2%; /* #4d4d4d - For less important text on secondary backgrounds */
+    --secondary: 210 40% 96.1%; 
+    --secondary-foreground: 0 0% 30.2%; /* #4d4d4d */
 
-    --muted: 210 40% 96.1%; /* A light gray, often for backgrounds */
-    --muted-foreground: 0 0% 30.2%; /* #4d4d4d - Secondary/muted text color */
+    --muted: 210 40% 96.1%; 
+    --muted-foreground: 0 0% 30.2%; /* #4d4d4d */
 
-    --accent: 210 40% 96.1%; /* A light gray, for hover states etc. */
-    --accent-foreground: 0 0% 0%; /* #000000 - Text on accent backgrounds */
+    --accent: 210 40% 96.1%; 
+    --accent-foreground: 0 0% 0%; /* #000000 */
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%; /* White text on destructive red */
+    --destructive-foreground: 0 0% 100%; 
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 0 0% 0%; /* #000000 - Focus ring color */
+    --ring: 0 0% 0%; /* #000000 */
 
     --radius: 0.5rem;
 
-    /* Sidebar specific colors aligned with the new scheme */
-    --sidebar-background: 0 0% 98%; /* Sidebar card background */
-    --sidebar-foreground: 0 0% 0%;   /* Default text in sidebar: black */
-    --sidebar-primary: 0 0% 0%;      /* Active item background in sidebar: black */
-    --sidebar-primary-foreground: 0 0% 100%; /* Active item text/icon in sidebar: white */
-    --sidebar-accent: 240 4.8% 95.9%; /* Hover background for sidebar items - light gray */
-    --sidebar-accent-foreground: 0 0% 0%; /* Hover text color for sidebar items: black */
+    --sidebar-background: 0 0% 98%; 
+    --sidebar-foreground: 0 0% 0%;   
+    --sidebar-primary: 0 0% 0%;      
+    --sidebar-primary-foreground: 0 0% 100%; 
+    --sidebar-accent: 0 0% 97%; /* Updated to #f7f7f7 for hover background */
+    --sidebar-accent-foreground: 0 0% 0%; /* Text on hover: black */
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 0 0% 0%; /* Ring color for sidebar elements */
+    --sidebar-ring: 0 0% 0%; 
   }
 
   .dark {
-    /* Adjust dark mode if needed, for now focusing on light mode changes */
+    /* Dark mode remains as previously defined */
     --background: 222.2 84% 4.9%; 
-    --foreground: 0 0% 100%; /* White text in dark mode */
+    --foreground: 0 0% 100%; 
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 0 0% 100%;
@@ -94,14 +93,14 @@ html {
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 100%; /* White primary in dark mode */
-    --primary-foreground: 0 0% 0%; /* Black text on white primary in dark mode */
+    --primary: 0 0% 100%; 
+    --primary-foreground: 0 0% 0%; 
 
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 0 0% 80%; /* Lighter gray for dark mode */
+    --secondary-foreground: 0 0% 80%; 
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 0 0% 70%; /* Lighter gray for dark mode */
+    --muted-foreground: 0 0% 70%; 
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 0 0% 100%;
@@ -111,7 +110,7 @@ html {
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 0 0% 100%; /* White ring in dark mode */
+    --ring: 0 0% 100%; 
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 0 0% 100%;
