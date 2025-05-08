@@ -7,7 +7,7 @@ const skillCards = [
   {
     icon: <Code2 className="w-10 h-10 text-red-500" />,
     title: "Programming",
-    skillsList: ["C", "C++", "C#", "Dart", "HTML", "CSS", "Java", "JavaScript", "PHP", "SQL"],
+    skillsList: ["C", "C++", "C#", "HTML", "CSS", "Java", "JavaScript", "PHP", "SQL"], // Removed "Dart"
     bgColor: "bg-red-100",
     iconBg: "bg-red-200",
   },
@@ -35,8 +35,8 @@ const Index = () => {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="text-left"> {/* Reverted to simpler structure */}
-        <div className="flex justify-between items-start mb-6"> {/* items-start to align headline and button nicely */}
+      <section className="text-left">
+        <div className="flex justify-between items-start mb-6">
           <h1 className="text-5xl font-semibold">
             Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
           </h1>
