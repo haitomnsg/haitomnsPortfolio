@@ -40,6 +40,8 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
   return (
     <nav className="flex-grow px-4 py-6 space-y-1">
       {navItems.map((item) => {
+        // This variable determines if the current page/link is active.
+        // It's used for the icon style and the dot indicator.
         const isCurrentPageActive =
           (item.href === "/" && (location.pathname === "/" || location.pathname === "/index.html")) ||
           (item.href !== "/" && location.pathname === item.href);
@@ -49,12 +51,13 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
             key={item.label}
             to={item.href}
             onClick={onLinkClick}
-            end
-            className={({ isActive: navLinkIsActive }) =>
+            end // Ensures exact path matching for active state
+            className={({ isActive: navLinkIsActiveForClass }) => // `navLinkIsActiveForClass` is from NavLink, scoped here
               cn(
                 "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group",
                 "hover:bg-accent hover:text-accent-foreground",
-                navLinkIsActive
+                // Use `navLinkIsActiveForClass` for the NavLink's background and text color
+                navLinkIsActiveForClass
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground"
               )
@@ -62,16 +65,23 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
           >
             <div className="flex items-center">
               <item.icon
-                className={cn("w-5 h-5 mr-3", navLinkIsActive ? "text-primary-foreground" : "text-muted-foreground group-hover:text-accent-foreground")}
-                fill={navLinkIsActive ? "currentColor" : "none"}
-                strokeWidth={navLinkIsActive ? 2 : 2} // Adjust strokeWidth if needed for filled icons
+                // Use `isCurrentPageActive` for the icon's className (color) and fill
+                className={cn(
+                  "w-5 h-5 mr-3",
+                  isCurrentPageActive
+                    ? "text-primary-foreground" // Icon color when active
+                    : "text-muted-foreground group-hover:text-accent-foreground" // Icon color when inactive
+                )}
+                fill={isCurrentPageActive ? "currentColor" : "none"} // Fill icon when active
+                strokeWidth={2} // Consistent stroke width
               />
               {item.label}
             </div>
+            {/* Use `isCurrentPageActive` for the dot indicator */}
             {isCurrentPageActive ? (
-              <div className="w-2 h-2 bg-black rounded-full mr-1"></div> // Using black dot as per image
+              <div className="w-2 h-2 bg-black rounded-full mr-1"></div>
             ) : (
-              <div className="w-2 h-2 bg-transparent rounded-full mr-1"></div> // Placeholder to maintain alignment
+              <div className="w-2 h-2 bg-transparent rounded-full mr-1"></div>
             )}
           </NavLink>
         );
