@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Home, User, Briefcase, Layers, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
+import { Home, User, Briefcase, Layers, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
@@ -40,11 +40,7 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
   return (
     <nav className="flex-grow px-4 py-6 space-y-1">
       {navItems.map((item) => {
-        // Determine if the current link is active for chevron display
-        // This logic needs to be in this scope.
-        // For the home link, consider "/index.html" as active too.
-        // For other links, an exact match is needed.
-        const isCurrentPageActive = 
+        const isCurrentPageActive =
           (item.href === "/" && (location.pathname === "/" || location.pathname === "/index.html")) ||
           (item.href !== "/" && location.pathname === item.href);
 
@@ -53,13 +49,11 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
             key={item.label}
             to={item.href}
             onClick={onLinkClick}
-            // Add `end` prop to ensure NavLink considers exact matches for active state.
             end
-            className={({ isActive: navLinkIsActive }) => // navLinkIsActive is from NavLink, respects `end`
+            className={({ isActive: navLinkIsActive }) =>
               cn(
                 "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group",
                 "hover:bg-accent hover:text-accent-foreground",
-                // Use navLinkIsActive for styling the link itself
                 navLinkIsActive
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground"
@@ -67,14 +61,17 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
             }
           >
             <div className="flex items-center">
-              <item.icon className="w-5 h-5 mr-3" />
+              <item.icon
+                className={cn("w-5 h-5 mr-3", navLinkIsActive ? "text-primary-foreground" : "text-muted-foreground group-hover:text-accent-foreground")}
+                fill={navLinkIsActive ? "currentColor" : "none"}
+                strokeWidth={navLinkIsActive ? 2 : 2} // Adjust strokeWidth if needed for filled icons
+              />
               {item.label}
             </div>
-            {/* Use the separately calculated `isCurrentPageActive` for the chevron logic */}
             {isCurrentPageActive ? (
-              <ChevronRight className="w-4 h-4 text-primary-foreground/70" />
+              <div className="w-2 h-2 bg-black rounded-full mr-1"></div> // Using black dot as per image
             ) : (
-              <ChevronRight className="w-4 h-4 text-muted-foreground/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-2 h-2 bg-transparent rounded-full mr-1"></div> // Placeholder to maintain alignment
             )}
           </NavLink>
         );
