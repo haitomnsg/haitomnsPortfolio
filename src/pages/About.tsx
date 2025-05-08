@@ -1,29 +1,29 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, Swords, Briefcase, Award } from "lucide-react"; // Changed FileText to Swords
+import { GraduationCap, Swords, Briefcase, Award } from "lucide-react";
 
 const introText = "I'm a passionate Robotics and AI Developer with a love for building real-world solutions, from autonomous robots to intelligent software. Focused, creative, and detail-oriented, I enjoy leading projects that blend programming, AI, and robotics to solve everyday problems in simple, effective ways.";
 
 const academicEducation = [
   {
-    degree: "BTech in Artificial Intelligence (2027)",
+    degree: "BTech in Artificial Intelligence (Ongoing)", // Changed (2027) to (Ongoing)
     institution: "Kathmandu University, Dhulikhel",
     duration: "II Year II Semester",
   },
   {
     degree: "Technical Education in Computer Engineering (2023)",
-    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj", // Changed Birgunj-14 to Birgunj
+    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj",
     duration: "3.48 GPA",
   },
   {
     degree: "Technical Secondary Education Examination in Computer Engineering (2021)",
-    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj", // Changed Birgunj-14 to Birgunj
+    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj",
     duration: "4 GPA",
   },
 ];
 
-const hackathons = [ // Renamed from nonFormalEducation and updated content
+const hackathons = [
   {
-    program: "AI/ML Hackathon 2025", // Corrected typo
+    program: "AI/ML Hackathon 2025",
     provider: "Best Presentation Award",
     duration: "Organized by Global IME Bank Limited",
   },
@@ -39,7 +39,7 @@ const hackathons = [ // Renamed from nonFormalEducation and updated content
   },
 ];
 
-const experience = [ // Removed specified entries
+const experience = [
   {
     role: "Head of Development",
     company: "Haitomns Groups Private Limited",
@@ -48,14 +48,14 @@ const experience = [ // Removed specified entries
   {
     role: "Blogger",
     company: "High Approach",
-    duration: "(March 2021 – Present)",
+    duration: "(March 2021 – January 2023)", // Updated duration
   },
 ];
 
-const certifications = [ // Updated content
+const certifications = [
   {
     name: "Certification For Mentor",
-    issuer: "Issued by Kathmandu University Robotics Club", // Corrected typo
+    issuer: "Issued by Kathmandu University Robotics Club",
     year: "2025",
   },
   {
@@ -64,8 +64,8 @@ const certifications = [ // Updated content
     year: "2023",
   },
   {
-    name: "Participant in Startup & Idea Fest",
-    issuer: "Issued by Living with ICT", // Corrected typo
+    name: "Certification of Participant", // Changed "Participant in Startup & Idea Fest"
+    issuer: "Issued by Living with ICT",
     year: "2022",
   },
 ];
@@ -141,12 +141,12 @@ const About = () => {
           }))}
         />
         <SectionCard
-          title="Hackathons" // Changed title
-          icon={Swords} // Changed icon
-          items={hackathons.map(hack => ({ // Changed data source
+          title="Hackathons"
+          icon={Swords}
+          items={hackathons.map(hack => ({
             primary: hack.program,
-            secondary: hack.provider, // This will be "1st Runner Up", "Best Presentation Award"
-            tertiary: hack.duration,  // This will be "Organized by..."
+            secondary: hack.provider,
+            tertiary: hack.duration,
           }))}
         />
         <SectionCard
