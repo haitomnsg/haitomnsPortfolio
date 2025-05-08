@@ -5,19 +5,19 @@ const introText = "I'm a passionate Robotics and AI Developer with a love for bu
 
 const academicEducation = [
   {
-    degree: "Master of Arts (MA) in User Experience Design",
-    institution: "University of the Arts London - London College of Communication",
-    duration: "2020 – 2022",
+    degree: "BTech in Artificial Intelligence",
+    institution: "Kathmandu University, Dhulikhel",
+    duration: "II Year II Semester", // Corrected typo
   },
   {
-    degree: "Master of Science (MS) in Strategic Design an Management",
-    institution: "Parsons School of Design",
-    duration: "2018 – 2020",
+    degree: "Technical Secondary Education Examination in Computer Engineering (2077)",
+    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj-14",
+    duration: "4 GPA", // Using duration field for GPA as it's the tertiary line
   },
   {
-    degree: "Bachelor of Fine Arts (BFA) in Interactive Design and Game Development",
-    institution: "Savannah College of Art and Design [SCAD]",
-    duration: "2015 – 2017",
+    degree: "Technical Education in Computer Engineering (2079)",
+    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj-14",
+    duration: "3.48 GPA", // Using duration field for GPA
   },
 ];
 
@@ -101,15 +101,15 @@ interface SectionCardProps {
 const SectionCard: React.FC<SectionCardProps> = ({ title, icon: Icon, items, cardClassName }) => (
   <Card className={`shadow-lg flex flex-col ${cardClassName}`}>
     <CardHeader className="flex flex-col items-start pt-5 pb-4">
-      <Icon className="w-7 h-7 text-primary mb-3" /> {/* Icon uses primary color (black) */}
-      <CardTitle className="text-2xl font-semibold text-foreground">{title}</CardTitle> {/* Title uses foreground (black) */}
+      <Icon className="w-7 h-7 text-primary mb-3" />
+      <CardTitle className="text-2xl font-semibold text-foreground">{title}</CardTitle>
     </CardHeader>
     <CardContent className="pt-0 flex-grow">
       <ul className="space-y-6">
         {items.map((item, index) => (
           <li key={index} className="relative pl-5">
             <div
-              className="absolute left-0 w-2 h-2 bg-foreground rounded-full" /* Dot uses foreground (black) */
+              className="absolute left-0 w-2 h-2 bg-foreground rounded-full"
               style={{ top: '0.375em' }} 
             ></div>
             {index < items.length - 1 && (
@@ -123,9 +123,9 @@ const SectionCard: React.FC<SectionCardProps> = ({ title, icon: Icon, items, car
               ></div>
             )}
             <div>
-              <span className="font-medium text-foreground leading-snug">{item.primary}</span> {/* Primary list item text uses foreground (black) */}
-              <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.secondary}</div> {/* Secondary list item text uses muted-foreground (#4d4d4d) */}
-              {item.tertiary && <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.tertiary}</div>} {/* Tertiary also uses muted-foreground */}
+              <span className="font-medium text-foreground leading-snug">{item.primary}</span>
+              <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.secondary}</div>
+              {item.tertiary && <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.tertiary}</div>}
             </div>
           </li>
         ))}
@@ -139,8 +139,8 @@ const About = () => {
   return (
     <div className="space-y-10">
       <section>
-        <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">About Me</h1> {/* Title uses foreground (black) */}
-        <p className="text-lg text-muted-foreground max-w-4xl text-left"> {/* Intro text uses muted-foreground (#4d4d4d) */}
+        <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">About Me</h1>
+        <p className="text-lg text-muted-foreground max-w-4xl text-left">
           {introText}
         </p>
       </section>
@@ -152,7 +152,7 @@ const About = () => {
           items={academicEducation.map(edu => ({
             primary: edu.degree,
             secondary: edu.institution,
-            tertiary: edu.duration,
+            tertiary: edu.duration, // This will now display "II Year II Semester", "4 GPA", "3.48 GPA"
           }))}
         />
         <SectionCard
