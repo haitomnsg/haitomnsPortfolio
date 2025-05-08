@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Home, User, Briefcase, Layers, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github } from "lucide-react";
+import { Home, User, Briefcase, Layers, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
@@ -23,20 +23,22 @@ const socialLinks = [
 ];
 
 const UserProfile = () => (
-  <div className="flex flex-col items-center p-6 border-b border-border">
-    <Avatar className="w-20 h-20 mb-3">
+  <div className="flex items-center p-6 space-x-4 border-b border-border">
+    <Avatar className="w-12 h-12"> {/* Adjusted size to better match image */}
       <AvatarImage src="https://placehold.co/100x100/black/white?text=NH" alt="Nicole Harper" />
       <AvatarFallback>NH</AvatarFallback>
     </Avatar>
-    <h2 className="text-xl font-semibold">Nicole Harper</h2>
-    <p className="text-sm text-muted-foreground">Creative Designer</p>
+    <div>
+      <h2 className="text-lg font-semibold">Nicole Harper</h2>
+      <p className="text-sm text-muted-foreground">Creative Designer</p>
+    </div>
   </div>
 );
 
 const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
   const location = useLocation();
   return (
-    <nav className="flex-grow px-4 py-6 space-y-2">
+    <nav className="flex-grow px-4 py-6 space-y-1"> {/* Reduced space-y for tighter links */}
       {navItems.map((item) => (
         <NavLink
           key={item.label}
@@ -44,7 +46,7 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
           onClick={onLinkClick}
           className={({ isActive }) =>
             cn(
-              "flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors",
+              "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group", // Added group for hover state on icon
               "hover:bg-accent hover:text-accent-foreground",
               isActive || (item.href === "/" && location.pathname === "/index.html") 
                 ? "bg-primary text-primary-foreground"
@@ -52,8 +54,16 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
             )
           }
         >
-          <item.icon className="w-5 h-5 mr-3" />
-          {item.label}
+          <div className="flex items-center">
+            <item.icon className="w-5 h-5 mr-3" />
+            {item.label}
+          </div>
+          {(isActive || (item.href === "/" && location.pathname === "/index.html")) && (
+            <ChevronRight className="w-4 h-4 text-primary-foreground/70" />
+          )}
+          {!(isActive || (item.href === "/" && location.pathname === "/index.html")) && (
+             <ChevronRight className="w-4 h-4 text-muted-foreground/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+          )}
         </NavLink>
       ))}
     </nav>

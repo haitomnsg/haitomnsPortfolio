@@ -29,17 +29,9 @@ const Index = () => {
     <div className="space-y-12">
       {/* Hero Section */}
       <section className="text-left">
-        <h1 className="text-5xl font-bold mb-4">
+        <h1 className="text-5xl font-bold mb-6">
           Hey <span role="img" aria-label="waving hand">👋</span>, I'm Nicole!
         </h1>
-        <div className="flex items-center space-x-3 mb-6">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-          </span>
-          <span className="text-lg text-muted-foreground">Available for Projects</span>
-          <Button size="lg">Contact Me</Button>
-        </div>
         <p className="text-lg text-muted-foreground max-w-2xl">
           I'm Nicole Harper, a passionate Creative Designer with multiple hats as you will see below. I focus on creating intuitive, user-friendly, and visually engaging digital experiences that solve real problems and deliver measurable results.
         </p>
