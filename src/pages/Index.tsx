@@ -1,24 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ArrowUpRight, Box, Palette, Search } from "lucide-react";
+import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react"; // Updated icons
 
 const skillCards = [
   {
-    icon: <Box className="w-10 h-10 text-purple-500" />,
-    title: "UI/UX Designer",
+    icon: <Code2 className="w-10 h-10 text-purple-500" />, // Icon for Programming
+    title: "Programming",
     bgColor: "bg-purple-100",
     iconBg: "bg-purple-200",
   },
   {
-    icon: <Palette className="w-10 h-10 text-blue-500" />,
-    title: "Web Designer",
+    icon: <BrainCircuit className="w-10 h-10 text-blue-500" />, // Icon for AI/ML
+    title: "AI/ML",
     bgColor: "bg-blue-100",
     iconBg: "bg-blue-200",
   },
   {
-    icon: <Search className="w-10 h-10 text-pink-500" />,
-    title: "SEO Specialist",
+    icon: <Bot className="w-10 h-10 text-pink-500" />, // Icon for Robotics
+    title: "Robotics",
     bgColor: "bg-pink-100",
     iconBg: "bg-pink-200",
   },
@@ -29,10 +28,10 @@ const Index = () => {
     <div className="space-y-12">
       {/* Hero Section */}
       <section className="text-left">
-        <h1 className="text-5xl font-bold mb-6">
+        <h1 className="text-5xl font-semibold mb-6"> {/* Changed from font-bold to font-semibold */}
           Hey <span role="img" aria-label="waving hand">👋</span>, I'm Nicole!
         </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl">
+        <p className="text-lg text-muted-foreground max-w-3xl"> {/* Changed from max-w-2xl to max-w-3xl */}
           I'm Nicole Harper, a passionate Creative Designer with multiple hats as you will see below. I focus on creating intuitive, user-friendly, and visually engaging digital experiences that solve real problems and deliver measurable results.
         </p>
       </section>
