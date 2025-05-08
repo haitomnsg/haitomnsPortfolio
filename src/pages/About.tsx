@@ -100,31 +100,28 @@ interface SectionCardProps {
 
 const SectionCard: React.FC<SectionCardProps> = ({ title, icon: Icon, items, cardClassName }) => (
   <Card className={`shadow-lg flex flex-col ${cardClassName}`}>
-    <CardHeader className="flex flex-col items-start pt-5 pb-4"> {/* Changed layout to flex-col, items-start */}
-      <Icon className="w-7 h-7 text-primary mb-3" /> {/* Icon on top, increased size and margin */}
-      <CardTitle className="text-2xl font-semibold">{title}</CardTitle> {/* Increased title size */}
+    <CardHeader className="flex flex-col items-start pt-5 pb-4">
+      <Icon className="w-7 h-7 text-primary mb-3" />
+      <CardTitle className="text-2xl font-semibold">{title}</CardTitle>
     </CardHeader>
     <CardContent className="pt-0 flex-grow">
-      <ul className="space-y-6"> {/* Increased space-y for timeline items */}
+      <ul className="space-y-6"> {/* space-y-6 provides 1.5rem gap */}
         {items.map((item, index) => (
-          <li key={index} className="relative pl-5"> {/* Padding left for dot and line */}
-            {/* Dot */}
+          <li key={index} className="relative pl-5">
             <div
               className="absolute left-0 w-2 h-2 bg-foreground rounded-full"
-              style={{ top: '0.375em' }} // Position dot vertically (adjust as needed for font)
+              style={{ top: '0.375em' }} 
             ></div>
-            {/* Line - only if not the last item */}
             {index < items.length - 1 && (
               <div
-                className="absolute w-0.5 bg-border -z-10" // Line style
+                className="absolute w-0.5 bg-[#e6e6e6] -z-10" // Updated line color
                 style={{
-                  left: '0.1875rem', // (dot_width/2 - line_width/2) = (8px/2 - 2px/2) = 3px
-                  top: 'calc(0.375em + 0.25rem)', // Start from center of the dot
-                  bottom: 'calc(-1.5rem + 0.375em + 0.25rem)', // Extend into space-y to meet next dot's center
+                  left: '0.1875rem', 
+                  top: 'calc(0.375em + 0.25rem)', 
+                  bottom: 'calc(-1.5rem + 0.375em + 0.25rem)', // Adjusted for 1.5rem (space-y-6)
                 }}
               ></div>
             )}
-            {/* Content */}
             <div>
               <span className="font-medium text-foreground leading-snug">{item.primary}</span>
               <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.secondary}</div>
