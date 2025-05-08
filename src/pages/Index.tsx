@@ -1,36 +1,48 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react";
+import { ArrowUpRight, Code2, BrainCircuit, Bot, Download } from "lucide-react"; // Added Download icon
 
 const skillCards = [
   {
-    icon: <Code2 className="w-10 h-10 text-purple-500" />,
+    icon: <Code2 className="w-10 h-10 text-red-500" />, // Updated color to red
     title: "Programming",
-    bgColor: "bg-purple-100",
-    iconBg: "bg-purple-200",
+    bgColor: "bg-red-100", // Updated background to red theme
+    iconBg: "bg-red-200",  // Updated icon background to red theme
   },
   {
-    icon: <BrainCircuit className="w-10 h-10 text-blue-500" />,
+    icon: <BrainCircuit className="w-10 h-10 text-green-500" />, // Updated color to green
     title: "AI/ML",
-    bgColor: "bg-blue-100",
-    iconBg: "bg-blue-200",
+    bgColor: "bg-green-100", // Updated background to green theme
+    iconBg: "bg-green-200",  // Updated icon background to green theme
   },
   {
-    icon: <Bot className="w-10 h-10 text-pink-500" />,
+    icon: <Bot className="w-10 h-10 text-yellow-500" />, // Updated color to yellow
     title: "Robotics",
-    bgColor: "bg-pink-100",
-    iconBg: "bg-pink-200",
+    bgColor: "bg-yellow-100", // Updated background to yellow theme
+    iconBg: "bg-yellow-200",  // Updated icon background to yellow theme
   },
 ];
 
 const Index = () => {
+  // Placeholder function for CV download
+  const handleDownloadCV = () => {
+    // In a real scenario, you would trigger a file download here.
+    // For example: window.open('/path/to/your/cv.pdf', '_blank');
+    alert("CV download functionality would be here!");
+  };
+
   return (
     <div className="space-y-12">
       {/* Hero Section */}
       <section className="text-left">
-        <h1 className="text-5xl font-semibold mb-6">
-          Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
-        </h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-5xl font-semibold">
+            Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
+          </h1>
+          <Button onClick={handleDownloadCV}>
+            <Download className="mr-2 h-4 w-4" /> Download CV
+          </Button>
+        </div>
         <p className="text-lg text-muted-foreground max-w-3xl">
           I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
         </p>
