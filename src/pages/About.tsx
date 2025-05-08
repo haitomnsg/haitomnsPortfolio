@@ -5,19 +5,19 @@ const introText = "I'm a passionate Robotics and AI Developer with a love for bu
 
 const academicEducation = [
   {
-    degree: "BTech in Artificial Intelligence",
+    degree: "BTech in Artificial Intelligence (2027)", // Added (2027)
     institution: "Kathmandu University, Dhulikhel",
-    duration: "II Year II Semester", // Corrected typo
+    duration: "II Year II Semester",
   },
   {
-    degree: "Technical Secondary Education Examination in Computer Engineering (2077)",
+    degree: "Technical Education in Computer Engineering (2023)", // Updated year and reordered
     institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj-14",
-    duration: "4 GPA", // Using duration field for GPA as it's the tertiary line
+    duration: "3.48 GPA",
   },
   {
-    degree: "Technical Education in Computer Engineering (2079)",
+    degree: "Technical Secondary Education Examination in Computer Engineering (2021)", // Updated year
     institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj-14",
-    duration: "3.48 GPA", // Using duration field for GPA
+    duration: "4 GPA",
   },
 ];
 
@@ -40,6 +40,16 @@ const nonFormalEducation = [
 ];
 
 const experience = [
+  {
+    role: "Head of Development",
+    company: "Haitomns Groups Private Limited",
+    duration: "(September 2022 – Present)",
+  },
+  {
+    role: "Blogger",
+    company: "High Approach",
+    duration: "(March 2021 – Present)",
+  },
   {
     role: "UX Designer",
     company: "Google",
@@ -152,7 +162,7 @@ const About = () => {
           items={academicEducation.map(edu => ({
             primary: edu.degree,
             secondary: edu.institution,
-            tertiary: edu.duration, // This will now display "II Year II Semester", "4 GPA", "3.48 GPA"
+            tertiary: edu.duration,
           }))}
         />
         <SectionCard
