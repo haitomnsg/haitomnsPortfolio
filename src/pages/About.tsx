@@ -1,45 +1,45 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, FileText, Briefcase, Award } from "lucide-react";
+import { GraduationCap, Swords, Briefcase, Award } from "lucide-react"; // Changed FileText to Swords
 
 const introText = "I'm a passionate Robotics and AI Developer with a love for building real-world solutions, from autonomous robots to intelligent software. Focused, creative, and detail-oriented, I enjoy leading projects that blend programming, AI, and robotics to solve everyday problems in simple, effective ways.";
 
 const academicEducation = [
   {
-    degree: "BTech in Artificial Intelligence (2027)", // Added (2027)
+    degree: "BTech in Artificial Intelligence (2027)",
     institution: "Kathmandu University, Dhulikhel",
     duration: "II Year II Semester",
   },
   {
-    degree: "Technical Education in Computer Engineering (2023)", // Updated year and reordered
-    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj-14",
+    degree: "Technical Education in Computer Engineering (2023)",
+    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj", // Changed Birgunj-14 to Birgunj
     duration: "3.48 GPA",
   },
   {
-    degree: "Technical Secondary Education Examination in Computer Engineering (2021)", // Updated year
-    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj-14",
+    degree: "Technical Secondary Education Examination in Computer Engineering (2021)",
+    institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj", // Changed Birgunj-14 to Birgunj
     duration: "4 GPA",
   },
 ];
 
-const nonFormalEducation = [
+const hackathons = [ // Renamed from nonFormalEducation and updated content
   {
-    program: "UX Certification Program",
-    provider: "Nielsen Norman Group [NNG]",
-    duration: "March – June 2023",
+    program: "AI/ML Hackathon 2025", // Corrected typo
+    provider: "Best Presentation Award",
+    duration: "Organized by Global IME Bank Limited",
   },
   {
-    program: "User Experience Design Immersive",
-    provider: "General Assembly",
-    duration: "October 2022 – January 2023",
+    program: "CodeFest 2024",
+    provider: "1st Runner Up",
+    duration: "Organized by Code For Change",
   },
   {
-    program: "UX Design Specialization Course",
-    provider: "Interaction Design Foundation [IDF]",
-    duration: "January – June 2022",
+    program: "AAVISHKAR 2024",
+    provider: "1st Runner Up",
+    duration: "Organized by Kathmandu University Robotics Club",
   },
 ];
 
-const experience = [
+const experience = [ // Removed specified entries
   {
     role: "Head of Development",
     company: "Haitomns Groups Private Limited",
@@ -50,48 +50,23 @@ const experience = [
     company: "High Approach",
     duration: "(March 2021 – Present)",
   },
-  {
-    role: "UX Designer",
-    company: "Google",
-    duration: "January 2022 - Present",
-  },
-  {
-    role: "Web Designer",
-    company: "Adobe",
-    duration: "June 2019 – December 2021",
-  },
-  {
-    role: "SEO Specialist",
-    company: "Hubspot",
-    duration: "July 2017 – May 2019",
-  },
-  {
-    role: "UI/UX Designer Intern",
-    company: "Spotify",
-    duration: "January 2017 – June 2017",
-  },
 ];
 
-const certifications = [
+const certifications = [ // Updated content
   {
-    name: "Certified Usability Analyst (CUA)",
-    issuer: "Issued by Human Factors International (HFI)",
+    name: "Certification For Mentor",
+    issuer: "Issued by Kathmandu University Robotics Club", // Corrected typo
+    year: "2025",
+  },
+  {
+    name: "Certification of Winner",
+    issuer: "Issued by Ministry of Education and Social Welfare",
     year: "2023",
   },
   {
-    name: "NNG UX Certification",
-    issuer: "Issued by Nielsen Norman Group (NNG)",
+    name: "Participant in Startup & Idea Fest",
+    issuer: "Issued by Living with ICT", // Corrected typo
     year: "2022",
-  },
-  {
-    name: "Adobe Certified UX Design Specialist",
-    issuer: "Issued by Adobe",
-    year: "2021",
-  },
-  {
-    name: "Professional Diploma in UX Design",
-    issuer: "Issued by the UX Design Institute",
-    year: "2021",
   },
 ];
 
@@ -166,12 +141,12 @@ const About = () => {
           }))}
         />
         <SectionCard
-          title="Non-Formal Education"
-          icon={FileText}
-          items={nonFormalEducation.map(edu => ({
-            primary: edu.program,
-            secondary: edu.provider,
-            tertiary: edu.duration,
+          title="Hackathons" // Changed title
+          icon={Swords} // Changed icon
+          items={hackathons.map(hack => ({ // Changed data source
+            primary: hack.program,
+            secondary: hack.provider, // This will be "1st Runner Up", "Best Presentation Award"
+            tertiary: hack.duration,  // This will be "Organized by..."
           }))}
         />
         <SectionCard
