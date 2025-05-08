@@ -35,41 +35,22 @@ const Index = () => {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center md:items-start text-left gap-8 md:gap-12">
-        {/* Text Content Column */}
-        <div className="flex-1">
-          <div className="flex justify-between items-start mb-6">
-            <h1 className="text-5xl font-semibold">
-              Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
-            </h1>
-            <Button 
-              variant="outline" 
-              onClick={handleDownloadCV}
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary/70 hidden md:flex" // Hide on small screens, show on md and up
-            >
-              <Download className="mr-[6px] h-4 w-4" /> Resume
-            </Button>
-          </div>
-          <p className="text-lg text-muted-foreground max-w-3xl mb-6">
-            I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
-          </p>
+      <section className="text-left"> {/* Reverted to simpler structure */}
+        <div className="flex justify-between items-start mb-6"> {/* items-start to align headline and button nicely */}
+          <h1 className="text-5xl font-semibold">
+            Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
+          </h1>
           <Button 
             variant="outline" 
             onClick={handleDownloadCV}
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary/70 md:hidden w-full" // Show on small screens, hide on md and up
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary/70"
           >
             <Download className="mr-[6px] h-4 w-4" /> Resume
           </Button>
         </div>
-
-        {/* Image Column */}
-        <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0 order-first md:order-last">
-          <img 
-            src="/images/ashish-profile.jpg" // IMPORTANT: Make sure this path is correct!
-            alt="Ashish Gupta" 
-            className="rounded-lg shadow-xl w-full max-w-xs mx-auto md:mx-0 object-cover aspect-square" 
-          />
-        </div>
+        <p className="text-lg text-muted-foreground max-w-3xl">
+          I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
+        </p>
       </section>
 
       {/* Skill Cards Section */}
