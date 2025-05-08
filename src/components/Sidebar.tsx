@@ -53,10 +53,9 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
             className={({ isActive: navLinkIsActiveForClass }) =>
               cn(
                 "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group",
-                "hover:bg-accent hover:text-accent-foreground",
                 navLinkIsActiveForClass
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground"
+                  ? "bg-primary text-primary-foreground" // Active styles
+                  : "text-muted-foreground hover:bg-accent hover:text-accent-foreground" // Inactive styles with hover
               )
             }
           >
@@ -64,11 +63,13 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
               <item.icon 
                 className={cn(
                   "w-5 h-5 mr-3",
+                  // Icon color depends on active state, not affected by NavLink's own hover state here
                   isCurrentPageActive 
                     ? "text-primary-foreground" 
-                    : "text-muted-foreground group-hover:text-accent-foreground"
+                    : navLinkIsActiveForClass // This condition should ideally not be met if logic is correct
+                      ? "text-primary-foreground" // Fallback, though isCurrentPageActive should be primary source
+                      : "text-muted-foreground group-hover:text-accent-foreground"
                 )}
-                // Icons will not be filled in this version
               />
               {item.label}
             </div>
@@ -93,11 +94,11 @@ const SocialMediaLinks = () => (
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+          className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors group" // Added group class
         >
           <link.icon className="w-5 h-5 mr-3" />
           {link.label}
-          <ExternalLink className="w-4 h-4 ml-auto text-muted-foreground/70" />
+          <ExternalLink className="w-4 h-4 ml-auto text-muted-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200" /> {/* Made icon appear on hover */}
         </a>
       ))}
     </div>
