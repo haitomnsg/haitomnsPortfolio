@@ -1,25 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge"; // Import Badge component
 import { ArrowUpRight, Code2, BrainCircuit, Bot, Download } from "lucide-react";
 
 const skillCards = [
   {
     icon: <Code2 className="w-10 h-10 text-red-500" />,
     title: "Programming",
+    skillsList: ["C", "C++", "C#", "Dart", "HTML", "CSS", "Java", "JavaScript", "PHP", "SQL"],
     bgColor: "bg-red-100",
     iconBg: "bg-red-200",
   },
   {
     icon: <BrainCircuit className="w-10 h-10 text-green-500" />,
     title: "AI/ML",
+    skillsList: ["Python", "Tensorflow", "PyTorch", "YOLO"],
     bgColor: "bg-green-100",
     iconBg: "bg-green-200",
   },
   {
-    icon: <Bot className="w-10 h-10 text-blue-500" />, // Updated color to blue
+    icon: <Bot className="w-10 h-10 text-blue-500" />,
     title: "Robotics",
-    bgColor: "bg-blue-100", // Updated background to blue theme
-    iconBg: "bg-blue-200",  // Updated icon background to blue theme
+    skillsList: ["Raspberry Pi", "Arduino", "ESP 32"],
+    bgColor: "bg-blue-100",
+    iconBg: "bg-blue-200",
   },
 ];
 
@@ -52,7 +56,7 @@ const Index = () => {
       {/* Skill Cards Section */}
       <section className="grid md:grid-cols-3 gap-6">
         {skillCards.map((card) => (
-          <Card key={card.title} className={`overflow-hidden ${card.bgColor} border-none shadow-lg`}>
+          <Card key={card.title} className={`overflow-hidden ${card.bgColor} border-none shadow-lg flex flex-col`}>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <div className={`p-3 rounded-full ${card.iconBg}`}>
                 {card.icon}
@@ -61,8 +65,15 @@ const Index = () => {
                 <ArrowUpRight className="w-5 h-5" />
               </Button>
             </CardHeader>
-            <CardContent>
-              <CardTitle className="text-xl font-semibold text-gray-800">{card.title}</CardTitle>
+            <CardContent className="flex-grow flex flex-col"> {/* Added flex-grow and flex-col for content expansion */}
+              <CardTitle className="text-xl font-semibold text-gray-800 mb-3">{card.title}</CardTitle>
+              <div className="flex flex-wrap gap-2 mt-auto"> {/* Added mt-auto to push badges down if content is sparse, and gap-2 for spacing */}
+                {card.skillsList.map((skill) => (
+                  <Badge key={skill} variant="secondary" className="text-sm bg-white/70 text-gray-700 hover:bg-white"> {/* Custom badge styling */}
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
             </CardContent>
           </Card>
         ))}
