@@ -1,22 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react"; // Updated icons
+import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react";
 
 const skillCards = [
   {
-    icon: <Code2 className="w-10 h-10 text-purple-500" />, // Icon for Programming
+    icon: <Code2 className="w-10 h-10 text-purple-500" />,
     title: "Programming",
     bgColor: "bg-purple-100",
     iconBg: "bg-purple-200",
   },
   {
-    icon: <BrainCircuit className="w-10 h-10 text-blue-500" />, // Icon for AI/ML
+    icon: <BrainCircuit className="w-10 h-10 text-blue-500" />,
     title: "AI/ML",
     bgColor: "bg-blue-100",
     iconBg: "bg-blue-200",
   },
   {
-    icon: <Bot className="w-10 h-10 text-pink-500" />, // Icon for Robotics
+    icon: <Bot className="w-10 h-10 text-pink-500" />,
     title: "Robotics",
     bgColor: "bg-pink-100",
     iconBg: "bg-pink-200",
@@ -28,11 +28,11 @@ const Index = () => {
     <div className="space-y-12">
       {/* Hero Section */}
       <section className="text-left">
-        <h1 className="text-5xl font-semibold mb-6"> {/* Changed from font-bold to font-semibold */}
-          Hey <span role="img" aria-label="waving hand">👋</span>, I'm Nicole!
+        <h1 className="text-5xl font-semibold mb-6">
+          Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
         </h1>
-        <p className="text-lg text-muted-foreground max-w-3xl"> {/* Changed from max-w-2xl to max-w-3xl */}
-          I'm Nicole Harper, a passionate Creative Designer with multiple hats as you will see below. I focus on creating intuitive, user-friendly, and visually engaging digital experiences that solve real problems and deliver measurable results.
+        <p className="text-lg text-muted-foreground max-w-3xl">
+          I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
         </p>
       </section>
 

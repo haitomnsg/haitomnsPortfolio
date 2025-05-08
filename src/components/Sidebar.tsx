@@ -25,12 +25,12 @@ const socialLinks = [
 const UserProfile = () => (
   <div className="flex items-center p-6 space-x-4 border-b border-border">
     <Avatar className="w-12 h-12">
-      <AvatarImage src="https://placehold.co/100x100/black/white?text=NH" alt="Nicole Harper" />
-      <AvatarFallback>NH</AvatarFallback>
+      <AvatarImage src="https://placehold.co/100x100/black/white?text=AG" alt="Ashish Gupta" /> {/* Updated alt and placeholder text */}
+      <AvatarFallback>AG</AvatarFallback> {/* Updated fallback */}
     </Avatar>
     <div>
-      <h2 className="text-lg font-semibold">Nicole Harper</h2>
-      <p className="text-sm text-muted-foreground">Creative Designer</p>
+      <h2 className="text-lg font-semibold">Ashish Gupta</h2> {/* Updated name */}
+      <p className="text-sm text-muted-foreground">AI & Robotics Engineer</p> {/* Updated role */}
     </div>
   </div>
 );
@@ -50,10 +50,10 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
             to={item.href}
             onClick={onLinkClick}
             end
-            className={({ isActive: navLinkIsActiveForClass }) => // navLinkIsActiveForClass is scoped here
+            className={({ isActive: navLinkIsActiveForClass }) =>
               cn(
                 "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group",
-                navLinkIsActiveForClass // Used correctly here for NavLink's own styling
+                navLinkIsActiveForClass
                   ? "bg-primary text-primary-foreground" 
                   : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
               )
@@ -63,7 +63,6 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
               <item.icon 
                 className={cn(
                   "w-5 h-5 mr-3",
-                  // Use isCurrentPageActive for icon color
                   isCurrentPageActive 
                     ? "text-primary-foreground" 
                     : "text-muted-foreground group-hover:text-accent-foreground"
