@@ -2,9 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add Intra Font @font-face rules below */
+/* You'll need to adjust file names and paths if they differ */
+/* Make sure you have these font files in public/fonts/ */
+
+@font-face {
+  font-family: 'Intra';
+  src: url('/fonts/Intra-Regular.woff2') format('woff2'), /* Example path */
+       url('/fonts/Intra-Regular.woff') format('woff');   /* Example path */
+  font-weight: normal; /* 400 */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Intra';
+  src: url('/fonts/Intra-Medium.woff2') format('woff2'), /* Example path */
+       url('/fonts/Intra-Medium.woff') format('woff');   /* Example path */
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Intra';
+  src: url('/fonts/Intra-SemiBold.woff2') format('woff2'), /* Example path */
+       url('/fonts/Intra-SemiBold.woff') format('woff');   /* Example path */
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Intra';
+  src: url('/fonts/Intra-Bold.woff2') format('woff2'),  /* Example path */
+       url('/fonts/Intra-Bold.woff') format('woff');    /* Example path */
+  font-weight: bold; /* 700 */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Add more @font-face rules if you have other weights/styles like Italic, Light, etc. */
+
+
 @layer base {
   :root {
-    --background: 0 0% 97%; /* Updated from 0 0% 100% for #f7f7f7 */
+    --background: 0 0% 97%; 
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -35,24 +78,17 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%; /* Dark mode background remains unchanged */
+    --background: 222.2 84% 4.9%; 
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -97,5 +133,6 @@
 
   body {
     @apply bg-background text-foreground;
+    /* Tailwind will apply the font family through its base styles if configured */
   }
 }

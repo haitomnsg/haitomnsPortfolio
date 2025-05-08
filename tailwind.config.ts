@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme'; // Import Tailwind's default theme
 
 export default {
   darkMode: ["class"],
@@ -18,6 +19,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Intra', ...defaultTheme.fontFamily.sans], // Add 'Intra' to the beginning of the sans-serif stack
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
