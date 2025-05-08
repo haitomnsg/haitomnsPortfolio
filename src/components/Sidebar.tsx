@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Home, User, Briefcase, Layers, Mail, Twitter, Linkedin, Framer, Instagram, Menu, X, ExternalLink } from "lucide-react";
+import { Home, User, Briefcase, Layers, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
@@ -16,10 +16,10 @@ const navItems = [
 ];
 
 const socialLinks = [
-  { href: "#", label: "Twitter", icon: Twitter },
-  { href: "#", label: "LinkedIn", icon: Linkedin },
-  { href: "#", label: "Framer", icon: Framer },
+  { href: "#", label: "Facebook", icon: Facebook },
   { href: "#", label: "Instagram", icon: Instagram },
+  { href: "#", label: "LinkedIn", icon: Linkedin },
+  { href: "#", label: "GitHub", icon: Github },
 ];
 
 const UserProfile = () => (
@@ -46,7 +46,7 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
             cn(
               "flex items-center px-3 py-2.5 text-sm font-medium rounded-md transition-colors",
               "hover:bg-accent hover:text-accent-foreground",
-              isActive || (item.href === "/" && location.pathname === "/index.html") // Handle index.html case for home
+              isActive || (item.href === "/" && location.pathname === "/index.html") 
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground"
             )
@@ -96,7 +96,7 @@ const Sidebar = () => {
     return (
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="fixed top-4 left-4 z-50 bg-card text-card-foreground">
+          <Button variant="outline" size="icon" className="fixed top-4 left-4 z-50 bg-card text-card-foreground shadow-lg">
             <Menu className="w-6 h-6" />
           </Button>
         </SheetTrigger>
@@ -114,7 +114,7 @@ const Sidebar = () => {
   }
 
   return (
-    <aside className="fixed top-0 left-0 h-screen w-72 bg-card border-r border-border flex flex-col shadow-lg">
+    <aside className="fixed top-4 left-4 h-[calc(100vh-2rem)] w-72 bg-card border border-border flex flex-col shadow-xl rounded-lg overflow-hidden">
       <SidebarContent />
     </aside>
   );
