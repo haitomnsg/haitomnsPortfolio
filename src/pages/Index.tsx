@@ -1,34 +1,31 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpRight, Code2, BrainCircuit, Bot, Download } from "lucide-react"; // Added Download icon
+import { ArrowUpRight, Code2, BrainCircuit, Bot, Download } from "lucide-react";
 
 const skillCards = [
   {
-    icon: <Code2 className="w-10 h-10 text-red-500" />, // Updated color to red
+    icon: <Code2 className="w-10 h-10 text-red-500" />,
     title: "Programming",
-    bgColor: "bg-red-100", // Updated background to red theme
-    iconBg: "bg-red-200",  // Updated icon background to red theme
+    bgColor: "bg-red-100",
+    iconBg: "bg-red-200",
   },
   {
-    icon: <BrainCircuit className="w-10 h-10 text-green-500" />, // Updated color to green
+    icon: <BrainCircuit className="w-10 h-10 text-green-500" />,
     title: "AI/ML",
-    bgColor: "bg-green-100", // Updated background to green theme
-    iconBg: "bg-green-200",  // Updated icon background to green theme
+    bgColor: "bg-green-100",
+    iconBg: "bg-green-200",
   },
   {
-    icon: <Bot className="w-10 h-10 text-yellow-500" />, // Updated color to yellow
+    icon: <Bot className="w-10 h-10 text-blue-500" />, // Updated color to blue
     title: "Robotics",
-    bgColor: "bg-yellow-100", // Updated background to yellow theme
-    iconBg: "bg-yellow-200",  // Updated icon background to yellow theme
+    bgColor: "bg-blue-100", // Updated background to blue theme
+    iconBg: "bg-blue-200",  // Updated icon background to blue theme
   },
 ];
 
 const Index = () => {
-  // Placeholder function for CV download
   const handleDownloadCV = () => {
-    // In a real scenario, you would trigger a file download here.
-    // For example: window.open('/path/to/your/cv.pdf', '_blank');
-    alert("CV download functionality would be here!");
+    alert("Resume download functionality would be here!");
   };
 
   return (
@@ -39,8 +36,12 @@ const Index = () => {
           <h1 className="text-5xl font-semibold">
             Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
           </h1>
-          <Button onClick={handleDownloadCV}>
-            <Download className="mr-2 h-4 w-4" /> Download CV
+          <Button 
+            variant="outline" 
+            onClick={handleDownloadCV}
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary/70"
+          >
+            <Download className="mr-[6px] h-4 w-4" /> Resume
           </Button>
         </div>
         <p className="text-lg text-muted-foreground max-w-3xl">
@@ -66,16 +67,6 @@ const Index = () => {
           </Card>
         ))}
       </section>
-
-      {/* Placeholder for About Me section, will be built on the /about page or later here */}
-      {/* <section>
-        <h2 className="text-3xl font-bold mb-6 text-left">About Me</h2>
-        <Card className="shadow-lg">
-          <CardContent className="p-6">
-            <p className="text-muted-foreground">Detailed about me section will go here...</p>
-          </CardContent>
-        </Card>
-      </section> */}
     </div>
   );
 };
