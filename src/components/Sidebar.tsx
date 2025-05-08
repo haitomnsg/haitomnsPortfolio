@@ -25,12 +25,12 @@ const socialLinks = [
 const UserProfile = () => (
   <div className="flex items-center p-6 space-x-4 border-b border-border">
     <Avatar className="w-12 h-12">
-      <AvatarImage src="https://placehold.co/100x100/black/white?text=AG" alt="Ashish Gupta" /> {/* Updated alt and placeholder text */}
-      <AvatarFallback>AG</AvatarFallback> {/* Updated fallback */}
+      <AvatarImage src="https://placehold.co/100x100/black/white?text=AG" alt="Ashish Gupta" />
+      <AvatarFallback>AG</AvatarFallback>
     </Avatar>
     <div>
-      <h2 className="text-lg font-semibold">Ashish Gupta</h2> {/* Updated name */}
-      <p className="text-sm text-muted-foreground">AI & Robotics Engineer</p> {/* Updated role */}
+      <h2 className="text-lg font-semibold text-foreground">Ashish Gupta</h2> {/* Uses new --foreground */}
+      <p className="text-sm text-muted-foreground">AI & Robotics Engineer</p> {/* Uses new --muted-foreground */}
     </div>
   </div>
 );
@@ -54,8 +54,8 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
               cn(
                 "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group",
                 navLinkIsActiveForClass
-                  ? "bg-primary text-primary-foreground" 
-                  : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                  ? "bg-primary text-primary-foreground" // Black bg, white text
+                  : "text-foreground hover:bg-accent hover:text-accent-foreground" // Black text, hover black text on light gray bg
               )
             }
           >
@@ -64,16 +64,16 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
                 className={cn(
                   "w-5 h-5 mr-3",
                   isCurrentPageActive 
-                    ? "text-primary-foreground" 
-                    : "text-muted-foreground group-hover:text-accent-foreground"
+                    ? "text-primary-foreground" // White icon on active
+                    : "text-foreground group-hover:text-accent-foreground" // Black icon, hover black icon
                 )}
               />
               {item.label}
             </div>
             {isCurrentPageActive ? (
-              <ChevronRight className="w-4 h-4 text-primary-foreground/70" />
+              <ChevronRight className="w-4 h-4 text-primary-foreground/70" /> // White chevron on active
             ) : (
-              <ChevronRight className="w-4 h-4 text-muted-foreground/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ChevronRight className="w-4 h-4 text-foreground/50 opacity-0 group-hover:opacity-100 transition-opacity" /> // Black chevron on hover
             )}
           </NavLink>
         );
@@ -91,11 +91,11 @@ const SocialMediaLinks = () => (
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors group"
+          className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-foreground hover:bg-accent hover:text-accent-foreground transition-colors group" // Default text black
         >
-          <link.icon className="w-5 h-5 mr-3" />
+          <link.icon className="w-5 h-5 mr-3 text-foreground group-hover:text-accent-foreground" /> {/* Icon black */}
           {link.label}
-          <ExternalLink className="w-4 h-4 ml-auto text-muted-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+          <ExternalLink className="w-4 h-4 ml-auto text-foreground/70 opacity-0 group-hover:opacity-100 transition-opacity duration-200" /> {/* Icon black */}
         </a>
       ))}
     </div>

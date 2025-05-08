@@ -7,7 +7,7 @@ const skillCards = [
   {
     icon: <Code2 className="w-10 h-10 text-red-500" />,
     title: "Programming",
-    skillsList: ["C", "C++", "C#", "HTML", "CSS", "Java", "JavaScript", "PHP", "SQL"], // Removed "Dart"
+    skillsList: ["C", "C++", "C#", "HTML", "CSS", "Java", "JavaScript", "PHP", "SQL"],
     bgColor: "bg-red-100",
     iconBg: "bg-red-200",
   },
@@ -37,18 +37,18 @@ const Index = () => {
       {/* Hero Section */}
       <section className="text-left">
         <div className="flex justify-between items-start mb-6">
-          <h1 className="text-5xl font-semibold">
+          <h1 className="text-5xl font-semibold text-foreground"> {/* Ensure headline uses foreground */}
             Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
           </h1>
           <Button 
             variant="outline" 
             onClick={handleDownloadCV}
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary/70"
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary" // Ring color updated
           >
             <Download className="mr-[6px] h-4 w-4" /> Resume
           </Button>
         </div>
-        <p className="text-lg text-muted-foreground max-w-3xl">
+        <p className="text-lg text-muted-foreground max-w-3xl"> {/* Uses new --muted-foreground */}
           I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
         </p>
       </section>
@@ -61,15 +61,15 @@ const Index = () => {
               <div className={`p-3 rounded-full ${card.iconBg}`}>
                 {card.icon}
               </div>
-              <Button variant="ghost" size="icon" className="text-muted-foreground">
+              <Button variant="ghost" size="icon" className="text-muted-foreground"> {/* Icon button on card uses muted-foreground */}
                 <ArrowUpRight className="w-5 h-5" />
               </Button>
             </CardHeader>
             <CardContent className="flex-grow flex flex-col">
-              <CardTitle className="text-xl font-semibold text-gray-800 mb-3">{card.title}</CardTitle>
+              <CardTitle className="text-xl font-semibold text-foreground mb-3">{card.title}</CardTitle> {/* Card title uses new --foreground */}
               <div className="flex flex-wrap gap-2 mt-auto">
                 {card.skillsList.map((skill) => (
-                  <Badge key={skill} variant="secondary" className="text-sm bg-white/70 text-gray-700 hover:bg-white">
+                  <Badge key={skill} variant="secondary" className="text-sm bg-white/70 text-foreground hover:bg-white"> {/* Badge text uses new --foreground */}
                     {skill}
                   </Badge>
                 ))}

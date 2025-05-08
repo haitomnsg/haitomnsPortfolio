@@ -101,31 +101,31 @@ interface SectionCardProps {
 const SectionCard: React.FC<SectionCardProps> = ({ title, icon: Icon, items, cardClassName }) => (
   <Card className={`shadow-lg flex flex-col ${cardClassName}`}>
     <CardHeader className="flex flex-col items-start pt-5 pb-4">
-      <Icon className="w-7 h-7 text-primary mb-3" />
-      <CardTitle className="text-2xl font-semibold">{title}</CardTitle>
+      <Icon className="w-7 h-7 text-primary mb-3" /> {/* Icon uses primary color (black) */}
+      <CardTitle className="text-2xl font-semibold text-foreground">{title}</CardTitle> {/* Title uses foreground (black) */}
     </CardHeader>
     <CardContent className="pt-0 flex-grow">
-      <ul className="space-y-6"> {/* space-y-6 provides 1.5rem gap */}
+      <ul className="space-y-6">
         {items.map((item, index) => (
           <li key={index} className="relative pl-5">
             <div
-              className="absolute left-0 w-2 h-2 bg-foreground rounded-full"
+              className="absolute left-0 w-2 h-2 bg-foreground rounded-full" /* Dot uses foreground (black) */
               style={{ top: '0.375em' }} 
             ></div>
             {index < items.length - 1 && (
               <div
-                className="absolute w-0.5 bg-[#e6e6e6] -z-10" // Updated line color
+                className="absolute w-0.5 bg-[#e6e6e6] -z-10"
                 style={{
                   left: '0.1875rem', 
                   top: 'calc(0.375em + 0.25rem)', 
-                  bottom: 'calc(-1.5rem + 0.375em + 0.25rem)', // Adjusted for 1.5rem (space-y-6)
+                  bottom: 'calc(-1.5rem + 0.375em + 0.25rem)',
                 }}
               ></div>
             )}
             <div>
-              <span className="font-medium text-foreground leading-snug">{item.primary}</span>
-              <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.secondary}</div>
-              {item.tertiary && <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.tertiary}</div>}
+              <span className="font-medium text-foreground leading-snug">{item.primary}</span> {/* Primary list item text uses foreground (black) */}
+              <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.secondary}</div> {/* Secondary list item text uses muted-foreground (#4d4d4d) */}
+              {item.tertiary && <div className="text-sm text-muted-foreground mt-1 leading-snug">{item.tertiary}</div>} {/* Tertiary also uses muted-foreground */}
             </div>
           </li>
         ))}
@@ -139,8 +139,8 @@ const About = () => {
   return (
     <div className="space-y-10">
       <section>
-        <h1 className="text-4xl font-semibold mb-4 text-left">About Me</h1>
-        <p className="text-lg text-muted-foreground max-w-4xl text-left">
+        <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">About Me</h1> {/* Title uses foreground (black) */}
+        <p className="text-lg text-muted-foreground max-w-4xl text-left"> {/* Intro text uses muted-foreground (#4d4d4d) */}
           {introText}
         </p>
       </section>
