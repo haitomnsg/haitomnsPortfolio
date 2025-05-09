@@ -1,5 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; // Card is now for the main container
+import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Eye } from "lucide-react"; // Import Eye icon
 
 const introText = "My projects reflect my commitment to solving complex challenges through design. Whether it's building a travel platform or enhancing a real estate website, each project is a blend of innovation, strategy, and user-first design principles.";
 
@@ -26,25 +27,29 @@ const projectsData = [
   },
 ];
 
-interface ProjectItemProps { // Renamed from ProjectCardProps
+interface ProjectItemProps {
   imageUrl: string;
   title: string;
   link: string;
 }
 
-// This is now for individual project items, not a full card
 const ProjectItem: React.FC<ProjectItemProps> = ({ imageUrl, title, link }) => (
   <a href={link} target="_blank" rel="noopener noreferrer" className="group block">
-    <div className="overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 bg-background"> {/* Added bg-background for individual item if needed, or remove if container card bg is enough */}
+    <div className="relative overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 bg-background">
       <AspectRatio ratio={16 / 10}>
         <img
           src={imageUrl}
           alt={title}
           className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
         />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <Eye className="w-10 h-10 text-white mb-2" />
+          <span className="text-white text-sm font-medium">View Project</span>
+        </div>
       </AspectRatio>
     </div>
-    <h3 className="mt-3 text-base font-medium text-foreground group-hover:text-primary transition-colors duration-300"> {/* Reduced font size, changed CardTitle to h3 */}
+    <h3 className="mt-3 text-base font-medium text-foreground group-hover:text-primary transition-colors duration-300">
       {title}
     </h3>
   </a>
@@ -61,11 +66,11 @@ const Projects = () => {
       </section>
 
       <section>
-        <Card className="shadow-xl"> {/* Single container card */}
-          <CardContent className="p-6 md:p-8"> {/* Added padding to the container card */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10"> {/* gap-y increased for title space */}
+        <Card className="shadow-xl">
+          <CardContent className="p-6 md:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
               {projectsData.map((project) => (
-                <ProjectItem // Using the new ProjectItem component
+                <ProjectItem
                   key={project.title}
                   imageUrl={project.imageUrl}
                   title={project.title}
