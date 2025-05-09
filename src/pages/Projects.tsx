@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Eye } from "lucide-react";
 
-const introText = "My projects reflect my commitment to solving complex challenges through design. Whether it's building a travel platform or enhancing a real estate website, each project is a blend of innovation, strategy, and user-first design principles.";
+const introText = "My projects focus on solving real-life problems through practical, user-centric solutions. I aim to build complete systems that are both innovative and functional—designed with clean code, efficient architecture, and real-world usability in mind. Whether for everyday users or businesses, my goal is to make technology genuinely helpful.";
 
 const projectsData = [
   {
@@ -43,7 +43,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageUrl, title, link }) => (
           className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-white/30 backdrop-blur-sm flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className="p-3 bg-primary rounded-full mb-3 shadow-md"> {/* Circled icon */}
             <Eye className="w-5 h-5 text-primary-foreground" />
           </div>
