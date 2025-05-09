@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button"; // Keep Button import for skill card action
-import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react"; // Removed Download icon
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react";
 
 const skillCards = [
   {
@@ -28,26 +28,20 @@ const skillCards = [
 ];
 
 const Index = () => {
-  // handleDownloadCV function is no longer needed here
-  // const handleDownloadCV = () => {
-  //   alert("Resume download functionality would be here!");
-  // };
-
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="text-left">
+      <section className="flex flex-col items-center md:items-start text-center md:text-left"> {/* Centering for mobile, left-align for md+ */}
         {/* Profile Image */}
         <img 
-          src="/images/ashish-profile-circle.jpg" // IMPORTANT: Place your image here and update path if needed
+          src="/images/ashish-profile-circle.png" 
           alt="Ashish Gupta"
-          className="w-36 h-36 rounded-full object-cover mb-6 shadow-md" // Circular, sized, margin, shadow
+          className="w-40 h-40 rounded-full object-cover mb-6 shadow-md" {/* Increased size, mx-auto for image centering is handled by parent's items-center */}
         />
         
-        <h1 className="text-5xl font-semibold text-foreground mb-4"> {/* Reduced margin-bottom slightly */}
+        <h1 className="text-5xl font-semibold text-foreground mb-4">
           Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
         </h1>
-        {/* Resume Button is removed from here */}
         
         <p className="text-lg text-muted-foreground max-w-3xl">
           I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
