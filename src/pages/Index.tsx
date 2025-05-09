@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight, Code2, BrainCircuit, Bot, Download } from "lucide-react";
+import { Button } from "@/components/ui/button"; // Keep Button import for skill card action
+import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react"; // Removed Download icon
 
 const skillCards = [
   {
@@ -28,27 +28,28 @@ const skillCards = [
 ];
 
 const Index = () => {
-  const handleDownloadCV = () => {
-    alert("Resume download functionality would be here!");
-  };
+  // handleDownloadCV function is no longer needed here
+  // const handleDownloadCV = () => {
+  //   alert("Resume download functionality would be here!");
+  // };
 
   return (
     <div className="space-y-12">
       {/* Hero Section */}
       <section className="text-left">
-        <div className="flex justify-between items-start mb-6">
-          <h1 className="text-5xl font-semibold text-foreground"> {/* Ensure headline uses foreground */}
-            Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
-          </h1>
-          <Button 
-            variant="outline" 
-            onClick={handleDownloadCV}
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary" // Ring color updated
-          >
-            <Download className="mr-[6px] h-4 w-4" /> Resume
-          </Button>
-        </div>
-        <p className="text-lg text-muted-foreground max-w-3xl"> {/* Uses new --muted-foreground */}
+        {/* Profile Image */}
+        <img 
+          src="/images/ashish-profile-circle.jpg" // IMPORTANT: Place your image here and update path if needed
+          alt="Ashish Gupta"
+          className="w-36 h-36 rounded-full object-cover mb-6 shadow-md" // Circular, sized, margin, shadow
+        />
+        
+        <h1 className="text-5xl font-semibold text-foreground mb-4"> {/* Reduced margin-bottom slightly */}
+          Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
+        </h1>
+        {/* Resume Button is removed from here */}
+        
+        <p className="text-lg text-muted-foreground max-w-3xl">
           I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
         </p>
       </section>
@@ -61,15 +62,15 @@ const Index = () => {
               <div className={`p-3 rounded-full ${card.iconBg}`}>
                 {card.icon}
               </div>
-              <Button variant="ghost" size="icon" className="text-muted-foreground"> {/* Icon button on card uses muted-foreground */}
+              <Button variant="ghost" size="icon" className="text-muted-foreground">
                 <ArrowUpRight className="w-5 h-5" />
               </Button>
             </CardHeader>
             <CardContent className="flex-grow flex flex-col">
-              <CardTitle className="text-xl font-semibold text-foreground mb-3">{card.title}</CardTitle> {/* Card title uses new --foreground */}
+              <CardTitle className="text-xl font-semibold text-foreground mb-3">{card.title}</CardTitle>
               <div className="flex flex-wrap gap-2 mt-auto">
                 {card.skillsList.map((skill) => (
-                  <Badge key={skill} variant="secondary" className="text-sm bg-white/70 text-foreground hover:bg-white"> {/* Badge text uses new --foreground */}
+                  <Badge key={skill} variant="secondary" className="text-sm bg-white/70 text-foreground hover:bg-white">
                     {skill}
                   </Badge>
                 ))}
