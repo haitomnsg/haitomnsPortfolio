@@ -31,12 +31,12 @@ const Index = () => {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="flex flex-col items-center md:items-start text-center md:text-left"> {/* Centering for mobile, left-align for md+ */}
+      <section className="flex flex-col items-center md:items-start text-center md:text-left">
         {/* Profile Image */}
         <img 
           src="/images/ashish-profile-circle.png" 
           alt="Ashish Gupta"
-          className="w-40 h-40 rounded-full object-cover mb-6 shadow-md" {/* Increased size, mx-auto for image centering is handled by parent's items-center */}
+          className="w-40 h-40 rounded-full object-cover mb-6 shadow-md"
         />
         
         <h1 className="text-5xl font-semibold text-foreground mb-4">
