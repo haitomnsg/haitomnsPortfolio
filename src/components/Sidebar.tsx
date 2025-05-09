@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"; // Added SheetClose
 import { Home, User, Briefcase, Layers, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -54,8 +54,8 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
               cn(
                 "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group",
                 navLinkIsActiveForClass
-                  ? "bg-primary text-primary-foreground" // Active: Black bg, white text
-                  : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground" // Inactive: #4d4d4d text, hover #f7f7f7 bg with black text
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               )
             }
           >
@@ -64,16 +64,16 @@ const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
                 className={cn(
                   "w-5 h-5 mr-3",
                   isCurrentPageActive 
-                    ? "text-primary-foreground" // Active icon: white
-                    : "text-muted-foreground group-hover:text-sidebar-accent-foreground" // Inactive icon: #4d4d4d, hover black
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground group-hover:text-sidebar-accent-foreground"
                 )}
               />
               {item.label}
             </div>
             {isCurrentPageActive ? (
-              <ChevronRight className="w-4 h-4 text-primary-foreground/70" /> // Active chevron: white
+              <ChevronRight className="w-4 h-4 text-primary-foreground/70" />
             ) : (
-              <ChevronRight className="w-4 h-4 text-muted-foreground/50 opacity-0 group-hover:opacity-100 group-hover:text-sidebar-accent-foreground transition-opacity" /> // Inactive chevron: #4d4d4d, hover black
+              <ChevronRight className="w-4 h-4 text-muted-foreground/50 opacity-0 group-hover:opacity-100 group-hover:text-sidebar-accent-foreground transition-opacity" />
             )}
           </NavLink>
         );
@@ -91,11 +91,11 @@ const SocialMediaLinks = () => (
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors group" // Default text #4d4d4d, hover #f7f7f7 bg with black text
+          className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors group"
         >
-          <link.icon className="w-5 h-5 mr-3 text-muted-foreground group-hover:text-sidebar-accent-foreground" /> {/* Icon #4d4d4d, hover black */}
+          <link.icon className="w-5 h-5 mr-3 text-muted-foreground group-hover:text-sidebar-accent-foreground" />
           {link.label}
-          <ExternalLink className="w-4 h-4 ml-auto text-muted-foreground/70 opacity-0 group-hover:opacity-100 group-hover:text-sidebar-accent-foreground transition-opacity duration-200" /> {/* Icon #4d4d4d, hover black */}
+          <ExternalLink className="w-4 h-4 ml-auto text-muted-foreground/70 opacity-0 group-hover:opacity-100 group-hover:text-sidebar-accent-foreground transition-opacity duration-200" />
         </a>
       ))}
     </div>
@@ -123,12 +123,8 @@ const Sidebar = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-72 p-0 flex flex-col bg-card">
-           <SheetHeader className="p-0">
-             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-             <Button variant="ghost" size="icon" className="absolute top-3 right-3" onClick={() => setMobileMenuOpen(false)}>
-                <X className="w-5 h-5" />
-             </Button>
-           </SheetHeader>
+           {/* The default SheetContent often includes a SheetClose. Removed explicit button. */}
+           {/* If a close button is still missing, we can add <SheetClose asChild> here */}
           <SidebarContent onLinkClick={() => setMobileMenuOpen(false)} />
         </SheetContent>
       </Sheet>
