@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const PrivacyPolicy = () => {
-  const currentYear = new Date().getFullYear();
 
   return (
     <div>
@@ -10,7 +9,6 @@ const PrivacyPolicy = () => {
       
       <Card className="shadow-xl">
         <CardContent className="p-6 md:p-8 space-y-6 text-base text-muted-foreground">
-          <p className="text-sm">Effective Date: {currentYear}</p>
 
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold text-foreground">Introduction</h2>
@@ -170,7 +168,7 @@ const PrivacyPolicy = () => {
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold text-foreground">International Users</h2>
             <p>
-              If you access our website from outside [Your Country/Region of Operation], please be aware that your information may be transferred to, stored, and processed in [Your Country/Region of Operation] where our servers are located or where we operate. By using our website, you consent to this transfer of information.
+              If you access our website from outside Nepal, please be aware that your information may be transferred to, stored, and processed in the country where our servers are located or where we operate. By using our website, you consent to this transfer of information.
             </p>
           </section>
 
@@ -187,7 +185,8 @@ const PrivacyPolicy = () => {
               If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:
             </p>
             <ul className="list-disc list-outside space-y-1 pl-5 text-muted-foreground">
-              <li>Email: [Your Email Address]</li>
+              <li>Email: haitomns@gmail.com</li>
+              <li>Address: Birgunj, Parsa, Nepal</li>
             </ul>
           </section>
         </CardContent>
