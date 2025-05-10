@@ -1,9 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-// Changed Layers to Bot for Robotics icon
-import { Home, User, Briefcase, Bot, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
+// Button is no longer needed for SheetTrigger here
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetClose } from "@/components/ui/sheet";
+import { Home, User, Briefcase, Bot, Mail, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react"; // Removed Menu
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
@@ -12,7 +11,7 @@ const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/about", label: "About", icon: User },
   { href: "/projects", label: "Projects", icon: Briefcase },
-  { href: "/robotics", label: "Robotics", icon: Bot }, // Updated label, href, and icon
+  { href: "/robotics", label: "Robotics", icon: Bot },
   { href: "/contact", label: "Contact", icon: Mail },
 ];
 
@@ -111,19 +110,20 @@ const SidebarContent = ({ onLinkClick }: { onLinkClick?: () => void }) => (
   </>
 );
 
-const Sidebar = () => {
+interface SidebarProps {
+  isMobileMenuOpen: boolean;
+  setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isMobileMenuOpen, setMobileMenuOpen }) => {
   const isMobile = useIsMobile();
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   if (isMobile) {
     return (
-      <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="fixed top-4 left-4 z-50 bg-card text-card-foreground shadow-lg">
-            <Menu className="w-6 h-6" />
-          </Button>
-        </SheetTrigger>
+      <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+        {/* SheetTrigger is now in Header.tsx */}
         <SheetContent side="left" className="w-72 p-0 flex flex-col bg-card">
+          {/* Default SheetClose is part of SheetContent */}
           <SidebarContent onLinkClick={() => setMobileMenuOpen(false)} />
         </SheetContent>
       </Sheet>
