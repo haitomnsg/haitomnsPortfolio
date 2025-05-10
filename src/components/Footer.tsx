@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-3 md:space-y-0 md:space-x-3 text-xs text-muted-foreground">
           {/* Copyright */}
           <p className="text-center md:text-left">
-            © Copyright <span className="font-bold">{currentYear}</span> by Haitomns G
+            © Copyright <span className="font-bold">{currentYear}</span> by Ashish Gupta.
           </p>
 
           {/* Separator for desktop */}

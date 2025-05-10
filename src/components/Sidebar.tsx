@@ -25,7 +25,7 @@ const socialLinks = [
 const UserProfile = () => (
   <div className="flex items-center p-6 space-x-4 border-b border-border">
     <Avatar className="w-12 h-12">
-      <AvatarImage src="https://placehold.co/100x100/black/white?text=AG" alt="Ashish Gupta" />
+      <AvatarImage src="/images/ashish-website-logo.png" alt="Ashish Gupta" />
       <AvatarFallback>AG</AvatarFallback>
     </Avatar>
     <div>

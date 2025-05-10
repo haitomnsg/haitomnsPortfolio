@@ -9,48 +9,48 @@ import { Mail, Phone, Facebook, Instagram, Linkedin, Github, ArrowUpRight } from
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-const introText = "Whether it's brainstorming a new project, discussing design optimizations, or just sharing creative insights, I'm always excited to collaborate. Reach out to me and let's craft something exceptional — together!";
+const introText = "Whether it’s building smart robots, exploring AI ideas, or refining a project’s tech, I’m always up for a challenge. I enjoy both hands-on work and creative problem solving. Got something in mind? Let’s build something awesome together!";
 
 const contactLinks = [
   { 
     icon: Mail, 
-    text: "my@email.com", 
-    href: "mailto:my@email.com", 
+    text: "haitomns@gmail.com", 
+    href: "mailto:haitomns@gmail.com", 
     bgColor: "bg-red-100",
     iconColor: "text-red-600"
   },
   { 
     icon: Phone, 
-    text: "+977 9000000000", 
-    href: "tel:+9779000000000", 
+    text: "+977 980 920 4764", 
+    href: "tel:+9779809204764", 
     bgColor: "bg-yellow-100",
     iconColor: "text-yellow-600"
   },
   { 
     icon: Facebook, 
     text: "Facebook", 
-    href: "#", 
+    href: "https://www.facebook.com/haitomnsg", 
     bgColor: "bg-blue-100", 
     iconColor: "text-blue-700" 
   },
   { 
     icon: Instagram, 
     text: "Instagram", 
-    href: "#", 
+    href: "https://www.instagram.com/haitomnsg/", 
     bgColor: "bg-pink-100", 
     iconColor: "text-pink-600" 
   },
   { 
     icon: Linkedin, 
     text: "LinkedIn", 
-    href: "#", 
+    href: "https://www.linkedin.com/in/haitomnsg/", 
     bgColor: "bg-purple-100",
     iconColor: "text-purple-600"
   },
   { 
     icon: Github, 
     text: "GitHub", 
-    href: "#", 
+    href: "https://github.com/haitomnsg/", 
     bgColor: "bg-neutral-200", 
     iconColor: "text-neutral-700" 
   },
@@ -166,7 +166,7 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel>Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Jane Smith" {...field} />
+                          <Input placeholder="Your Name" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -179,7 +179,7 @@ const Contact = () => {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="jane@example.com" {...field} />
+                          <Input placeholder="your@email.com" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -194,7 +194,7 @@ const Contact = () => {
                       <FormLabel>Message</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Type something here..."
+                          placeholder="Your message here..."
                           className="resize-none min-h-[150px]"
                           {...field}
                         />
