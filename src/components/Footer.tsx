@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for internal navigation
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 mt-12 border-t border-border">
+    <footer className="py-8 mt-12"> {/* Removed border-t border-border */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-2 md:space-y-0 md:space-x-3 text-xs text-muted-foreground">
           {/* Copyright */}
@@ -17,7 +17,7 @@ const Footer = () => {
           <span className="hidden md:inline">|</span>
 
           {/* Privacy Policy Link */}
-          <Link to="#" className="hover:text-foreground transition-colors"> {/* Placeholder link */}
+          <Link to="#" className="hover:text-foreground transition-colors">
             Privacy Policy
           </Link>
 
@@ -34,7 +34,7 @@ const Footer = () => {
           
           {/* Programmed By */}
           <p className="text-center md:text-left">
-            Programmed by Ashish Gupta
+            Programmed by <span className="font-bold">Ashish Gupta</span>
           </p>
         </div>
       </div>
