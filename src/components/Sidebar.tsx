@@ -16,10 +16,10 @@ const navItems = [
 ];
 
 const socialLinks = [
-  { href: "#", label: "Facebook", icon: Facebook },
-  { href: "#", label: "Instagram", icon: Instagram },
-  { href: "#", label: "LinkedIn", icon: Linkedin },
-  { href: "#", label: "GitHub", icon: Github },
+  { href: "https://www.facebook.com/haitomnsg", label: "Facebook", icon: Facebook },
+  { href: "https://www.instagram.com/haitomnsg/", label: "Instagram", icon: Instagram },
+  { href: "https://www.linkedin.com/in/haitomnsg/", label: "LinkedIn", icon: Linkedin },
+  { href: "https://github.com/haitomnsg/", label: "GitHub", icon: Github },
 ];
 
 const UserProfile = () => (

@@ -11,7 +11,6 @@ const CookiePolicy = () => {
 
       <Card className="shadow-xl">
         <CardContent className="p-6 md:p-8 space-y-6 text-base text-muted-foreground">
-          <p className="text-sm">Effective Date: 2024</p>
 
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold text-foreground">Introduction</h2>
@@ -92,8 +91,8 @@ const CookiePolicy = () => {
               If you have any questions about this policy, feel free to contact:
             </p>
             <ul className="list-none space-y-1 pl-0 text-muted-foreground"> {/* Changed to list-none and pl-0 for direct listing */}
-              <li>Email: [your.email@example.com]</li>
-              <li>Location: [Your City, Country]</li>
+              <li>Email: haitomns@gmail.com</li>
+              <li>Location: Brigunj, Parsa, Nepal</li>
             </ul>
           </section>
         </CardContent>

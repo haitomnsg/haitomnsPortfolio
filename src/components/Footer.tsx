@@ -34,7 +34,7 @@ const Footer = () => {
           
           {/* Programmed By */}
           <p className="text-center md:text-left">
-            Programmed by <span className="font-bold">Ashish Gupta</span>
+            Programmed with ❤️ by <span className="font-bold">Ashish Gupta</span>
           </p>
         </div>
       </div>
