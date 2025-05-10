@@ -17,30 +17,31 @@ interface RobotProject {
 const robotProjectsData: RobotProject[] = [
   {
     id: 'tomatobot',
-    imageUrl: 'https://placehold.co/600x400/FF6347/FFFFFF?text=TomatoBot', // Placeholder image, suggest replacing
+    imageUrl: 'https://placehold.co/600x400/FF6347/FFFFFF?text=TomatoBot',
     title: 'TomatoBot: Autonomous Tomato Harvesting Robot',
     description: 'TomatoBot is an autonomous tomato harvesting robot designed for farm use. It can differentiate between ripe and unripe tomatoes using YOLO object detection and navigate fields freely with its 360-degree wheel and gear motor system. A grabbing mechanism demonstrates its capability to harvest tomatoes.',
     features: [
-      'Ripe and Unripe tomato detection using YOLO',
+      'Ripe/unripe tomato detection using YOLO',
       '360-degree autonomous field navigation',
       'Integrated grabbing mechanism for harvesting simulation',
     ],
     technologies: ['Raspberry Pi', 'YOLO', 'Motor Drivers', 'Camera', 'Wheels', 'Servo Motors'],
   },
   {
-    id: 'robot-1', // Keeping other placeholders for now
-    imageUrl: 'https://placehold.co/600x400/000000/FFFFFF?text=Autonomous+Rover',
-    title: 'Autonomous Navigation Rover "Pathfinder"',
-    description: 'Pathfinder is an all-terrain rover designed for autonomous exploration and data collection in challenging environments. It utilizes advanced sensor fusion and SLAM algorithms for robust navigation.',
+    id: 'face-tracking-robot',
+    imageUrl: 'https://placehold.co/600x400/4A90E2/FFFFFF?text=Face+Tracking+Robot', // Placeholder image
+    title: 'AI-Driven Face and Human Tracking Robot',
+    description: 'This robot captures live video feeds, processes them using AI to track human bodies and faces, and moves accordingly. It features a dual-mode operation for versatile interaction: one for human/face tracking and another for detecting and following traffic signs.',
     features: [
-      'Real-time obstacle avoidance',
-      'GPS-denied environment navigation',
-      'Modular sensor payload system',
+      'Live AI-powered human body and face tracking',
+      'Responsive movement based on tracked subject',
+      'Dual-mode: Human/Face Tracking & Traffic Sign Following',
+      'Traffic sign detection and corresponding action execution',
     ],
-    technologies: ['ROS', 'Python', 'C++', 'LiDAR', 'IMU', 'Jetson Nano'],
+    technologies: ['Arduino', 'Motor Shield Driver', 'Motors', 'Wheels', 'Battery', 'MU Sensor (AI Vision)'],
   },
   {
-    id: 'robot-2',
+    id: 'robot-2', // This was the previous "Dexter" placeholder
     imageUrl: 'https://placehold.co/600x400/333333/FFFFFF?text=Robotic+Arm',
     title: 'Precision Robotic Arm "Dexter"',
     description: 'Dexter is a 6-DOF robotic arm capable of high-precision manipulation tasks. It integrates computer vision for object recognition and grasping, suitable for assembly lines or lab automation.',
@@ -51,8 +52,6 @@ const robotProjectsData: RobotProject[] = [
     ],
     technologies: ['OpenCV', 'TensorFlow', 'Arduino', 'Stepper Motors', 'Inverse Kinematics'],
   },
-  // Removed the third placeholder to keep it at 3 projects for now, with TomatoBot being the first.
-  // If you want more, we can add the third placeholder back or new ones.
 ];
 
 interface RobotProjectItemProps {
