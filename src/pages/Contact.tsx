@@ -5,7 +5,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, Phone, Facebook, Instagram, Linkedin, Github, ArrowUpRight } from "lucide-react"; // Updated icons
+import { Mail, Phone, Facebook, Instagram, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -16,42 +16,42 @@ const contactLinks = [
     icon: Mail, 
     text: "my@email.com", 
     href: "mailto:my@email.com", 
-    bgColor: "bg-gray-100", 
-    iconColor: "text-gray-600" 
+    bgColor: "bg-red-100",      // Changed to red theme
+    iconColor: "text-red-600"   // Changed to red theme
   },
   { 
     icon: Phone, 
     text: "+977 9000000000", 
     href: "tel:+9779000000000", 
-    bgColor: "bg-green-100", 
-    iconColor: "text-green-600" 
+    bgColor: "bg-yellow-100",   // Changed to yellow theme
+    iconColor: "text-yellow-600" // Changed to yellow theme
   },
   { 
     icon: Facebook, 
     text: "Facebook", 
-    href: "#", // Replace with your Facebook link
+    href: "#", 
     bgColor: "bg-blue-100", 
     iconColor: "text-blue-700" 
   },
   { 
     icon: Instagram, 
     text: "Instagram", 
-    href: "#", // Replace with your Instagram link
-    bgColor: "bg-pink-100", // Using pink for Instagram's vibe
+    href: "#", 
+    bgColor: "bg-pink-100", 
     iconColor: "text-pink-600" 
   },
   { 
     icon: Linkedin, 
     text: "LinkedIn", 
-    href: "#", // Replace with your LinkedIn link
-    bgColor: "bg-sky-100", // Using sky blue for LinkedIn
-    iconColor: "text-sky-600" 
+    href: "#", 
+    bgColor: "bg-purple-100",  // Changed to purple theme
+    iconColor: "text-purple-600" // Changed to purple theme
   },
   { 
     icon: Github, 
     text: "GitHub", 
-    href: "#", // Replace with your GitHub link
-    bgColor: "bg-neutral-200", // Using a neutral dark for GitHub
+    href: "#", 
+    bgColor: "bg-neutral-200", 
     iconColor: "text-neutral-700" 
   },
 ];
