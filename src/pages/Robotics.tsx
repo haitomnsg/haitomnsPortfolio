@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle } from 'lucide-react';
 
-const pageIntroText = "Exploring the frontiers of automation and intelligence, my robotics projects are designed to interact with and improve the world around us. From autonomous navigation to complex task execution, each robot is a testament to the power of combining robust hardware with sophisticated software.";
+const pageIntroText = "Driven by a passion for building intelligent systems, my robotics work blends mechanical design with smart algorithms to solve real-world problems. Whether it's autonomous navigation, object detection, or interactive automation, each project reflects a commitment to practical innovation, creativity, and purposeful engineering.";
 
 interface RobotProject {
   id: string;
@@ -17,36 +17,36 @@ interface RobotProject {
 const robotProjectsData: RobotProject[] = [
   {
     id: 'tomatobot',
-    imageUrl: 'https://placehold.co/600x400/FF6347/FFFFFF?text=TomatoBot',
-    title: 'TomatoBot: Autonomous Tomato Harvesting Robot',
+    imageUrl: '/images/tomato-bot-robot.jpg',
+    title: 'TomatoBot',
     description: 'TomatoBot is an autonomous tomato harvesting robot designed for farm use. It can differentiate between ripe and unripe tomatoes using YOLO object detection and navigate fields freely with its 360-degree wheel and gear motor system. A grabbing mechanism demonstrates its capability to harvest tomatoes.',
     features: [
-      'Ripe/unripe tomato detection using YOLO',
+      'Ripe and Unripe tomato detection using YOLO',
       '360-degree autonomous field navigation',
       'Integrated grabbing mechanism for harvesting simulation',
     ],
-    technologies: ['Raspberry Pi', 'YOLO', 'Motor Drivers', 'Camera', 'Wheels', 'Servo Motors'],
+    technologies: ['Raspberry Pi', 'YOLO', 'Motor Drivers', 'Camera', 'Servo Motors'],
   },
   {
     id: 'face-tracking-robot',
-    imageUrl: 'https://placehold.co/600x400/4A90E2/FFFFFF?text=Face+Tracking+Robot',
-    title: 'AI-Driven Face and Human Tracking Robot',
+    imageUrl: '/images/face-bot-robot.jpg',
+    title: 'Face and Human Tracking Robot',
     description: 'This robot captures live video feeds, processes them using AI to track human bodies and faces, and moves accordingly. It features a dual-mode operation for versatile interaction: one for human/face tracking and another for detecting and following traffic signs.',
     features: [
       'Live AI-powered human body and face tracking',
       'Responsive movement based on tracked subject',
-      'Dual-mode: Human/Face Tracking & Traffic Sign Following',
-      'Traffic sign detection and corresponding action execution',
+      'Human/Face Tracking and Following',
+      'Traffic Sign Detection and Following',
     ],
-    technologies: ['Arduino', 'Motor Shield Driver', 'Motors', 'Wheels', 'Battery', 'MU Sensor (AI Vision)'],
+    technologies: ['Arduino', 'Motor Shield Driver', 'Motors', 'Battery', 'MU Sensor (AI Vision)'],
   },
   {
     id: 'disaster-rescue-vehicle',
-    imageUrl: 'https://placehold.co/600x400/8B4513/FFFFFF?text=Rescue+Vehicle',
+    imageUrl: '/images/rescue-bot-robot.jpg',
     title: 'Multi-Utility Disaster Rescue Vehicle',
     description: 'A versatile rescue vehicle designed for military and disaster relief operations. It aids in rescuing victims using a robotic arm, provides surveillance via drone and camera, includes a fire extinguisher, and is equipped with an automatic gun for battlefield scenarios.',
     features: [
-      'Robotic arm for rescue and manipulation tasks',
+      'Robotic Arm for rescue and manipulation tasks',
       'Drone for aerial surveillance and relief material deployment',
       'Integrated fire extinguishing system',
       'Onboard camera for real-time monitoring',
@@ -56,15 +56,15 @@ const robotProjectsData: RobotProject[] = [
   },
   {
     id: 'obstacle-avoider',
-    imageUrl: 'https://placehold.co/600x400/A9A9A9/FFFFFF?text=Obstacle+Avoider', // Placeholder image
+    imageUrl: '/images/obstacle-bot-robot.jpg', // Placeholder image
     title: 'Arduino Obstacle Avoiding Car',
     description: 'A simple yet effective obstacle avoiding car. It uses an ultrasonic sensor to detect nearby objects. If an obstacle is detected within a 5cm range, the car stops, scans its surroundings to find an open path, and then navigates towards the direction with the most space.',
     features: [
-      'Ultrasonic sensor for precise obstacle detection (<5cm threshold).',
+      'Ultrasonic sensor for precise obstacle detection.',
       'Autonomous decision-making: stops, scans, and selects new path.',
       'Dynamic navigation based on environmental feedback.',
     ],
-    technologies: ['Arduino Uno', 'Ultrasonic Sensor', 'L293D Motor Driver', 'Geared DC Motors (x4)'],
+    technologies: ['Arduino Uno', 'Ultrasonic Sensor', 'Motor Driver', 'Geared DC Motors'],
   },
 ];
 
