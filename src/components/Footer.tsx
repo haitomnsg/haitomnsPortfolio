@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 mt-12"> {/* Removed border-t border-border */}
+    <footer className="py-8"> {/* Removed mt-12 */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-2 md:space-y-0 md:space-x-3 text-xs text-muted-foreground">
           {/* Copyright */}
