@@ -29,27 +29,30 @@ const robotProjectsData: RobotProject[] = [
   },
   {
     id: 'face-tracking-robot',
-    imageUrl: 'https://placehold.co/600x400/4A90E2/FFFFFF?text=Face+Tracking+Robot', // Placeholder image
-    title: 'Face and Human Tracking Robot',
+    imageUrl: 'https://placehold.co/600x400/4A90E2/FFFFFF?text=Face+Tracking+Robot',
+    title: 'AI-Driven Face and Human Tracking Robot',
     description: 'This robot captures live video feeds, processes them using AI to track human bodies and faces, and moves accordingly. It features a dual-mode operation for versatile interaction: one for human/face tracking and another for detecting and following traffic signs.',
     features: [
       'Live AI-powered human body and face tracking',
-      'Human/Face Tracking Following',
-      'Traffic Sign Detection and Following',
+      'Responsive movement based on tracked subject',
+      'Dual-mode: Human/Face Tracking & Traffic Sign Following',
+      'Traffic sign detection and corresponding action execution',
     ],
-    technologies: ['Arduino Uno', 'Motor Shield Driver', 'Motors', 'Wheels', 'MU Sensor (AI Vision)'],
+    technologies: ['Arduino', 'Motor Shield Driver', 'Motors', 'Wheels', 'Battery', 'MU Sensor (AI Vision)'],
   },
   {
-    id: 'robot-2', // This was the previous "Dexter" placeholder
-    imageUrl: 'https://placehold.co/600x400/333333/FFFFFF?text=Robotic+Arm',
-    title: 'Precision Robotic Arm "Dexter"',
-    description: 'Dexter is a 6-DOF robotic arm capable of high-precision manipulation tasks. It integrates computer vision for object recognition and grasping, suitable for assembly lines or lab automation.',
+    id: 'disaster-rescue-vehicle',
+    imageUrl: 'https://placehold.co/600x400/8B4513/FFFFFF?text=Rescue+Vehicle', // Placeholder image
+    title: 'Multi-Utility Disaster Rescue Vehicle',
+    description: 'A versatile rescue vehicle designed for military and disaster relief operations. It aids in rescuing victims using a robotic arm, provides surveillance via drone and camera, includes a fire extinguisher, and is equipped with an automatic gun for battlefield scenarios.',
     features: [
-      'Sub-millimeter accuracy',
-      'AI-powered object detection',
-      'Intuitive teach pendant programming',
+      'Robotic arm for rescue and manipulation tasks',
+      'Drone for aerial surveillance and relief material deployment',
+      'Integrated fire extinguishing system',
+      'Onboard camera for real-time monitoring',
+      'Automatic gun for defense and battlefield utility',
     ],
-    technologies: ['OpenCV', 'TensorFlow', 'Arduino', 'Stepper Motors', 'Inverse Kinematics'],
+    technologies: ['Arduino', 'Robotic Arm', 'Motor Driver', 'Geared Motors', 'Camera', 'Servo', 'Water Pump Motor'],
   },
 ];
 
