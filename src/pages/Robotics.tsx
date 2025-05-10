@@ -21,7 +21,7 @@ const robotProjectsData: RobotProject[] = [
     title: 'TomatoBot: Autonomous Tomato Harvesting Robot',
     description: 'TomatoBot is an autonomous tomato harvesting robot designed for farm use. It can differentiate between ripe and unripe tomatoes using YOLO object detection and navigate fields freely with its 360-degree wheel and gear motor system. A grabbing mechanism demonstrates its capability to harvest tomatoes.',
     features: [
-      'Ripe/unripe tomato detection using YOLO',
+      'Ripe and Unripe tomato detection using YOLO',
       '360-degree autonomous field navigation',
       'Integrated grabbing mechanism for harvesting simulation',
     ],
