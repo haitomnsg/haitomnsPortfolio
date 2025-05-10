@@ -42,7 +42,7 @@ const robotProjectsData: RobotProject[] = [
   },
   {
     id: 'disaster-rescue-vehicle',
-    imageUrl: 'https://placehold.co/600x400/8B4513/FFFFFF?text=Rescue+Vehicle', // Placeholder image
+    imageUrl: 'https://placehold.co/600x400/8B4513/FFFFFF?text=Rescue+Vehicle',
     title: 'Multi-Utility Disaster Rescue Vehicle',
     description: 'A versatile rescue vehicle designed for military and disaster relief operations. It aids in rescuing victims using a robotic arm, provides surveillance via drone and camera, includes a fire extinguisher, and is equipped with an automatic gun for battlefield scenarios.',
     features: [
@@ -53,6 +53,18 @@ const robotProjectsData: RobotProject[] = [
       'Automatic gun for defense and battlefield utility',
     ],
     technologies: ['Arduino', 'Robotic Arm', 'Motor Driver', 'Geared Motors', 'Camera', 'Servo', 'Water Pump Motor'],
+  },
+  {
+    id: 'obstacle-avoider',
+    imageUrl: 'https://placehold.co/600x400/A9A9A9/FFFFFF?text=Obstacle+Avoider', // Placeholder image
+    title: 'Arduino Obstacle Avoiding Car',
+    description: 'A simple yet effective obstacle avoiding car. It uses an ultrasonic sensor to detect nearby objects. If an obstacle is detected within a 5cm range, the car stops, scans its surroundings to find an open path, and then navigates towards the direction with the most space.',
+    features: [
+      'Ultrasonic sensor for precise obstacle detection (<5cm threshold).',
+      'Autonomous decision-making: stops, scans, and selects new path.',
+      'Dynamic navigation based on environmental feedback.',
+    ],
+    technologies: ['Arduino Uno', 'Ultrasonic Sensor', 'L293D Motor Driver', 'Geared DC Motors (x4)'],
   },
 ];
 
