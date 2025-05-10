@@ -5,9 +5,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8"> {/* Removed mt-12 */}
+    <footer className="py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-2 md:space-y-0 md:space-x-3 text-xs text-muted-foreground">
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-3 md:space-y-0 md:space-x-3 text-xs text-muted-foreground"> {/* Changed space-y-2 to space-y-3 */}
           {/* Copyright */}
           <p className="text-center md:text-left">
             © Copyright <span className="font-bold">{currentYear}</span> by Haitomns G
