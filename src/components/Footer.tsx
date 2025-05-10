@@ -5,19 +5,19 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="pt-8 pb-8"> {/* Changed pt-4 to pt-8 */}
+    <footer className="pt-8 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-start space-y-3 md:space-y-0 md:space-x-3 text-xs text-muted-foreground">
           {/* Copyright */}
           <p className="text-center md:text-left">
-            © Copyright <span className="font-bold">{currentYear}</span> by Ashish Gupta.
+            © Copyright <span className="font-bold">{currentYear}</span> by Haitomns G
           </p>
 
           {/* Separator for desktop */}
           <span className="hidden md:inline">|</span>
 
           {/* Privacy Policy Link */}
-          <Link to="#" className="hover:text-foreground transition-colors">
+          <Link to="/privacy-policy" className="hover:text-foreground transition-colors"> {/* Updated link */}
             Privacy Policy
           </Link>
 
