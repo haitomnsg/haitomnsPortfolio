@@ -124,7 +124,7 @@ const About = () => {
   return (
     <div className="space-y-10">
       <section>
-        <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">About Me</h1>
+        <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">About</h1>
         <p className="text-lg text-muted-foreground max-w-4xl text-left">
           {introText}
         </p>

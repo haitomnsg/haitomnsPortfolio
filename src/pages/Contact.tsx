@@ -112,7 +112,7 @@ const Contact = () => {
       {/* Header Section */}
       <section>
         <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-          <h1 className="text-4xl font-semibold text-foreground">Let's Connect!</h1>
+          <h1 className="text-4xl font-semibold text-foreground">Contact</h1>
           {/* Desktop Status Indicator - Removed pill background */}
           <div className="hidden md:flex items-center space-x-2 text-sm text-green-600"> {/* Removed bg-green-100 px-3 py-1 rounded-full */}
             <span className="relative flex h-2.5 w-2.5">
@@ -153,7 +153,7 @@ const Contact = () => {
       <section>
         <Card className="shadow-xl">
           <CardHeader>
-            <CardTitle className="text-2xl font-semibold text-foreground">Get in touch</CardTitle>
+            <CardTitle className="text-2xl font-semibold text-foreground">Get in Touch</CardTitle>
           </CardHeader>
           <CardContent>
             <Form {...form}>
