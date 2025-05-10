@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react";
+import { ArrowUpRight, Code2, BrainCircuit, Bot, Download } from "lucide-react"; // Ensure Download icon is imported
 
 const skillCards = [
   {
@@ -28,6 +28,11 @@ const skillCards = [
 ];
 
 const Index = () => {
+  // Re-add the placeholder function for CV download
+  const handleDownloadCV = () => {
+    alert("Resume download functionality would be here!");
+  };
+
   return (
     <div className="space-y-12">
       {/* Hero Section */}
@@ -39,9 +44,18 @@ const Index = () => {
           className="w-40 h-40 rounded-full object-cover mb-6 shadow-md"
         />
         
-        <h1 className="text-5xl font-semibold text-foreground mb-4">
-          Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
-        </h1>
+        <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-start mb-4">
+          <h1 className="text-5xl font-semibold text-foreground mb-4 md:mb-0">
+            Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
+          </h1>
+          <Button 
+            variant="outline" 
+            onClick={handleDownloadCV}
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:ring-primary/70 w-full md:w-auto"
+          >
+            <Download className="mr-[6px] h-4 w-4" /> Resume
+          </Button>
+        </div>
         
         <p className="text-lg text-muted-foreground max-w-3xl">
           I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
@@ -61,7 +75,7 @@ const Index = () => {
               </Button>
             </CardHeader>
             <CardContent className="flex-grow flex flex-col">
-              <CardTitle className="text-xl font-semibold text-foreground mb-6">{card.title}</CardTitle> {/* Changed mb-3 to mb-6 */}
+              <CardTitle className="text-xl font-semibold text-foreground mb-6">{card.title}</CardTitle>
               <div className="flex flex-wrap gap-2 mt-auto">
                 {card.skillsList.map((skill) => (
                   <Badge key={skill} variant="secondary" className="text-sm bg-white/70 text-foreground hover:bg-white">
