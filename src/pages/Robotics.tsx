@@ -30,15 +30,14 @@ const robotProjectsData: RobotProject[] = [
   {
     id: 'face-tracking-robot',
     imageUrl: 'https://placehold.co/600x400/4A90E2/FFFFFF?text=Face+Tracking+Robot', // Placeholder image
-    title: 'AI-Driven Face and Human Tracking Robot',
+    title: 'Face and Human Tracking Robot',
     description: 'This robot captures live video feeds, processes them using AI to track human bodies and faces, and moves accordingly. It features a dual-mode operation for versatile interaction: one for human/face tracking and another for detecting and following traffic signs.',
     features: [
       'Live AI-powered human body and face tracking',
-      'Responsive movement based on tracked subject',
-      'Dual-mode: Human/Face Tracking & Traffic Sign Following',
-      'Traffic sign detection and corresponding action execution',
+      'Human/Face Tracking Following',
+      'Traffic Sign Detection and Following',
     ],
-    technologies: ['Arduino', 'Motor Shield Driver', 'Motors', 'Wheels', 'Battery', 'MU Sensor (AI Vision)'],
+    technologies: ['Arduino Uno', 'Motor Shield Driver', 'Motors', 'Wheels', 'MU Sensor (AI Vision)'],
   },
   {
     id: 'robot-2', // This was the previous "Dexter" placeholder
