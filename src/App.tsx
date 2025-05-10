@@ -7,7 +7,7 @@ import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
-import Stack from "./pages/Stack";
+import Robotics from "./pages/Robotics"; // Changed from Stack to Robotics
 import Contact from "./pages/Contact";
 import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
@@ -25,7 +25,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/stack" element={<Stack />} />
+            <Route path="/robotics" element={<Robotics />} /> {/* Changed path and element */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

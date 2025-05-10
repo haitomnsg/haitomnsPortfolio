@@ -1,8 +1,9 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"; // Added SheetClose
-import { Home, User, Briefcase, Layers, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+// Changed Layers to Bot for Robotics icon
+import { Home, User, Briefcase, Bot, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
@@ -11,7 +12,7 @@ const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/about", label: "About", icon: User },
   { href: "/projects", label: "Projects", icon: Briefcase },
-  { href: "/stack", label: "Stack", icon: Layers },
+  { href: "/robotics", label: "Robotics", icon: Bot }, // Updated label, href, and icon
   { href: "/contact", label: "Contact", icon: Mail },
 ];
 
@@ -123,8 +124,6 @@ const Sidebar = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-72 p-0 flex flex-col bg-card">
-           {/* The default SheetContent often includes a SheetClose. Removed explicit button. */}
-           {/* If a close button is still missing, we can add <SheetClose asChild> here */}
           <SidebarContent onLinkClick={() => setMobileMenuOpen(false)} />
         </SheetContent>
       </Sheet>
