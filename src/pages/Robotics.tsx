@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-// AspectRatio is no longer needed here if we want the image to fill the column height
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle } from 'lucide-react';
 
@@ -17,7 +16,19 @@ interface RobotProject {
 
 const robotProjectsData: RobotProject[] = [
   {
-    id: 'robot-1',
+    id: 'tomatobot',
+    imageUrl: 'https://placehold.co/600x400/FF6347/FFFFFF?text=TomatoBot', // Placeholder image, suggest replacing
+    title: 'TomatoBot: Autonomous Tomato Harvesting Robot',
+    description: 'TomatoBot is an autonomous tomato harvesting robot designed for farm use. It can differentiate between ripe and unripe tomatoes using YOLO object detection and navigate fields freely with its 360-degree wheel and gear motor system. A grabbing mechanism demonstrates its capability to harvest tomatoes.',
+    features: [
+      'Ripe/unripe tomato detection using YOLO',
+      '360-degree autonomous field navigation',
+      'Integrated grabbing mechanism for harvesting simulation',
+    ],
+    technologies: ['Raspberry Pi', 'YOLO', 'Motor Drivers', 'Camera', 'Wheels', 'Servo Motors'],
+  },
+  {
+    id: 'robot-1', // Keeping other placeholders for now
     imageUrl: 'https://placehold.co/600x400/000000/FFFFFF?text=Autonomous+Rover',
     title: 'Autonomous Navigation Rover "Pathfinder"',
     description: 'Pathfinder is an all-terrain rover designed for autonomous exploration and data collection in challenging environments. It utilizes advanced sensor fusion and SLAM algorithms for robust navigation.',
@@ -40,18 +51,8 @@ const robotProjectsData: RobotProject[] = [
     ],
     technologies: ['OpenCV', 'TensorFlow', 'Arduino', 'Stepper Motors', 'Inverse Kinematics'],
   },
-  {
-    id: 'robot-3',
-    imageUrl: 'https://placehold.co/600x400/555555/FFFFFF?text=AI+Drone',
-    title: 'Intelligent Surveillance Drone "Aura"',
-    description: 'Aura is an AI-powered drone designed for autonomous surveillance and monitoring. It features on-board video processing and can track multiple targets simultaneously.',
-    features: [
-      'Long-range communication (5km+)',
-      'Automated patrol routes',
-      'Thermal imaging capabilities',
-    ],
-    technologies: ['PX4 Autopilot', 'MAVLink', 'YOLOv5', 'Raspberry Pi', 'GStreamer'],
-  },
+  // Removed the third placeholder to keep it at 3 projects for now, with TomatoBot being the first.
+  // If you want more, we can add the third placeholder back or new ones.
 ];
 
 interface RobotProjectItemProps {
@@ -61,23 +62,19 @@ interface RobotProjectItemProps {
 const RobotProjectItem: React.FC<RobotProjectItemProps> = ({ project }) => {
   return (
     <Card className="mb-12 shadow-lg overflow-hidden">
-      <div className="md:flex"> {/* Parent flex container */}
-        {/* Image Section */}
-        <div className="md:w-2/5 md:flex-shrink-0 bg-muted"> {/* Image column, added bg-muted as fallback */}
+      <div className="md:flex">
+        <div className="md:w-2/5 md:flex-shrink-0 bg-muted">
           <img
             src={project.imageUrl}
             alt={project.title}
-            className="object-cover w-full h-full" // Image fills this div
+            className="object-cover w-full h-full"
           />
         </div>
-
-        {/* Content Section */}
         <div className="p-6 md:w-3/5">
           <CardTitle className="text-2xl font-semibold text-foreground mb-3">{project.title}</CardTitle>
           <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
             {project.description}
           </p>
-
           <div className="mb-4">
             <h4 className="font-semibold text-foreground mb-2 text-md">Key Features:</h4>
             <ul className="space-y-1.5 list-inside">
@@ -89,7 +86,6 @@ const RobotProjectItem: React.FC<RobotProjectItemProps> = ({ project }) => {
               ))}
             </ul>
           </div>
-
           <div>
             <h4 className="font-semibold text-foreground mb-2 text-md">Technologies Used:</h4>
             <div className="flex flex-wrap gap-2">
@@ -115,7 +111,6 @@ const Robotics = () => {
           {pageIntroText}
         </p>
       </section>
-
       <section>
         {robotProjectsData.map((project) => (
           <RobotProjectItem key={project.id} project={project} />
