@@ -62,7 +62,7 @@ const Index = () => {
             </CardHeader>
             <CardContent className="flex-grow flex flex-col">
               <CardTitle className="text-xl font-semibold text-foreground mb-3">{card.title}</CardTitle>
-              <div className="flex flex-wrap gap-2.5 mt-auto"> {/* Changed gap-2 to gap-2.5 */}
+              <div className="flex flex-wrap gap-2 mt-auto">
                 {card.skillsList.map((skill) => (
                   <Badge key={skill} variant="secondary" className="text-sm bg-white/70 text-foreground hover:bg-white">
                     {skill}
