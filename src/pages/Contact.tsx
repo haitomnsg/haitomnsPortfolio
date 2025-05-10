@@ -5,19 +5,55 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, Phone, Twitter, Linkedin, Framer, Instagram, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, Facebook, Instagram, Linkedin, Github, ArrowUpRight } from "lucide-react"; // Updated icons
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 const introText = "Whether it's brainstorming a new project, discussing design optimizations, or just sharing creative insights, I'm always excited to collaborate. Reach out to me and let's craft something exceptional — together!";
 
 const contactLinks = [
-  { icon: Mail, text: "my@email.com", href: "mailto:my@email.com", bgColor: "bg-gray-100", iconColor: "text-gray-600" },
-  { icon: Phone, text: "Book a Call", href: "#", bgColor: "bg-yellow-100", iconColor: "text-yellow-600" },
-  { icon: Twitter, text: "Twitter", href: "#", bgColor: "bg-sky-100", iconColor: "text-sky-600" },
-  { icon: Linkedin, text: "LinkedIn", href: "#", bgColor: "bg-blue-100", iconColor: "text-blue-700" },
-  { icon: Framer, text: "Framer", href: "#", bgColor: "bg-pink-100", iconColor: "text-pink-600" },
-  { icon: Instagram, text: "Instagram", href: "#", bgColor: "bg-purple-100", iconColor: "text-purple-600" },
+  { 
+    icon: Mail, 
+    text: "my@email.com", 
+    href: "mailto:my@email.com", 
+    bgColor: "bg-gray-100", 
+    iconColor: "text-gray-600" 
+  },
+  { 
+    icon: Phone, 
+    text: "+977 9000000000", 
+    href: "tel:+9779000000000", 
+    bgColor: "bg-green-100", 
+    iconColor: "text-green-600" 
+  },
+  { 
+    icon: Facebook, 
+    text: "Facebook", 
+    href: "#", // Replace with your Facebook link
+    bgColor: "bg-blue-100", 
+    iconColor: "text-blue-700" 
+  },
+  { 
+    icon: Instagram, 
+    text: "Instagram", 
+    href: "#", // Replace with your Instagram link
+    bgColor: "bg-pink-100", // Using pink for Instagram's vibe
+    iconColor: "text-pink-600" 
+  },
+  { 
+    icon: Linkedin, 
+    text: "LinkedIn", 
+    href: "#", // Replace with your LinkedIn link
+    bgColor: "bg-sky-100", // Using sky blue for LinkedIn
+    iconColor: "text-sky-600" 
+  },
+  { 
+    icon: Github, 
+    text: "GitHub", 
+    href: "#", // Replace with your GitHub link
+    bgColor: "bg-neutral-200", // Using a neutral dark for GitHub
+    iconColor: "text-neutral-700" 
+  },
 ];
 
 const formSchema = z.object({
@@ -40,12 +76,12 @@ interface ContactLinkItemProps {
 const ContactLinkItem: React.FC<ContactLinkItemProps> = ({ icon: Icon, text, href, bgColor, iconColor }) => (
   <a
     href={href}
-    target={href.startsWith("http") || href.startsWith("#") ? "_blank" : "_self"}
+    target={href.startsWith("http") || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") ? "_blank" : "_self"}
     rel="noopener noreferrer"
     className={`flex items-center justify-between p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 ${bgColor}`}
   >
     <div className="flex items-center">
-      <div className={`p-2 rounded-lg mr-3 ${iconColor} bg-white/60`}> {/* Icon background slightly different from card background */}
+      <div className={`p-2 rounded-lg mr-3 ${iconColor} bg-white/60`}>
         <Icon className="w-5 h-5" />
       </div>
       <span className="font-medium text-foreground">{text}</span>
@@ -67,7 +103,6 @@ const Contact = () => {
 
   function onSubmit(data: ContactFormValues) {
     console.log("Form submitted:", data);
-    // Here you would typically send the data to a backend or email service
     alert("Message sent (check console for data)!");
     form.reset();
   }
