@@ -58,9 +58,9 @@ const contactLinks = [
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500, { message: "Message must not exceed 500 characters." }),
-  agreeToPolicy: z.boolean().refine(val => val === true, { message: "You must agree to the privacy policy." }),
+  email: z.string().email({ message: "Email must be in valid format." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500, { message: "Message must be less than 500 characters." }),
+  agreeToPolicy: z.boolean().refine(val => val === true, { message: "Must agree with Privacy and Cookie Policy." }),
 });
 
 type ContactFormValues = z.infer<typeof formSchema>;
@@ -194,7 +194,7 @@ const Contact = () => {
                       <FormLabel>Message</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Your message here..."
+                          placeholder="Your Message"
                           className="resize-none min-h-[150px]"
                           {...field}
                         />
