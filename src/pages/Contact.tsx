@@ -113,8 +113,8 @@ const Contact = () => {
       <section>
         <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
           <h1 className="text-4xl font-semibold text-foreground">Let's Connect!</h1>
-          {/* Desktop Status Indicator */}
-          <div className="hidden md:flex items-center space-x-2 text-sm text-green-600 bg-green-100 px-3 py-1 rounded-full">
+          {/* Desktop Status Indicator - Removed pill background */}
+          <div className="hidden md:flex items-center space-x-2 text-sm text-green-600"> {/* Removed bg-green-100 px-3 py-1 rounded-full */}
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
