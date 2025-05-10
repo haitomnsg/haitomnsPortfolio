@@ -16,15 +16,15 @@ const contactLinks = [
     icon: Mail, 
     text: "my@email.com", 
     href: "mailto:my@email.com", 
-    bgColor: "bg-red-100",      // Changed to red theme
-    iconColor: "text-red-600"   // Changed to red theme
+    bgColor: "bg-red-100",
+    iconColor: "text-red-600"
   },
   { 
     icon: Phone, 
     text: "+977 9000000000", 
     href: "tel:+9779000000000", 
-    bgColor: "bg-yellow-100",   // Changed to yellow theme
-    iconColor: "text-yellow-600" // Changed to yellow theme
+    bgColor: "bg-yellow-100",
+    iconColor: "text-yellow-600"
   },
   { 
     icon: Facebook, 
@@ -44,8 +44,8 @@ const contactLinks = [
     icon: Linkedin, 
     text: "LinkedIn", 
     href: "#", 
-    bgColor: "bg-purple-100",  // Changed to purple theme
-    iconColor: "text-purple-600" // Changed to purple theme
+    bgColor: "bg-purple-100",
+    iconColor: "text-purple-600"
   },
   { 
     icon: Github, 
@@ -111,15 +111,24 @@ const Contact = () => {
     <div className="space-y-12">
       {/* Header Section */}
       <section>
-        <div className="flex justify-between items-start mb-4">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
           <h1 className="text-4xl font-semibold text-foreground">Let's Connect!</h1>
-          <div className="flex items-center space-x-2 text-sm text-green-600 bg-green-100 px-3 py-1 rounded-full">
+          {/* Desktop Status Indicator */}
+          <div className="hidden md:flex items-center space-x-2 text-sm text-green-600 bg-green-100 px-3 py-1 rounded-full">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
             </span>
             <span>Available for Projects</span>
           </div>
+        </div>
+        {/* Mobile Status Indicator */}
+        <div className="flex items-center space-x-2 text-sm text-green-600 md:hidden mb-4">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+          </span>
+          <span>Available for Projects</span>
         </div>
         <p className="text-lg text-muted-foreground max-w-3xl">
           {introText}
