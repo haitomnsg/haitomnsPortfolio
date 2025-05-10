@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Re-using Card for structure if needed
-import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+// AspectRatio is no longer needed here if we want the image to fill the column height
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle } from 'lucide-react'; // Icon for features
+import { CheckCircle } from 'lucide-react';
 
 const pageIntroText = "Exploring the frontiers of automation and intelligence, my robotics projects are designed to interact with and improve the world around us. From autonomous navigation to complex task execution, each robot is a testament to the power of combining robust hardware with sophisticated software.";
 
@@ -60,17 +60,15 @@ interface RobotProjectItemProps {
 
 const RobotProjectItem: React.FC<RobotProjectItemProps> = ({ project }) => {
   return (
-    <Card className="mb-12 shadow-lg overflow-hidden"> {/* Each project in its own card for clear separation */}
-      <div className="md:flex">
+    <Card className="mb-12 shadow-lg overflow-hidden">
+      <div className="md:flex"> {/* Parent flex container */}
         {/* Image Section */}
-        <div className="md:w-2/5 md:flex-shrink-0">
-          <AspectRatio ratio={16 / 10} className="bg-muted">
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="object-cover w-full h-full"
-            />
-          </AspectRatio>
+        <div className="md:w-2/5 md:flex-shrink-0 bg-muted"> {/* Image column, added bg-muted as fallback */}
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="object-cover w-full h-full" // Image fills this div
+          />
         </div>
 
         {/* Content Section */}
