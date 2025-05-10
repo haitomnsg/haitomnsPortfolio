@@ -2,29 +2,39 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Eye } from "lucide-react";
 
-const introText = "My projects focus on solving real-life problems through practical, user-centric solutions. I aim to build complete systems that are both innovative and functional—designed with clean code, efficient architecture, and real-world usability in mind. Whether for everyday users or businesses, my goal is to make technology genuinely helpful.";
+const introText = "My projects focus on solving real-life problems through practical, user-centric solutions. I aim to build complete systems that are both innovative and functional designed with clean code, efficient architecture, and real-world usability in mind. Whether for everyday users or businesses, my goal is to make technology genuinely helpful.";
 
 const projectsData = [
   {
-    imageUrl: "https://placehold.co/600x400/E2E8F0/4A5568?text=Omnifood+Project",
-    title: "Omnifood: Revolutionizing Personalized Meal Delivery",
+    imageUrl: "/images/doclipi.png",
+    title: "DocLipi: An Intelligent Document Classifier and OCR Solution",
     link: "#",
   },
   {
-    imageUrl: "https://placehold.co/600x400/E2E8F0/4A5568?text=Natours+Project",
-    title: "Natours: Elevating Adventure Travel Through Innovative Web Solutions",
+    imageUrl: "/images/tomato-bot.jpg",
+    title: "TomatoBot: Eats all red tomatoes",
     link: "#",
   },
   {
-    imageUrl: "https://placehold.co/600x400/E2E8F0/4A5568?text=Nexter+Project",
-    title: "Nexter: Redefining Real Estate with Cutting-Edge Web Design",
+    imageUrl: "/images/jiffy.png",
+    title: "Jiffy: The AI Food Delivery App",
     link: "#",
   },
   {
-    imageUrl: "https://placehold.co/600x400/E2E8F0/4A5568?text=Trillo+Project",
-    title: "Trillo: Simplifying Travel Planning with Smart, User-Focused Solutions",
+    imageUrl: "/images/phulbari.png",
+    title: "Phulbari: Happy Flower Happy You",
     link: "#",
   },
+  {
+    imageUrl: "/images/resthat.png",
+    title: "RestHat: Simplify your Restaurant Experience",
+    link: "#",
+  },
+  {
+    imageUrl: "/images/redsoil.jpg",
+    title: "RedSoil: Make your Blood Work Easy",
+    link: "#",
+  }
 ];
 
 interface ProjectItemProps {
