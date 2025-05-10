@@ -1,8 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-// Button is no longer needed for SheetTrigger here
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetClose } from "@/components/ui/sheet";
-import { Home, User, Briefcase, Bot, Mail, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react"; // Removed Menu
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Home, User, Briefcase, Bot, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react"; // Added Menu back
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
@@ -110,20 +110,21 @@ const SidebarContent = ({ onLinkClick }: { onLinkClick?: () => void }) => (
   </>
 );
 
-interface SidebarProps {
-  isMobileMenuOpen: boolean;
-  setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ isMobileMenuOpen, setMobileMenuOpen }) => {
+// Removed props: isMobileMenuOpen, setMobileMenuOpen
+const Sidebar: React.FC = () => {
   const isMobile = useIsMobile();
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false); // State managed internally again
 
   if (isMobile) {
     return (
-      <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-        {/* SheetTrigger is now in Header.tsx */}
+      <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+        <SheetTrigger asChild>
+          {/* Hamburger menu button is part of Sidebar again */}
+          <Button variant="outline" size="icon" className="fixed top-4 left-4 z-50 bg-card text-card-foreground shadow-lg md:hidden">
+            <Menu className="w-6 h-6" />
+          </Button>
+        </SheetTrigger>
         <SheetContent side="left" className="w-72 p-0 flex flex-col bg-card">
-          {/* Default SheetClose is part of SheetContent */}
           <SidebarContent onLinkClick={() => setMobileMenuOpen(false)} />
         </SheetContent>
       </Sheet>
