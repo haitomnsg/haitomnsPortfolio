@@ -51,52 +51,53 @@ import { defineConfig, Plugin, HtmlTagDescriptor } from "vite";
         transformIndexHtml(html) {
           const tags: HtmlTagDescriptor[] = [];
 
-      if (stacktraceJsContent) {
-        tags.push({
-          tag: "script",
-          injectTo: "head-prepend",
-          children: stacktraceJsContent,
-        });
-      } else {
-        tags.push({
-          tag: "script",
-          injectTo: "head-prepend",
-          children:
-            "console.warn('[dyad-shim] stacktrace.js library was not injected.');",
-        });
-      }
+          if (stacktraceJsContent) {
+            tags.push({
+              tag: "script",
+              injectTo: "head-prepend",
+              children: stacktraceJsContent,
+            });
+          } else {
+            tags.push({
+              tag: "script",
+              injectTo: "head-prepend",
+              children:
+                "console.warn('[dyad-shim] stacktrace.js library was not injected.');",
+            });
+          }
 
-      if (dyadShimContent) {
-        tags.push({
-          tag: "script",
-          injectTo: "head-prepend",
-          children: dyadShimContent,
-        });
-      } else {
-        tags.push({
-          tag: "script",
-          injectTo: "head-prepend",
-          children: "console.warn('[dyad-shim] dyad shim was not injected.');",
-        });
-      }
+          if (dyadShimContent) {
+            tags.push({
+              tag: "script",
+              injectTo: "head-prepend",
+              children: dyadShimContent,
+            });
+          } else {
+            tags.push({
+              tag: "script",
+              injectTo: "head-prepend",
+              children: "console.warn('[dyad-shim] dyad shim was not injected.');",
+            });
+          }
 
-      return { html, tags };
-    },
-  };
-}
+          return { html, tags };
+        },
+      };
+    }
 
-const deploymentBase = '/haitomnsPortfolio/';
+    // **IMPORTANT**: This MUST match your GitHub repository name exactly.
+    const repositoryName = 'HaitomnsPortfolio'; 
 
-export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? deploymentBase : '/',
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [react(), devErrorAndNavigationPlugin()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-}));
+    export default defineConfig(({ mode }) => ({
+      base: mode === 'production' ? `/${repositoryName}/` : '/',
+      server: {
+        host: "::",
+        port: 8080,
+      },
+      plugins: [react(), devErrorAndNavigationPlugin()],
+      resolve: {
+        alias: {
+          "@": path.resolve(__dirname, "./src"),
+        },
+      },
+    }));
