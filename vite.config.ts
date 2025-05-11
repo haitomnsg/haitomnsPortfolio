@@ -51,7 +51,6 @@ export function devErrorAndNavigationPlugin(): Plugin {
     transformIndexHtml(html) {
       const tags: HtmlTagDescriptor[] = [];
 
-      // 1. Inject stacktrace.js
       if (stacktraceJsContent) {
         tags.push({
           tag: "script",
@@ -67,7 +66,6 @@ export function devErrorAndNavigationPlugin(): Plugin {
         });
       }
 
-      // 2. Inject dyad shim
       if (dyadShimContent) {
         tags.push({
           tag: "script",
@@ -87,7 +85,12 @@ export function devErrorAndNavigationPlugin(): Plugin {
   };
 }
 
+// For deploying to the root of a domain (e.g., www.yourdomain.com)
+const deploymentBase = '/'; 
+// If deploying to a subdirectory like www.yourdomain.com/portfolio/, change to '/portfolio/'
+
 export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? deploymentBase : '/',
   server: {
     host: "::",
     port: 8080,
