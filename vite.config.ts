@@ -86,7 +86,10 @@ import { defineConfig, Plugin, HtmlTagDescriptor } from "vite";
     }
 
     export default defineConfig(({ mode }) => ({
-      base: mode === 'production' ? './' : '/', // Use relative paths for production build
+      // If deploying to a subdirectory like 'http://localhost/new/' or 'www.yourdomain.com/new/'
+      // set base to '/new/'. For root deployment, it's '/'.
+      // For GitHub Pages, it's often '/repository-name/'.
+      base: mode === 'production' ? '/new/' : '/', // IMPORTANT: Change '/new/' if your path is different
       server: {
         host: "::",
         port: 8080,
