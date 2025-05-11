@@ -86,7 +86,7 @@ import { defineConfig, Plugin, HtmlTagDescriptor } from "vite";
     }
 
     // Replace 'your-repository-name' with the actual name of your GitHub repository
-    const repositoryName = 'HaitomnsPortfolio'; // Example, **YOU MUST CHANGE THIS**
+    const repositoryName = 'haitomnsPortfolio'; // Example, **YOU MUST CHANGE THIS**
 
     export default defineConfig(({ mode }) => ({
       base: mode === 'production' ? `/${repositoryName}/` : '/',
