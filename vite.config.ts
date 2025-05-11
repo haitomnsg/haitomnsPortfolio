@@ -85,9 +85,10 @@ export function devErrorAndNavigationPlugin(): Plugin {
   };
 }
 
-// For deploying to the root of a domain (e.g., www.yourdomain.com)
-const deploymentBase = '/'; 
-// If deploying to a subdirectory like www.yourdomain.com/portfolio/, change to '/portfolio/'
+// Configure this if you are deploying to a specific subdirectory.
+// For root deployment (e.g., www.yourdomain.com), it should be '/'.
+// For a subdirectory (e.g., www.yourdomain.com/portfolio/), it should be '/portfolio/'.
+const deploymentBase = '/'; // Assuming root deployment. Change if needed.
 
 export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? deploymentBase : '/',
