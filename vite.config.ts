@@ -1,55 +1,55 @@
 import { defineConfig, Plugin, HtmlTagDescriptor } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import fs from "fs";
+    import react from "@vitejs/plugin-react-swc";
+    import path from "path";
+    import fs from "fs";
 
-export function devErrorAndNavigationPlugin(): Plugin {
-  let stacktraceJsContent: string | null = null;
-  let dyadShimContent: string | null = null;
+    export function devErrorAndNavigationPlugin(): Plugin {
+      let stacktraceJsContent: string | null = null;
+      let dyadShimContent: string | null = null;
 
-  return {
-    name: "dev-error-and-navigation-handler",
-    apply: "serve",
+      return {
+        name: "dev-error-and-navigation-handler",
+        apply: "serve",
 
-    configResolved() {
-      const stackTraceLibPath = path.join(
-        "node_modules",
-        "stacktrace-js",
-        "dist",
-        "stacktrace.min.js"
-      );
-      if (stackTraceLibPath) {
-        try {
-          stacktraceJsContent = fs.readFileSync(stackTraceLibPath, "utf-8");
-        } catch (error) {
-          console.error(
-            `[dyad-shim] Failed to read stacktrace.js from ${stackTraceLibPath}:`,
-            error
+        configResolved() {
+          const stackTraceLibPath = path.join(
+            "node_modules",
+            "stacktrace-js",
+            "dist",
+            "stacktrace.min.js"
           );
-          stacktraceJsContent = null;
-        }
-      } else {
-        console.error(`[dyad-shim] stacktrace.js not found.`);
-      }
+          if (stackTraceLibPath) {
+            try {
+              stacktraceJsContent = fs.readFileSync(stackTraceLibPath, "utf-8");
+            } catch (error) {
+              console.error(
+                `[dyad-shim] Failed to read stacktrace.js from ${stackTraceLibPath}:`,
+                error
+              );
+              stacktraceJsContent = null;
+            }
+          } else {
+            console.error(`[dyad-shim] stacktrace.js not found.`);
+          }
 
-      const dyadShimPath = path.join("dyad-shim.js");
-      if (dyadShimPath) {
-        try {
-          dyadShimContent = fs.readFileSync(dyadShimPath, "utf-8");
-        } catch (error) {
-          console.error(
-            `[dyad-shim] Failed to read dyad-shim from ${dyadShimPath}:`,
-            error
-          );
-          dyadShimContent = null;
-        }
-      } else {
-        console.error(`[dyad-shim] stacktrace.js not found.`);
-      }
-    },
+          const dyadShimPath = path.join("dyad-shim.js");
+          if (dyadShimPath) {
+            try {
+              dyadShimContent = fs.readFileSync(dyadShimPath, "utf-8");
+            } catch (error) {
+              console.error(
+                `[dyad-shim] Failed to read dyad-shim from ${dyadShimPath}:`,
+                error
+              );
+              dyadShimContent = null;
+            }
+          } else {
+            console.error(`[dyad-shim] stacktrace.js not found.`);
+          }
+        },
 
-    transformIndexHtml(html) {
-      const tags: HtmlTagDescriptor[] = [];
+        transformIndexHtml(html) {
+          const tags: HtmlTagDescriptor[] = [];
 
       if (stacktraceJsContent) {
         tags.push({
