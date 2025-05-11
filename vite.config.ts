@@ -86,7 +86,7 @@ import { defineConfig, Plugin, HtmlTagDescriptor } from "vite";
     }
 
     export default defineConfig(({ mode }) => ({
-      base: "/haitomnsPortfolio",
+      base: "/haitomnsPortfolio/",
       server: {
         host: "::",
         port: 8080,
