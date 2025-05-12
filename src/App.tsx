@@ -15,8 +15,8 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// This should match the repository name used in vite.config.ts for production base
-const appBaseName = import.meta.env.PROD ? "/haitomnsPortfolio" : "/"; // Using lowercase 'h'
+// This MUST match your repository name for GitHub Pages deployment
+const appBaseName = import.meta.env.PROD ? "/haitomnsPortfolio" : "/"; 
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
