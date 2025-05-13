@@ -16,7 +16,7 @@ import useSmoothScroll from "./hooks/useSmoothScroll"; // Import the hook
 
 const queryClient = new QueryClient();
 
-const appBaseName = import.meta.env.PROD ? "/haitomnsPortfolio" : "/";
+const appBaseName = "/";
 
 const App = () => {
   useSmoothScroll(); // Initialize smooth scrolling
