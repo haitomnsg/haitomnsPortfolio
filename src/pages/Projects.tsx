@@ -6,32 +6,32 @@ const introText = "My projects focus on solving real-life problems through pract
 
 const projectsData = [
   {
-    imageUrl: "/images/doclipi.png",
+    imageUrl: "./images/doclipi.png",
     title: "DocLipi: An Intelligent Document Classifier and OCR Solution",
     link: "#",
   },
   {
-    imageUrl: "/images/tomato-bot.jpg",
+    imageUrl: "./images/tomato-bot.jpg",
     title: "TomatoBot: Eats all red tomatoes",
     link: "#",
   },
   {
-    imageUrl: "/images/jiffy.png",
+    imageUrl: "./images/jiffy.png",
     title: "Jiffy: The AI Food Delivery App",
     link: "#",
   },
   {
-    imageUrl: "/images/phulbari.png",
+    imageUrl: "./images/phulbari.png",
     title: "Phulbari: Happy Flower Happy You",
     link: "#",
   },
   {
-    imageUrl: "/images/resthat.png",
+    imageUrl: "./images/resthat.png",
     title: "RestHat: Simplify your Restaurant Experience",
     link: "#",
   },
   {
-    imageUrl: "/images/redsoil.jpg",
+    imageUrl: "./images/redsoil.jpg",
     title: "RedSoil: Make your Blood Work Easy",
     link: "#",
   }

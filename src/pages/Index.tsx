@@ -38,7 +38,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="flex flex-col items-center md:items-start text-center md:text-left">
         <img 
-          src="/images/ashish-profile-circle.png" 
+          src="./images/ashish-profile-circle.png" 
           alt="Ashish Gupta"
           className="w-40 h-40 rounded-full object-cover mb-6 shadow-md"
         />

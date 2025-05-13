@@ -17,7 +17,7 @@ interface RobotProject {
 const robotProjectsData: RobotProject[] = [
   {
     id: 'tomatobot',
-    imageUrl: '/images/tomato-bot-robot.jpg',
+    imageUrl: './images/tomato-bot-robot.jpg',
     title: 'TomatoBot',
     description: 'TomatoBot is an autonomous tomato harvesting robot designed for farm use. It can differentiate between ripe and unripe tomatoes using YOLO object detection and navigate fields freely with its 360-degree wheel and gear motor system. A grabbing mechanism demonstrates its capability to harvest tomatoes.',
     features: [
@@ -29,7 +29,7 @@ const robotProjectsData: RobotProject[] = [
   },
   {
     id: 'face-tracking-robot',
-    imageUrl: '/images/face-bot-robot.jpg',
+    imageUrl: './images/face-bot-robot.jpg',
     title: 'Face and Human Tracking Robot',
     description: 'This robot captures live video feeds, processes them using AI to track human bodies and faces, and moves accordingly. It features a dual-mode operation for versatile interaction: one for human/face tracking and another for detecting and following traffic signs.',
     features: [
@@ -42,7 +42,7 @@ const robotProjectsData: RobotProject[] = [
   },
   {
     id: 'disaster-rescue-vehicle',
-    imageUrl: '/images/rescue-bot-robot.jpg',
+    imageUrl: './images/rescue-bot-robot.jpg',
     title: 'Multi-Utility Disaster Rescue Vehicle',
     description: 'A versatile rescue vehicle designed for military and disaster relief operations. It aids in rescuing victims using a robotic arm, provides surveillance via drone and camera, includes a fire extinguisher, and is equipped with an automatic gun for battlefield scenarios.',
     features: [
@@ -56,7 +56,7 @@ const robotProjectsData: RobotProject[] = [
   },
   {
     id: 'obstacle-avoider',
-    imageUrl: '/images/obstacle-bot-robot.jpg', // Placeholder image
+    imageUrl: './images/obstacle-bot-robot.jpg', // Placeholder image
     title: 'Arduino Obstacle Avoiding Car',
     description: 'A simple yet effective obstacle avoiding car. It uses an ultrasonic sensor to detect nearby objects. If an obstacle is detected within a 5cm range, the car stops, scans its surroundings to find an open path, and then navigates towards the direction with the most space.',
     features: [
