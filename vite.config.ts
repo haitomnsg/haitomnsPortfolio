@@ -88,7 +88,7 @@ export function devErrorAndNavigationPlugin(): Plugin {
 export default defineConfig(({ mode }) => ({
   // For production builds (like for GitHub Pages), base should be /repositoryName/
   // For development (npm run dev), base is usually /
-  base: '/haitomnsPortfolio/',
+  base: '/',
   server: {
     host: "::",
     port: 8080,
