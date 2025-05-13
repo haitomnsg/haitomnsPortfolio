@@ -2,43 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add Intra Font @font-face rules below */
 @font-face {
   font-family: 'Intra';
-  src: url('/fonts/Intra-Regular.woff2') format('woff2'),
-       url('/fonts/Intra-Regular.woff') format('woff');
+  src: url('../fonts/Intra-Regular.woff2') format('woff2'),
+       url('../fonts/Intra-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Intra';
-  src: url('/fonts/Intra-Medium.woff2') format('woff2'),
-       url('/fonts/Intra-Medium.woff') format('woff');
+  src: url('../fonts/Intra-Medium.woff2') format('woff2'),
+       url('../fonts/Intra-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Intra';
-  src: url('/fonts/Intra-SemiBold.woff2') format('woff2'),
-       url('/fonts/Intra-SemiBold.woff') format('woff');
+  src: url('../fonts/Intra-SemiBold.woff2') format('woff2'),
+       url('../fonts/Intra-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Intra';
-  src: url('/fonts/Intra-Bold.woff2') format('woff2'),
-       url('/fonts/Intra-Bold.woff') format('woff');
+  src: url('../fonts/Intra-Bold.woff2') format('woff2'),
+       url('../fonts/Intra-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* html { */
+  /* scroll-behavior: smooth; */ /* Removed as Lenis will handle scrolling */
+/* } */
 
 @layer base {
   :root {
@@ -76,14 +75,13 @@ html {
     --sidebar-foreground: 0 0% 0%;   
     --sidebar-primary: 0 0% 0%;      
     --sidebar-primary-foreground: 0 0% 100%; 
-    --sidebar-accent: 0 0% 97%; /* Updated to #f7f7f7 for hover background */
-    --sidebar-accent-foreground: 0 0% 0%; /* Text on hover: black */
+    --sidebar-accent: 0 0% 97%; 
+    --sidebar-accent-foreground: 0 0% 0%; 
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 0 0% 0%; 
   }
 
   .dark {
-    /* Dark mode remains as previously defined */
     --background: 222.2 84% 4.9%; 
     --foreground: 0 0% 100%; 
 
