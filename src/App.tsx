@@ -16,7 +16,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 // This MUST match your repository name for GitHub Pages deployment
-const appBaseName = import.meta.env.PROD ? "/haitomnsPortfolio" : "/"; 
+const appBaseName = "/";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
