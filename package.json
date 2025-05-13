@@ -1,7 +1,7 @@
 {
       "name": "haitoms-portfolio",
       "description": "A portfolio website showcasing my projects and skills.",
-      "homepage": "https://haitomns.me/",
+      "homepage": "https://www.haitomns.me/",
       "private": true,
       "version": "1.0",
       "type": "module",
