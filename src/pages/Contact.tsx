@@ -14,7 +14,7 @@ import * as z from "zod";
 
 // --- YOUR EXISTING CONTENT FOR introText and contactLinks WILL BE PRESERVED ---
 // Dyad: I will not modify the content of these constants.
-const introText = "Whether it's brainstorming a new project, discussing design optimizations, or just sharing creative insights, I'm always excited to collaborate. Reach out to me and let's craft something exceptional — together!";
+const introText = "Whether it's brainstorming a new project, discussing design optimizations, or just sharing creative insights, I'm always excited to collaborate. Reach out to me and let's craft something exceptional together!";
 
 const contactLinks = [
   { 
@@ -111,7 +111,7 @@ const Contact = () => {
 
   function onSubmit(data: ContactFormValues) {
     console.log("Form submitted (simulated):", data);
-    setSuccessMessage("Your message has been sent successfully!"); // Set success message
+    setSuccessMessage("Message Sent Successfully!"); // Set success message
     form.reset(); // Reset the form fields
 
     // Clear the success message after a few seconds
