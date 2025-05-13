@@ -85,13 +85,10 @@ export function devErrorAndNavigationPlugin(): Plugin {
   };
 }
 
-// Ensure this exactly matches your GitHub repository name as it appears in the URL path.
-const repositoryName = 'haitomnsPortfolio'; 
-
 export default defineConfig(({ mode }) => ({
   // For production builds (like for GitHub Pages), base should be /repositoryName/
   // For development (npm run dev), base is usually /
-  base: mode === 'production' ? `/${repositoryName}/` : '/',
+  base: '/',
   server: {
     host: "::",
     port: 8080,
