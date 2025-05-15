@@ -28,8 +28,9 @@ const useActiveSection = (sectionIds: string[]) => {
     observer.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // When a section enters the middle half of the viewport, set it as active
-          setActiveSection(entry.target.id.replace('-section', ''));
+          const sectionId = entry.target.id.replace('-section', '');
+          console.log(`[useActiveSection] Section intersecting: ${sectionId}`); // Log intersecting section
+          setActiveSection(sectionId);
         }
       });
     }, options);
@@ -47,6 +48,7 @@ const useActiveSection = (sectionIds: string[]) => {
     };
   }, [sectionIds]); // Re-run if section IDs change
 
+  console.log(`[useActiveSection] Current active section state: ${activeSection}`); // Log state changes
   return activeSection;
 };
 

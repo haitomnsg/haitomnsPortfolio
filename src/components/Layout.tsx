@@ -34,20 +34,27 @@ const Layout = () => {
     if (!isMobile) {
       // On desktop, active section is determined by the route
       const path = location.pathname;
-      setActiveSection(path === "/" ? "home" : path.replace("/", ""));
+      const sectionId = path === "/" ? "home" : path.replace("/", "");
+      console.log(`[Layout] Desktop: Setting active section from route: ${sectionId}`); // Log desktop route change
+      setActiveSection(sectionId);
     } else {
       // On mobile, active section is determined by the viewport hook
       // Only update if the hook provides a value (meaning a section is visible)
       if (activeSectionFromViewport) {
+         console.log(`[Layout] Mobile: Setting active section from viewport: ${activeSectionFromViewport}`); // Log mobile viewport change
          setActiveSection(activeSectionFromViewport);
       } else {
         // Fallback: if no section is visible (e.g., initial load before scroll),
         // use the section corresponding to the current route.
         const path = location.pathname;
-        setActiveSection(path === "/" ? "home" : path.replace("/", ""));
+        const sectionId = path === "/" ? "home" : path.replace("/", "");
+        console.log(`[Layout] Mobile: Viewport hook returned null, falling back to route: ${sectionId}`); // Log mobile fallback
+        setActiveSection(sectionId);
       }
     }
   }, [location, isMobile, activeSectionFromViewport]); // Depend on location, mobile state, and viewport hook result
+
+  console.log(`[Layout] Rendering with activeSection: ${activeSection} (isMobile: ${isMobile})`); // Log render state
 
   // If not mobile, render the standard multi-page layout
   if (!isMobile) {
@@ -100,7 +107,7 @@ const Layout = () => {
            {/* This ensures they still work if navigated to directly */}
            {/* The 'hidden' class above ensures this div is only visible if the activeSection
                is NOT one of the main SPA sections (i.e., it's a policy or 404 page) */}
-           <Outlet />
+           {["cookie-policy", "privacy-policy", "404"].includes(activeSection) && <Outlet />}
         </div>
 
 
