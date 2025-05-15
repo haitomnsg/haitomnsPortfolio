@@ -13,47 +13,47 @@ import * as z from "zod";
 const introText = "Whether it's brainstorming a new project, discussing design optimizations, or just sharing creative insights, I'm always excited to collaborate. Reach out to me and let's craft something exceptional — together!";
 
 const contactLinks = [
-  { 
-    icon: Mail, 
+  {
+    icon: Mail,
     text: "haitomns@gmail.com",
-    href: "mailto:haitomns@gmail.com", 
+    href: "mailto:haitomns@gmail.com",
     bgColor: "bg-red-100",
     iconColor: "text-red-600"
   },
-  { 
-    icon: Phone, 
+  {
+    icon: Phone,
     text: "+977 980 920 4764",
-    href: "tel:+9779809204764", 
+    href: "tel:+9779809204764",
     bgColor: "bg-yellow-100",
     iconColor: "text-yellow-600"
   },
-  { 
-    icon: Facebook, 
-    text: "Facebook", 
+  {
+    icon: Facebook,
+    text: "Facebook",
     href: "https://www.facebook.com/haitomnsg",
-    bgColor: "bg-blue-100", 
-    iconColor: "text-blue-700" 
+    bgColor: "bg-blue-100",
+    iconColor: "text-blue-700"
   },
-  { 
-    icon: Instagram, 
-    text: "Instagram", 
+  {
+    icon: Instagram,
+    text: "Instagram",
     href: "https://www.instagram.com/haitomnsg/",
-    bgColor: "bg-pink-100", 
-    iconColor: "text-pink-600" 
+    bgColor: "bg-pink-100",
+    iconColor: "text-pink-600"
   },
-  { 
-    icon: Linkedin, 
-    text: "LinkedIn", 
+  {
+    icon: Linkedin,
+    text: "LinkedIn",
     href: "https://www.linkedin.com/in/haitomnsg/",
     bgColor: "bg-purple-100",
     iconColor: "text-purple-600"
   },
-  { 
-    icon: Github, 
-    text: "GitHub", 
+  {
+    icon: Github,
+    text: "GitHub",
     href: "https://github.com/haitomnsg/",
-    bgColor: "bg-neutral-200", 
-    iconColor: "text-neutral-700" 
+    bgColor: "bg-neutral-200",
+    iconColor: "text-neutral-700"
   },
 ];
 

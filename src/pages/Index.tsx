@@ -32,16 +32,16 @@ const Index = () => {
     <section id="home-section" className="space-y-12"> {/* Added section with ID */}
       {/* Hero Section */}
       <div className="flex flex-col items-center md:items-start text-center md:text-left">
-        <img 
-          src="./images/ashish-profile-circle.png" 
+        <img
+          src="./images/ashish-profile-circle.png"
           alt="Ashish Gupta"
           className="w-40 h-40 rounded-full object-cover mb-6 shadow-md"
         />
-        
+
         <h1 className="w-full text-5xl font-semibold text-foreground mb-4 text-center md:text-left">
           Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
         </h1>
-        
+
         <p className="text-lg text-muted-foreground max-w-3xl text-center md:text-left">
           I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
         </p>

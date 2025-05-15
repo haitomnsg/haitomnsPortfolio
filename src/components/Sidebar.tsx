@@ -15,6 +15,7 @@ const navItems = [
   { href: "/contact", label: "Contact", icon: Mail, id: "contact" },
 ];
 
+// Reverted social links to the exact code provided by the user
 const socialLinks = [
   { href: "https://www.facebook.com/haitomnsg", label: "Facebook", icon: Facebook },
   { href: "https://www.instagram.com/haitomnsg/", label: "Instagram", icon: Instagram },
@@ -58,7 +59,7 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
         // Determine active state based on mobile view and activeSection prop
         // On mobile, use the activeSection prop from the viewport hook
         // On desktop, use react-router-dom's location
-        const isActive = isMobile 
+        const isActive = isMobile
           ? activeSection === item.id
           : (item.href === "/" ? location.pathname === "/" : location.pathname === item.href);
 
@@ -74,10 +75,10 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
             )}
           >
             <div className="flex items-center">
-              <item.icon 
+              <item.icon
                 className={cn(
                   "w-5 h-5 mr-3",
-                  isActive 
+                  isActive
                     ? "text-primary-foreground"
                     : "text-muted-foreground group-hover:text-sidebar-accent-foreground"
                 )}
@@ -96,6 +97,7 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
   );
 };
 
+// Reverted SocialMediaLinks component to the exact code provided by the user
 const SocialMediaLinks = () => (
   <div className="px-4 py-6 border-t border-border">
     <div className="space-y-2">
@@ -130,9 +132,9 @@ const Sidebar: React.FC<{ activeSection?: string }> = ({ activeSection }) => {
         </SheetTrigger>
         <SheetContent side="left" className="w-72 p-0 flex flex-col bg-card">
           {/* Pass activeSection to SidebarContent */}
-          <SidebarContent 
-            onLinkClick={() => setMobileMenuOpen(false)} 
-            activeSection={activeSection} 
+          <SidebarContent
+            onLinkClick={() => setMobileMenuOpen(false)}
+            activeSection={activeSection}
           />
         </SheetContent>
       </Sheet>

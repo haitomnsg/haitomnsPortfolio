@@ -95,14 +95,14 @@ const SectionCard: React.FC<SectionCardProps> = ({ title, icon: Icon, items, car
           <li key={index} className="relative pl-5">
             <div
               className="absolute left-0 w-2 h-2 bg-foreground rounded-full"
-              style={{ top: '0.375em' }} 
+              style={{ top: '0.375em' }}
             ></div>
             {index < items.length - 1 && (
               <div
                 className="absolute w-0.5 bg-[#e6e6e6] -z-10"
                 style={{
-                  left: '0.1875rem', 
-                  top: 'calc(0.375em + 0.25rem)', 
+                  left: '0.1875rem',
+                  top: 'calc(0.375em + 0.25rem)',
                   bottom: 'calc(-1.5rem + 0.375em + 0.25rem)',
                 }}
               ></div>

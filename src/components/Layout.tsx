@@ -21,9 +21,9 @@ const mainSectionIds = ["home", "about", "projects", "robotics", "contact"];
 
 const Layout = () => {
   const isMobile = useIsMobile();
-  const location = useLocation();
   // Use the hook to track the active section based on viewport visibility
   const activeSectionFromViewport = useActiveSection(mainSectionIds);
+  const location = useLocation();
 
   // State to hold the *actual* active section ID to pass to Sidebar
   // On desktop, this comes from the route. On mobile, it comes from the viewport hook.
@@ -96,7 +96,7 @@ const Layout = () => {
         {/* They will render via Outlet if their route is hit */}
         {/* We render Outlet here unconditionally on mobile, but these pages
             are only shown if their specific route is active. */}
-         <div className={cn("container mx-auto px-4 pb-4 pt-16", ["cookie-policy", "privacy-policy", "404"].includes(activeSection) ? "block" : "hidden")}>
+         <div className={cn("container mx-auto px-4 pb-4 pt-16", !mainSectionIds.includes(activeSection) ? "block" : "hidden")}>
            {/* Render Outlet for policy pages and 404 on mobile */}
            {/* This ensures they still work if navigated to directly */}
            {/* The 'hidden' class above ensures this div is only visible if the activeSection
