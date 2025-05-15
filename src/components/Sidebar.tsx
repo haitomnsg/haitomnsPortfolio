@@ -15,6 +15,7 @@ const navItems = [
   { href: "/contact", label: "Contact", icon: Mail, id: "contact" },
 ];
 
+// Reverted social links to original ones from the initial codebase
 const socialLinks = [
   { href: "https://www.facebook.com/haitomnsg", label: "Facebook", icon: Facebook },
   { href: "https://www.instagram.com/haitomnsg/", label: "Instagram", icon: Instagram },
@@ -75,6 +76,8 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
     <nav className="flex-grow px-4 py-6 space-y-1">
       {navItems.map((item) => {
         // Determine active state based on mobile view and activeSection prop
+        // On mobile, use the activeSection prop from the viewport hook
+        // On desktop, use react-router-dom's location
         const isActive = isMobile 
           ? activeSection === item.id
           : (item.href === "/" ? location.pathname === "/" : location.pathname === item.href);
