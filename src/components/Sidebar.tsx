@@ -15,7 +15,7 @@ const navItems = [
   { href: "/contact", label: "Contact", icon: Mail, id: "contact" },
 ];
 
-// Reverted social links to the exact code provided by the user
+// Keeping social links layout as provided by the user
 const socialLinks = [
   { href: "https://www.facebook.com/haitomnsg", label: "Facebook", icon: Facebook },
   { href: "https://www.instagram.com/haitomnsg/", label: "Instagram", icon: Instagram },
@@ -36,7 +36,7 @@ const UserProfile = () => (
   </div>
 );
 
-const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => void, activeSection?: string }) => {
+const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
@@ -44,7 +44,6 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
   const handleClick = (href: string, id: string) => {
     if (isMobile) {
       // For mobile, scroll to section instead of navigating
-      // Use behavior: 'smooth' for smooth scrolling
       document.getElementById(`${id}-section`)?.scrollIntoView({ behavior: 'smooth' });
       onLinkClick?.(); // Close the sheet after clicking a link
     } else {
@@ -56,13 +55,10 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
   return (
     <nav className="flex-grow px-4 py-6 space-y-1">
       {navItems.map((item) => {
-        // Determine active state based on mobile view and activeSection prop
-        // On mobile, use the activeSection prop from the viewport hook
-        // On desktop, use react-router-dom's location
-        const isActive = isMobile
-          ? activeSection === item.id
-          : (item.href === "/" ? location.pathname === "/" : location.pathname === item.href);
+        // Determine active state only for desktop based on route
+        const isActive = !isMobile && (item.href === "/" ? location.pathname === "/" : location.pathname === item.href);
 
+        // Use a button for both mobile (scrolling) and desktop (handled by onClick)
         return (
           <button
             key={item.label}
@@ -97,7 +93,7 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
   );
 };
 
-// Reverted SocialMediaLinks component to the exact code provided by the user
+// Keeping SocialMediaLinks component layout as provided by the user
 const SocialMediaLinks = () => (
   <div className="px-4 py-6 border-t border-border">
     <div className="space-y-2">
@@ -118,7 +114,8 @@ const SocialMediaLinks = () => (
   </div>
 );
 
-const Sidebar: React.FC<{ activeSection?: string }> = ({ activeSection }) => {
+// Removed activeSection prop as it's no longer used for mobile highlighting
+const Sidebar: React.FC = () => {
   const isMobile = useIsMobile();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
@@ -131,10 +128,9 @@ const Sidebar: React.FC<{ activeSection?: string }> = ({ activeSection }) => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-72 p-0 flex flex-col bg-card">
-          {/* Pass activeSection to SidebarContent */}
+          {/* Pass onLinkClick to close the sheet */}
           <SidebarContent
             onLinkClick={() => setMobileMenuOpen(false)}
-            activeSection={activeSection}
           />
         </SheetContent>
       </Sheet>
@@ -143,17 +139,18 @@ const Sidebar: React.FC<{ activeSection?: string }> = ({ activeSection }) => {
 
   return (
     <aside className="fixed top-4 left-4 h-[calc(100vh-2rem)] w-72 bg-card border border-border flex flex-col shadow-xl rounded-lg overflow-hidden">
-      {/* Pass activeSection to SidebarContent for desktop too (though not strictly needed for active state logic there) */}
-      <SidebarContent activeSection={activeSection} />
+      {/* No activeSection needed for desktop SidebarContent */}
+      <SidebarContent />
     </aside>
   );
 };
 
-const SidebarContent = ({ onLinkClick, activeSection }: { onLinkClick?: () => void, activeSection?: string }) => (
+// Removed activeSection prop
+const SidebarContent = ({ onLinkClick }: { onLinkClick?: () => void }) => (
   <>
     <UserProfile />
-    {/* Pass activeSection to NavigationLinks */}
-    <NavigationLinks onLinkClick={onLinkClick} activeSection={activeSection} />
+    {/* Pass onLinkClick to NavigationLinks */}
+    <NavigationLinks onLinkClick={onLinkClick} />
     <SocialMediaLinks />
   </>
 );

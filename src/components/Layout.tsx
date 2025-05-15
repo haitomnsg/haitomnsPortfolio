@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react"; // Removed useState, useEffect as they are no longer needed for activeSection state
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
-import useActiveSection from "@/hooks/useActiveSection"; // Import the new hook
+// Removed import useActiveSection from "@/hooks/useActiveSection"; // Remove the hook import
 
 // Import all page components
 import Index from "@/pages/Index";
@@ -16,46 +16,21 @@ import CookiePolicy from "@/pages/CookiePolicy"; // Keep these for desktop routi
 import PrivacyPolicy from "@/pages/PrivacyPolicy"; // Keep these for desktop routing
 import NotFound from "@/pages/NotFound"; // Keep for desktop routing
 
-// Define the IDs for the main content sections
+// Define the IDs for the main content sections (still needed for scrolling)
 const mainSectionIds = ["home", "about", "projects", "robotics", "contact"];
 
 const Layout = () => {
   const isMobile = useIsMobile();
-  // Use the hook to track the active section based on viewport visibility
-  const activeSectionFromViewport = useActiveSection(mainSectionIds);
-  const location = useLocation();
+  const location = useLocation(); // Still needed for desktop routing
 
-  // State to hold the *actual* active section ID to pass to Sidebar
-  // On desktop, this comes from the route. On mobile, it comes from the viewport hook.
-  const [activeSection, setActiveSection] = useState("home");
-
-  // Update active section state based on route changes (desktop) or viewport (mobile)
-  useEffect(() => {
-    if (!isMobile) {
-      // On desktop, active section is determined by the route
-      const path = location.pathname;
-      const sectionId = path === "/" ? "home" : path.replace("/", "");
-      setActiveSection(sectionId);
-    } else {
-      // On mobile, active section is determined by the viewport hook
-      // Only update if the hook provides a value (meaning a section is visible)
-      if (activeSectionFromViewport) {
-         setActiveSection(activeSectionFromViewport);
-      } else {
-        // Fallback: if no section is visible (e.g., initial load before scroll),
-        // use the section corresponding to the current route.
-        const path = location.pathname;
-        setActiveSection(path === "/" ? "home" : path.replace("/", ""));
-      }
-    }
-  }, [location, isMobile, activeSectionFromViewport]); // Depend on location, mobile state, and viewport hook result
-
+  // Removed activeSection state and useEffect hook
 
   // If not mobile, render the standard multi-page layout
   if (!isMobile) {
     return (
       <div className="flex min-h-screen bg-background">
-        <Sidebar activeSection={activeSection} /> {/* Pass activeSection */}
+        {/* No activeSection prop needed for desktop Sidebar */}
+        <Sidebar />
         <main className="flex-1 ml-[calc(18rem+2rem)] w-[calc(100%-18rem-2rem)]">
           <div className="container mx-auto px-4 pb-4 pt-8">
             {/* Outlet renders the current page component based on route */}
@@ -67,11 +42,12 @@ const Layout = () => {
     );
   }
 
-  // If mobile, render all sections and control visibility
+  // If mobile, render all sections
   return (
     <div className="flex min-h-screen bg-background">
       {/* Mobile Sidebar (Sheet) is handled internally by the Sidebar component */}
-      <Sidebar activeSection={activeSection} />
+      {/* No activeSection prop needed for mobile Sidebar */}
+      <Sidebar />
 
       <main className="flex-1 w-full">
         {/* Render all main page components unconditionally on mobile */}
@@ -96,11 +72,14 @@ const Layout = () => {
         {/* They will render via Outlet if their route is hit */}
         {/* We render Outlet here unconditionally on mobile, but these pages
             are only shown if their specific route is active. */}
-         <div className={cn("container mx-auto px-4 pb-4 pt-16", !mainSectionIds.includes(activeSection) ? "block" : "hidden")}>
+         {/* This div is only needed if you want policy/404 pages to still use routing on mobile */}
+         {/* If you want them as sections too, you'd add them above */}
+         {/* For now, keeping the Outlet for these specific routes */}
+         <div className={cn("container mx-auto px-4 pb-4 pt-16")}>
            {/* Render Outlet for policy pages and 404 on mobile */}
            {/* This ensures they still work if navigated to directly */}
-           {/* The 'hidden' class above ensures this div is only visible if the activeSection
-               is NOT one of the main SPA sections (i.e., it's a policy or 404 page) */}
+           {/* You might need conditional rendering here if you don't want Outlet always rendering */}
+           {/* A simple check based on location.pathname could work, but Outlet handles it */}
            <Outlet />
         </div>
 
