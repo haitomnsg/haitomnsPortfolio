@@ -2,7 +2,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { Home, User, Briefcase, Bot, Mail, Menu, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
+import { Home, User, Briefcase, Bot, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
@@ -15,7 +15,6 @@ const navItems = [
   { href: "/contact", label: "Contact", icon: Mail, id: "contact" },
 ];
 
-// Reverted social links to original ones from the initial codebase
 const socialLinks = [
   { href: "https://www.facebook.com/haitomnsg", label: "Facebook", icon: Facebook },
   { href: "https://www.instagram.com/haitomnsg/", label: "Instagram", icon: Instagram },
@@ -36,31 +35,10 @@ const UserProfile = () => (
   </div>
 );
 
-const SocialMediaLinks = () => (
-  <div className="p-4 border-t border-border">
-    <div className="flex justify-center space-x-4">
-      {socialLinks.map((link) => (
-        <a
-          key={link.label}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-muted-foreground hover:text-foreground transition-colors"
-          aria-label={link.label}
-        >
-          <link.icon className="w-5 h-5" />
-        </a>
-      ))}
-    </div>
-  </div>
-);
-
 const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => void, activeSection?: string }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isMobile = useIsMobile();
-
-  console.log(`[NavigationLinks] Received activeSection prop: ${activeSection}`); // Log received prop
 
   const handleClick = (href: string, id: string) => {
     if (isMobile) {
@@ -84,10 +62,6 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
           ? activeSection === item.id
           : (item.href === "/" ? location.pathname === "/" : location.pathname === item.href);
 
-        console.log(`[NavigationLinks] Item: ${item.label}, ID: ${item.id}, isActive: ${isActive}`); // Log active state calculation
-
-        // Use a button for both mobile (scrolling) and desktop (handled by onClick)
-        // This simplifies the component structure
         return (
           <button
             key={item.label}
@@ -121,6 +95,26 @@ const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => v
     </nav>
   );
 };
+
+const SocialMediaLinks = () => (
+  <div className="px-4 py-6 border-t border-border">
+    <div className="space-y-2">
+      {socialLinks.map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors group"
+        >
+          <link.icon className="w-5 h-5 mr-3 text-muted-foreground group-hover:text-sidebar-accent-foreground" />
+          {link.label}
+          <ExternalLink className="w-4 h-4 ml-auto text-muted-foreground/70 opacity-0 group-hover:opacity-100 group-hover:text-sidebar-accent-foreground transition-opacity duration-200" />
+        </a>
+      ))}
+    </div>
+  </div>
+);
 
 const Sidebar: React.FC<{ activeSection?: string }> = ({ activeSection }) => {
   const isMobile = useIsMobile();

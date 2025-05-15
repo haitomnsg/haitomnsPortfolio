@@ -35,26 +35,21 @@ const Layout = () => {
       // On desktop, active section is determined by the route
       const path = location.pathname;
       const sectionId = path === "/" ? "home" : path.replace("/", "");
-      console.log(`[Layout] Desktop: Setting active section from route: ${sectionId}`); // Log desktop route change
       setActiveSection(sectionId);
     } else {
       // On mobile, active section is determined by the viewport hook
       // Only update if the hook provides a value (meaning a section is visible)
       if (activeSectionFromViewport) {
-         console.log(`[Layout] Mobile: Setting active section from viewport: ${activeSectionFromViewport}`); // Log mobile viewport change
          setActiveSection(activeSectionFromViewport);
       } else {
         // Fallback: if no section is visible (e.g., initial load before scroll),
         // use the section corresponding to the current route.
         const path = location.pathname;
-        const sectionId = path === "/" ? "home" : path.replace("/", "");
-        console.log(`[Layout] Mobile: Viewport hook returned null, falling back to route: ${sectionId}`); // Log mobile fallback
-        setActiveSection(sectionId);
+        setActiveSection(path === "/" ? "home" : path.replace("/", ""));
       }
     }
   }, [location, isMobile, activeSectionFromViewport]); // Depend on location, mobile state, and viewport hook result
 
-  console.log(`[Layout] Rendering with activeSection: ${activeSection} (isMobile: ${isMobile})`); // Log render state
 
   // If not mobile, render the standard multi-page layout
   if (!isMobile) {
@@ -79,9 +74,8 @@ const Layout = () => {
       <Sidebar activeSection={activeSection} />
 
       <main className="flex-1 w-full">
-        {/* Render all main page components */}
+        {/* Render all main page components unconditionally on mobile */}
         {/* Add pt-16 to all mobile sections to clear the fixed hamburger menu */}
-        {/* Note: On mobile, all these components are rendered, but their parent div's display is controlled */}
         <div className={cn("container mx-auto px-4 pb-4 pt-16")} id="home-section">
           <Index />
         </div>
@@ -102,12 +96,12 @@ const Layout = () => {
         {/* They will render via Outlet if their route is hit */}
         {/* We render Outlet here unconditionally on mobile, but these pages
             are only shown if their specific route is active. */}
-         <div className={cn("container mx-auto px-4 pb-4 pt-16", !mainSectionIds.includes(activeSection) ? "block" : "hidden")}>
+         <div className={cn("container mx-auto px-4 pb-4 pt-16", ["cookie-policy", "privacy-policy", "404"].includes(activeSection) ? "block" : "hidden")}>
            {/* Render Outlet for policy pages and 404 on mobile */}
            {/* This ensures they still work if navigated to directly */}
            {/* The 'hidden' class above ensures this div is only visible if the activeSection
                is NOT one of the main SPA sections (i.e., it's a policy or 404 page) */}
-           {["cookie-policy", "privacy-policy", "404"].includes(activeSection) && <Outlet />}
+           <Outlet />
         </div>
 
 
