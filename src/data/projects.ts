@@ -137,7 +137,7 @@ export const projectsData: Project[] = [
           'Menu Management',
           'Waiter Order Module',
           'Kitchen Management',
-          'IRD Certified', // Added the missing comma here
+          'IRD Certified',
         ],
       },
       {
@@ -169,7 +169,13 @@ export const projectsData: Project[] = [
       },
       {
         heading: 'Requirement',
-        content: 'RedSoil uses MySQL in the backend, so download and install MySQL Server, save the following configuration details: MySQL Username, MySQL Password, MySQL Port Number, MySQL Installation Path.',
+        content: [ // Changed to array
+          'RedSoil uses MySQL in the backend, so download and install MySQL Server, save the following configuration details:', // First item is the paragraph
+          'MySQL Username', // Subsequent items for the numbered list
+          'MySQL Password',
+          'MySQL Port Number',
+          'MySQL Installation Path',
+        ],
       },
       {
         heading: 'Installation',

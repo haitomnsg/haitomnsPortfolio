@@ -74,13 +74,27 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
             {project.sections.map((section, index) => (
               <section key={index} className="space-y-3">
                 <h2 className="text-2xl font-semibold text-foreground">{section.heading}</h2>
-                {Array.isArray(section.content) ? (
+                {/* Custom rendering for the 'Requirement' section */}
+                {section.heading === 'Requirement' && Array.isArray(section.content) ? (
+                  <>
+                    {/* Render the first item as a paragraph */}
+                    <p className="text-muted-foreground">{section.content[0]}</p>
+                    {/* Render the rest as a numbered list */}
+                    <ol className="list-decimal list-outside space-y-2 pl-5">
+                      {section.content.slice(1).map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-muted-foreground">{item}</li>
+                      ))}
+                    </ol>
+                  </>
+                ) : Array.isArray(section.content) ? (
+                  // Existing logic for other sections with array content (unordered list)
                   <ul className="list-disc list-outside space-y-2 pl-5">
                     {section.content.map((item, itemIndex) => (
                       <li key={itemIndex} className="text-muted-foreground">{item}</li>
                     ))}
                   </ul>
                 ) : (
+                  // Existing logic for sections with string content (paragraph)
                   <p className="text-muted-foreground">{section.content}</p>
                 )}
               </section>
@@ -92,7 +106,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
       {/* Previous/Next Navigation (Optional - can add later if needed) */}
       {/* <div className="flex justify-between mt-8">
         <Link to="#" className="text-primary hover:underline">&lt; Previous</Link>
-        <Link to="#" className="text-primary hover:underline">Next &gt;</Link>
+        <Link to="#" className="text-primary hover:underline">Next &gt; </Link>
       </div> */}
     </div>
   );
