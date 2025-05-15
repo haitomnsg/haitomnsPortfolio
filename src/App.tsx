@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import CookiePolicy from "./pages/CookiePolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
+import ProjectPage from "./pages/ProjectPage"; // Import the new ProjectPage
 import useSmoothScroll from "./hooks/useSmoothScroll"; // Import the hook
 
 const queryClient = new QueryClient();
@@ -32,6 +33,8 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
+              {/* Add the dynamic route for individual project pages */}
+              <Route path="/projects/:projectId" element={<ProjectPage />} />
               <Route path="/robotics" element={<Robotics />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/cookie-policy" element={<CookiePolicy />} />

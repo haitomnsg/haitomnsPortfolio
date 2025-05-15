@@ -1,55 +1,31 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Eye } from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link
+import { projectsData } from "@/data/projects"; // Import project data
 
 const introText = "My projects focus on solving real-life problems through practical, user-centric solutions. I aim to build complete systems that are both innovative and functional designed with clean code, efficient architecture, and real-world usability in mind. Whether for everyday users or businesses, my goal is to make technology genuinely helpful.";
 
-const projectsData = [
-  {
-    imageUrl: "./images/doclipi.png",
-    title: "DocLipi: An Intelligent Document Classifier and OCR Solution",
-    link: "#",
-  },
-  {
-    imageUrl: "./images/tomato-bot.jpg",
-    title: "TomatoBot: Eats all red tomatoes",
-    link: "#",
-  },
-  {
-    imageUrl: "./images/jiffy.png",
-    title: "Jiffy: The AI Food Delivery App",
-    link: "#",
-  },
-  {
-    imageUrl: "./images/phulbari.png",
-    title: "Phulbari: Happy Flower Happy You",
-    link: "#",
-  },
-  {
-    imageUrl: "./images/resthat.png",
-    title: "RestHat: Simplify your Restaurant Experience",
-    link: "#",
-  },
-  {
-    imageUrl: "./images/redsoil.jpg",
-    title: "RedSoil: Make your Blood Work Easy",
-    link: "#",
-  }
-];
+// Use the imported projectsData instead of a local array
+// const projectsData = [ ... ]; // Removed local data
 
 interface ProjectItemProps {
-  imageUrl: string;
-  title: string;
-  link: string;
+  project: {
+    id: string; // Add id for linking
+    imageUrl: string;
+    title: string;
+    // link: string; // Removed as we will use id for routing
+  };
 }
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ imageUrl, title, link }) => (
-  <a href={link} target="_blank" rel="noopener noreferrer" className="group block">
+const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => (
+  // Use Link component for internal navigation
+  <Link to={`/projects/${project.id}`} className="group block">
     <div className="relative overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300 bg-background">
       <AspectRatio ratio={16 / 10}>
         <img
-          src={imageUrl}
-          alt={title}
+          src={project.imageUrl}
+          alt={project.title}
           className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
         />
         {/* Overlay */}
@@ -62,12 +38,20 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageUrl, title, link }) => (
       </AspectRatio>
     </div>
     <h3 className="mt-3 text-base font-medium text-foreground group-hover:text-primary transition-colors duration-300">
-      {title}
+      {project.title}
     </h3>
-  </a>
+  </Link>
 );
 
 const Projects = () => {
+  // Filter projectsData to only include items that have a corresponding detail page defined
+  // This prevents linking to projects that don't have data in src/data/projects.ts
+  const projectsWithDetails = projectsData.filter(project =>
+    // Check if the project ID exists in the imported projectsData array
+    projectsData.some(data => data.id === project.id)
+  );
+
+
   return (
     <section id="projects-section" className="space-y-10"> {/* Added section with ID */}
       <section>
@@ -81,12 +65,15 @@ const Projects = () => {
         <Card className="shadow-xl">
           <CardContent className="p-6 md:p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
-              {projectsData.map((project) => (
+              {/* Use the filtered projectsWithDetails */}
+              {projectsWithDetails.map((project) => (
                 <ProjectItem
-                  key={project.title}
-                  imageUrl={project.imageUrl}
-                  title={project.title}
-                  link={project.link}
+                  key={project.id} // Use project.id as key
+                  project={{ // Pass necessary props to ProjectItem
+                    id: project.id,
+                    imageUrl: project.mainImageUrl, // Use mainImageUrl for the thumbnail
+                    title: project.title,
+                  }}
                 />
               ))}
             </div>
