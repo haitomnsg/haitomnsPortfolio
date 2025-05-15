@@ -146,26 +146,97 @@ export const projectsData: Project[] = [
    {
     id: 'redsoil',
     title: 'RedSoil: Make your Blood Work Easy',
-    intro: 'RedSoil is a health-tech concept aimed at simplifying the process of getting and understanding blood test results.',
-    mainImageUrl: './images/redsoil.jpg',
-    supportingImages: [],
-    sections: [
-      {
-        heading: 'Vision',
-        content: 'To provide users with easy access to their blood test data and understandable explanations of their results.',
-      },
+    intro: 'RedSoil is an application designed to store the results of the blood banks and analyze them.', // Updated intro
+    mainImageUrl: 'https://user-images.githubusercontent.com/114091259/194717618-0320cb45-01a1-48ba-9bbb-b78eebdbfd00.png', // Updated main image
+    supportingImages: [ // Added screenshots as supporting images
+      'https://user-images.githubusercontent.com/114091259/193549206-a2303652-5b10-4078-9fda-5e4d61d1c3cf.png', // Dashboard
+      'https://user-images.githubusercontent.com/114091259/193549311-53d6e702-76ee-422a-b4895f903060.png', // Blood Donation
+      'https://user-images.githubusercontent.com/114091259/193549360-44f346db-53bb-4431-b9b7-1532a19ab580.png', // Find Blood
+      'https://user-images.githubusercontent.com/114091259/194717625-73e5d370-c5b2-4034-8a66-60fbe17665ca.png', // User Account
+    ],
+    sections: [ // Added sections based on README
       {
         heading: 'Features',
         content: [
-          'Secure storage of blood test reports',
-          'Visualization of key health markers over time',
-          'Simple explanations of test results',
-          'Integration with labs (conceptual)',
+          'Interactive Dashboard to view the status of blood bank.',
+          'Real life form insertion for easiness.',
+          'Get all your record in a single page.',
+          'Backup and restore wherever you want.',
         ],
       },
       {
-        heading: 'Technologies Used (Conceptual)',
-        content: ['Secure Data Storage', 'Data Visualization Libraries', 'User Authentication'],
+        heading: 'Requirement',
+        content: 'RedSoil uses MySQL in the backend, so download and install MySQL Server, save the following configuration details: MySQL Username, MySQL Password, MySQL Port Number, MySQL Installation Path.',
+      },
+      {
+        heading: 'Installation',
+        content: 'Download the latest installer of RedSoil from GitHub and install it. Configure and Register the application and you are ready to use it.',
+      },
+      {
+        heading: 'License',
+        content: 'This program is free software: you can redistribute it and/or modify it under the terms of the Apache-2.0 License.',
+      },
+      {
+        heading: 'Developers',
+        content: 'RedSoil is developed and maintained under Haitomns Groups Private Limited. We welcome developers wishing to contribute in this project improve it and resolve errors.',
+      },
+    ],
+  },
+  // Add other projects here following the same structure
+  // Example for Robotics projects (using IDs from Robotics.tsx):
+   {
+    id: 'face-tracking-robot',
+    title: 'Face and Human Tracking Robot',
+    intro: 'This robot captures live video feeds, processes them using AI to track human bodies and faces, and moves accordingly.',
+    mainImageUrl: './images/face-bot-robot.jpg',
+    supportingImages: [],
+    sections: [
+      {
+        heading: 'Functionality',
+        content: 'Features a dual-mode operation for versatile interaction: one for human/face tracking and another for detecting and following traffic signs.',
+      },
+      {
+        heading: 'Technologies Used',
+        content: ['Arduino', 'Motor Shield Driver', 'Motors', 'Battery', 'MU Sensor (AI Vision)'],
+      },
+    ],
+  },
+   {
+    id: 'disaster-rescue-vehicle',
+    title: 'Multi-Utility Disaster Rescue Vehicle',
+    intro: 'A versatile rescue vehicle designed for military and disaster relief operations.',
+    mainImageUrl: './images/rescue-bot-robot.jpg',
+    supportingImages: [],
+    sections: [
+      {
+        heading: 'Capabilities',
+        content: [
+          'Aids in rescuing victims using a robotic arm',
+          'Provides surveillance via drone and camera',
+          'Includes a fire extinguisher',
+          'Equipped with an automatic gun for battlefield utility',
+        ],
+      },
+      {
+        heading: 'Technologies Used',
+        content: ['Arduino', 'Robotic Arm', 'Motor Driver', 'Geared Motors', 'Camera', 'Servo', 'Water Pump Motor'],
+      },
+    ],
+  },
+   {
+    id: 'obstacle-avoider',
+    title: 'Arduino Obstacle Avoiding Car',
+    intro: 'A simple yet effective obstacle avoiding car using an ultrasonic sensor.',
+    mainImageUrl: './images/obstacle-bot-robot.jpg',
+    supportingImages: [],
+    sections: [
+      {
+        heading: 'How it Works',
+        content: 'Uses an ultrasonic sensor to detect nearby objects. If an obstacle is detected within a 5cm range, the car stops, scans its surroundings to find an open path, and then navigates towards the direction with the most space.',
+      },
+      {
+        heading: 'Technologies Used',
+        content: ['Arduino Uno', 'Ultrasonic Sensor', 'Motor Driver', 'Geared DC Motors'],
       },
     ],
   },
