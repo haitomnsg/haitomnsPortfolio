@@ -5,7 +5,7 @@ const introText = "I'm a passionate Robotics and AI Developer with a love for bu
 
 const academicEducation = [
   {
-    degree: "BTech in Artificial Intelligence (Ongoing)", // Changed (2027) to (Ongoing)
+    degree: "BTech in Artificial Intelligence (Ongoing)",
     institution: "Kathmandu University, Dhulikhel",
     duration: "II Year II Semester",
   },
@@ -48,7 +48,7 @@ const experience = [
   {
     role: "Blogger",
     company: "High Approach",
-    duration: "(March 2021 – January 2023)", // Updated duration
+    duration: "(March 2021 – January 2023)",
   },
 ];
 
@@ -64,7 +64,7 @@ const certifications = [
     year: "2023",
   },
   {
-    name: "Certification of Participant", // Changed "Participant in Startup & Idea Fest"
+    name: "Certification of Participant",
     issuer: "Issued by Living with ICT",
     year: "2022",
   },
@@ -122,53 +122,55 @@ const SectionCard: React.FC<SectionCardProps> = ({ title, icon: Icon, items, car
 
 const About = () => {
   return (
-    <div className="space-y-10">
-      <section>
-        <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">About</h1>
-        <p className="text-lg text-muted-foreground max-w-4xl text-left">
-          {introText}
-        </p>
-      </section>
+    <section id="about-section" className="space-y-10"> {/* Added section with ID */}
+      <div className="space-y-10">
+        <section>
+          <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">About</h1>
+          <p className="text-lg text-muted-foreground max-w-4xl text-left">
+            {introText}
+          </p>
+        </section>
 
-      <section className="grid md:grid-cols-2 gap-x-8 gap-y-8">
-        <SectionCard
-          title="Academic Education"
-          icon={GraduationCap}
-          items={academicEducation.map(edu => ({
-            primary: edu.degree,
-            secondary: edu.institution,
-            tertiary: edu.duration,
-          }))}
-        />
-        <SectionCard
-          title="Hackathons"
-          icon={Swords}
-          items={hackathons.map(hack => ({
-            primary: hack.program,
-            secondary: hack.provider,
-            tertiary: hack.duration,
-          }))}
-        />
-        <SectionCard
-          title="Experience"
-          icon={Briefcase}
-          items={experience.map(exp => ({
-            primary: exp.role,
-            secondary: exp.company,
-            tertiary: exp.duration,
-          }))}
-        />
-        <SectionCard
-          title="Certifications"
-          icon={Award}
-          items={certifications.map(cert => ({
-            primary: cert.name,
-            secondary: cert.issuer,
-            tertiary: cert.year,
-          }))}
-        />
-      </section>
-    </div>
+        <section className="grid md:grid-cols-2 gap-x-8 gap-y-8">
+          <SectionCard
+            title="Academic Education"
+            icon={GraduationCap}
+            items={academicEducation.map(edu => ({
+              primary: edu.degree,
+              secondary: edu.institution,
+              tertiary: edu.duration,
+            }))}
+          />
+          <SectionCard
+            title="Hackathons"
+            icon={Swords}
+            items={hackathons.map(hack => ({
+              primary: hack.program,
+              secondary: hack.provider,
+              tertiary: hack.duration,
+            }))}
+          />
+          <SectionCard
+            title="Experience"
+            icon={Briefcase}
+            items={experience.map(exp => ({
+              primary: exp.role,
+              secondary: exp.company,
+              tertiary: exp.duration,
+            }))}
+          />
+          <SectionCard
+            title="Certifications"
+            icon={Award}
+            items={certifications.map(cert => ({
+              primary: cert.name,
+              secondary: cert.issuer,
+              tertiary: cert.year,
+            }))}
+          />
+        </section>
+      </div>
+    </section>
   );
 };
 

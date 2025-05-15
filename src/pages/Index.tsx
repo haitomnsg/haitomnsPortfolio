@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button"; // Still needed for skill card action
-import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react"; // Removed Download
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Code2, BrainCircuit, Bot } from "lucide-react";
 
 const skillCards = [
   {
@@ -28,34 +28,27 @@ const skillCards = [
 ];
 
 const Index = () => {
-  // handleDownloadCV function is removed
-  // const handleDownloadCV = () => {
-  //   alert("Resume download functionality would be here!");
-  // };
-
   return (
-    <div className="space-y-12">
+    <section id="home-section" className="space-y-12"> {/* Added section with ID */}
       {/* Hero Section */}
-      <section className="flex flex-col items-center md:items-start text-center md:text-left">
+      <div className="flex flex-col items-center md:items-start text-center md:text-left">
         <img 
           src="./images/ashish-profile-circle.png" 
           alt="Ashish Gupta"
           className="w-40 h-40 rounded-full object-cover mb-6 shadow-md"
         />
         
-        {/* Removed the div that wrapped the h1 and the Button */}
-        <h1 className="w-full text-5xl font-semibold text-foreground mb-4 text-center md:text-left"> {/* Ensured h1 takes full width for alignment */}
+        <h1 className="w-full text-5xl font-semibold text-foreground mb-4 text-center md:text-left">
           Hey <span role="img" aria-label="waving hand">👋</span>, I'm Ashish!
         </h1>
-        {/* Resume Button and its container div are completely removed */}
         
         <p className="text-lg text-muted-foreground max-w-3xl text-center md:text-left">
           I'm Ashish Gupta, a multidisciplinary engineer building intelligent robots and AI-driven systems to solve real-world problems. With a passion for code, vision, and robotics, I aim to create machines that don’t just function, they think, act, and help shape the future.
         </p>
-      </section>
+      </div>
 
       {/* Skill Cards Section */}
-      <section className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         {skillCards.map((card) => (
           <Card key={card.title} className={`overflow-hidden ${card.bgColor} border-none shadow-lg flex flex-col`}>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
@@ -78,8 +71,8 @@ const Index = () => {
             </CardContent>
           </Card>
         ))}
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

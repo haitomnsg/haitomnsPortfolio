@@ -69,7 +69,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ imageUrl, title, link }) => (
 
 const Projects = () => {
   return (
-    <div className="space-y-10">
+    <section id="projects-section" className="space-y-10"> {/* Added section with ID */}
       <section>
         <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">Projects</h1>
         <p className="text-lg text-muted-foreground max-w-3xl text-left">
@@ -93,7 +93,7 @@ const Projects = () => {
           </CardContent>
         </Card>
       </section>
-    </div>
+    </section>
   );
 };
 

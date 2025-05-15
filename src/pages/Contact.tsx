@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // Import useState
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -9,24 +9,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Phone, Facebook, Instagram, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-// We are not using the toast utility anymore for this specific request
-// import { showSuccess } from "@/utils/toast"; 
 
-// --- YOUR EXISTING CONTENT FOR introText and contactLinks WILL BE PRESERVED ---
-// Dyad: I will not modify the content of these constants.
-const introText = "Whether it's brainstorming a new project, discussing design optimizations, or just sharing creative insights, I'm always excited to collaborate. Reach out to me and let's craft something exceptional together!";
+const introText = "Whether it's brainstorming a new project, discussing design optimizations, or just sharing creative insights, I'm always excited to collaborate. Reach out to me and let's craft something exceptional — together!";
 
 const contactLinks = [
   { 
     icon: Mail, 
-    text: "haitomns@gmail.com", // Example: Assuming your custom content is here
+    text: "haitomns@gmail.com",
     href: "mailto:haitomns@gmail.com", 
     bgColor: "bg-red-100",
     iconColor: "text-red-600"
   },
   { 
     icon: Phone, 
-    text: "+977 980 920 4764", // Example: Assuming your custom content is here
+    text: "+977 980 920 4764",
     href: "tel:+9779809204764", 
     bgColor: "bg-yellow-100",
     iconColor: "text-yellow-600"
@@ -34,33 +30,32 @@ const contactLinks = [
   { 
     icon: Facebook, 
     text: "Facebook", 
-    href: "https://www.facebook.com/haitomnsg", // Example
+    href: "https://www.facebook.com/haitomnsg",
     bgColor: "bg-blue-100", 
     iconColor: "text-blue-700" 
   },
   { 
     icon: Instagram, 
     text: "Instagram", 
-    href: "https://www.instagram.com/haitomnsg/", // Example
+    href: "https://www.instagram.com/haitomnsg/",
     bgColor: "bg-pink-100", 
     iconColor: "text-pink-600" 
   },
   { 
     icon: Linkedin, 
     text: "LinkedIn", 
-    href: "https://www.linkedin.com/in/haitomnsg/", // Example
+    href: "https://www.linkedin.com/in/haitomnsg/",
     bgColor: "bg-purple-100",
     iconColor: "text-purple-600"
   },
   { 
     icon: Github, 
     text: "GitHub", 
-    href: "https://github.com/haitomnsg/", // Example
+    href: "https://github.com/haitomnsg/",
     bgColor: "bg-neutral-200", 
     iconColor: "text-neutral-700" 
   },
 ];
-// --- END OF PRESERVED CONTENT ---
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -97,7 +92,7 @@ const ContactLinkItem: React.FC<ContactLinkItemProps> = ({ icon: Icon, text, hre
 );
 
 const Contact = () => {
-  const [successMessage, setSuccessMessage] = useState<string | null>(null); // State for success message
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
@@ -111,17 +106,16 @@ const Contact = () => {
 
   function onSubmit(data: ContactFormValues) {
     console.log("Form submitted (simulated):", data);
-    setSuccessMessage("Message Sent Successfully!"); // Set success message
-    form.reset(); // Reset the form fields
+    setSuccessMessage("Your message has been sent successfully!");
+    form.reset();
 
-    // Clear the success message after a few seconds
     setTimeout(() => {
       setSuccessMessage(null);
-    }, 5000); // Message disappears after 5 seconds
+    }, 5000);
   }
 
   return (
-    <div className="space-y-12">
+    <section id="contact-section" className="space-y-12"> {/* Added section with ID */}
       {/* Header Section */}
       <section>
         <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -169,7 +163,6 @@ const Contact = () => {
           <CardContent>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                {/* Form fields remain the same */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
@@ -238,7 +231,6 @@ const Contact = () => {
                 <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6">
                   Send Message
                 </Button>
-                {/* Inline Success Message */}
                 {successMessage && (
                   <div className="mt-4 p-3 rounded-md bg-green-100 text-green-700 text-sm text-center">
                     {successMessage}
@@ -249,7 +241,7 @@ const Contact = () => {
           </CardContent>
         </Card>
       </section>
-    </div>
+    </section>
   );
 };
 

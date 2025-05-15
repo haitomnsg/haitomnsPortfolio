@@ -1,18 +1,18 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { Home, User, Briefcase, Bot, Mail, Menu, X, ExternalLink, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react"; // Added Menu back
+import { Home, User, Briefcase, Bot, Mail, Menu, Facebook, Instagram, Linkedin, Github, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import React from "react";
 
 const navItems = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/about", label: "About", icon: User },
-  { href: "/projects", label: "Projects", icon: Briefcase },
-  { href: "/robotics", label: "Robotics", icon: Bot },
-  { href: "/contact", label: "Contact", icon: Mail },
+  { href: "/", label: "Home", icon: Home, id: "home" },
+  { href: "/about", label: "About", icon: User, id: "about" },
+  { href: "/projects", label: "Projects", icon: Briefcase, id: "projects" },
+  { href: "/robotics", label: "Robotics", icon: Bot, id: "robotics" },
+  { href: "/contact", label: "Contact", icon: Mail, id: "contact" },
 ];
 
 const socialLinks = [
@@ -35,97 +35,104 @@ const UserProfile = () => (
   </div>
 );
 
-const NavigationLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => {
-  const location = useLocation();
-  return (
-    <nav className="flex-grow px-4 py-6 space-y-1">
-      {navItems.map((item) => {
-        const isCurrentPageActive = 
-          (item.href === "/" && (location.pathname === "/" || location.pathname === "/index.html")) ||
-          (item.href !== "/" && location.pathname === item.href);
-
-        return (
-          <NavLink
-            key={item.label}
-            to={item.href}
-            onClick={onLinkClick}
-            end
-            className={({ isActive: navLinkIsActiveForClass }) =>
-              cn(
-                "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group",
-                navLinkIsActiveForClass
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              )
-            }
-          >
-            <div className="flex items-center">
-              <item.icon 
-                className={cn(
-                  "w-5 h-5 mr-3",
-                  isCurrentPageActive 
-                    ? "text-primary-foreground"
-                    : "text-muted-foreground group-hover:text-sidebar-accent-foreground"
-                )}
-              />
-              {item.label}
-            </div>
-            {isCurrentPageActive ? (
-              <ChevronRight className="w-4 h-4 text-primary-foreground/70" />
-            ) : (
-              <ChevronRight className="w-4 h-4 text-muted-foreground/50 opacity-0 group-hover:opacity-100 group-hover:text-sidebar-accent-foreground transition-opacity" />
-            )}
-          </NavLink>
-        );
-      })}
-    </nav>
-  );
-};
-
 const SocialMediaLinks = () => (
-  <div className="px-4 py-6 border-t border-border">
-    <div className="space-y-2">
+  <div className="p-4 border-t border-border">
+    <div className="flex justify-center space-x-4">
       {socialLinks.map((link) => (
         <a
           key={link.label}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors group"
+          className="text-muted-foreground hover:text-foreground transition-colors"
+          aria-label={link.label}
         >
-          <link.icon className="w-5 h-5 mr-3 text-muted-foreground group-hover:text-sidebar-accent-foreground" />
-          {link.label}
-          <ExternalLink className="w-4 h-4 ml-auto text-muted-foreground/70 opacity-0 group-hover:opacity-100 group-hover:text-sidebar-accent-foreground transition-opacity duration-200" />
+          <link.icon className="w-5 h-5" />
         </a>
       ))}
     </div>
   </div>
 );
 
-const SidebarContent = ({ onLinkClick }: { onLinkClick?: () => void }) => (
-  <>
-    <UserProfile />
-    <NavigationLinks onLinkClick={onLinkClick} />
-    <SocialMediaLinks />
-  </>
-);
-
-// Removed props: isMobileMenuOpen, setMobileMenuOpen
-const Sidebar: React.FC = () => {
+const NavigationLinks = ({ onLinkClick, activeSection }: { onLinkClick?: () => void, activeSection?: string }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const isMobile = useIsMobile();
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false); // State managed internally again
+
+  const handleClick = (href: string, id: string) => {
+    if (isMobile) {
+      // For mobile, scroll to section instead of navigating
+      // Use behavior: 'smooth' for smooth scrolling
+      document.getElementById(`${id}-section`)?.scrollIntoView({ behavior: 'smooth' });
+      onLinkClick?.(); // Close the sheet after clicking a link
+    } else {
+      // For desktop, use react-router-dom navigation
+      navigate(href);
+    }
+  };
+
+  return (
+    <nav className="flex-grow px-4 py-6 space-y-1">
+      {navItems.map((item) => {
+        // Determine active state based on mobile view and activeSection prop
+        const isActive = isMobile 
+          ? activeSection === item.id
+          : (item.href === "/" ? location.pathname === "/" : location.pathname === item.href);
+
+        // Use a button for both mobile (scrolling) and desktop (handled by onClick)
+        // This simplifies the component structure
+        return (
+          <button
+            key={item.label}
+            onClick={() => handleClick(item.href, item.id)}
+            className={cn(
+              "flex items-center justify-between px-3 py-3 text-sm font-medium rounded-md transition-colors group w-full text-left",
+              isActive
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            )}
+          >
+            <div className="flex items-center">
+              <item.icon 
+                className={cn(
+                  "w-5 h-5 mr-3",
+                  isActive 
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground group-hover:text-sidebar-accent-foreground"
+                )}
+              />
+              {item.label}
+            </div>
+            {isActive ? (
+              <ChevronRight className="w-4 h-4 text-primary-foreground/70" />
+            ) : (
+              <ChevronRight className="w-4 h-4 text-muted-foreground/50 opacity-0 group-hover:opacity-100 group-hover:text-sidebar-accent-foreground transition-opacity" />
+            )}
+          </button>
+        );
+      })}
+    </nav>
+  );
+};
+
+const Sidebar: React.FC<{ activeSection?: string }> = ({ activeSection }) => {
+  const isMobile = useIsMobile();
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   if (isMobile) {
     return (
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
         <SheetTrigger asChild>
-          {/* Hamburger menu button is part of Sidebar again */}
           <Button variant="outline" size="icon" className="fixed top-4 left-4 z-50 bg-card text-card-foreground shadow-lg md:hidden">
             <Menu className="w-6 h-6" />
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-72 p-0 flex flex-col bg-card">
-          <SidebarContent onLinkClick={() => setMobileMenuOpen(false)} />
+          {/* Pass activeSection to SidebarContent */}
+          <SidebarContent 
+            onLinkClick={() => setMobileMenuOpen(false)} 
+            activeSection={activeSection} 
+          />
         </SheetContent>
       </Sheet>
     );
@@ -133,9 +140,19 @@ const Sidebar: React.FC = () => {
 
   return (
     <aside className="fixed top-4 left-4 h-[calc(100vh-2rem)] w-72 bg-card border border-border flex flex-col shadow-xl rounded-lg overflow-hidden">
-      <SidebarContent />
+      {/* Pass activeSection to SidebarContent for desktop too (though not strictly needed for active state logic there) */}
+      <SidebarContent activeSection={activeSection} />
     </aside>
   );
 };
+
+const SidebarContent = ({ onLinkClick, activeSection }: { onLinkClick?: () => void, activeSection?: string }) => (
+  <>
+    <UserProfile />
+    {/* Pass activeSection to NavigationLinks */}
+    <NavigationLinks onLinkClick={onLinkClick} activeSection={activeSection} />
+    <SocialMediaLinks />
+  </>
+);
 
 export default Sidebar;

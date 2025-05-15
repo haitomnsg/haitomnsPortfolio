@@ -117,7 +117,7 @@ const RobotProjectItem: React.FC<RobotProjectItemProps> = ({ project }) => {
 
 const Robotics = () => {
   return (
-    <div className="space-y-10">
+    <section id="robotics-section" className="space-y-10"> {/* Added section with ID */}
       <section>
         <h1 className="text-4xl font-semibold mb-4 text-left text-foreground">Robotics</h1>
         <p className="text-lg text-muted-foreground max-w-3xl text-left">
@@ -129,7 +129,7 @@ const Robotics = () => {
           <RobotProjectItem key={project.id} project={project} />
         ))}
       </section>
-    </div>
+    </section>
   );
 };
 
