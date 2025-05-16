@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react'; // Import useState
 import { Link } from 'react-router-dom';
 import { Project } from '@/data/projects'; // Import the Project type
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { ArrowLeft } from 'lucide-react';
+import { cn } from '@/lib/utils'; // Import cn for conditional classes
 
 interface ProjectDetailProps {
   project: Project;
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
-  if (!project) {
-    return <div>Project not found.</div>; // Basic handling if project data is missing
+  // Check if project data exists and has supporting images
+  if (!project || !project.supportingImages || project.supportingImages.length === 0) {
+    // Handle case where project or images are missing
+    // Show a message and the back link
+    return (
+      <div className="space-y-8">
+         <Link to="/projects" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors text-sm font-medium">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Projects
+        </Link>
+        <h1 className="text-4xl font-semibold text-foreground">{project?.title || 'Project Details'}</h1>
+        <p className="text-muted-foreground">No images available for this project.</p>
+      </div>
+    );
   }
+
+  // State to manage the currently displayed main image, initialized with the first supporting image
+  const [mainImage, setMainImage] = useState<string>(project.supportingImages[0]);
+
+  // Get the rest of the images for the thumbnail grid
+  const thumbnailImages = project.supportingImages.slice(1);
 
   return (
     <div className="space-y-8">
@@ -35,29 +54,33 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
         )}
       </div>
 
-      {/* Main Project Image */}
-      {project.mainImageUrl && (
+      {/* Main Project Image (using state, defaults to first supporting image) */}
+      {mainImage && (
         <Card className="shadow-xl overflow-hidden">
           <AspectRatio ratio={16 / 9}> {/* Adjust ratio as needed */}
             <img
-              src={project.mainImageUrl}
-              alt={project.title}
+              src={mainImage} // Use the state variable
+              alt={`${project.title} main image`}
               className="object-cover w-full h-full"
             />
           </AspectRatio>
         </Card>
       )}
 
-      {/* Supporting Images */}
-      {project.supportingImages && project.supportingImages.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {project.supportingImages.map((imgUrl, index) => (
-            <Card key={index} className="shadow-md overflow-hidden">
+      {/* Supporting Images (Thumbnails) */}
+      {thumbnailImages.length > 0 && (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"> {/* Adjusted grid for more images */}
+          {thumbnailImages.map((imgUrl, index) => (
+            <Card
+              key={index}
+              className="shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300"
+              onClick={() => setMainImage(imgUrl)} // Set main image on click
+            >
                <AspectRatio ratio={16 / 10}> {/* Adjust ratio as needed */}
                 <img
                   src={imgUrl}
-                  alt={`${project.title} screenshot ${index + 1}`}
-                  className="object-cover w-full h-full"
+                  alt={`${project.title} screenshot ${index + 2}`} // Alt text adjusted for index
+                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-110" // Added zoom effect
                 />
               </AspectRatio>
             </Card>
