@@ -20,8 +20,8 @@ export const projectsData: Project[] = [
     id: 'doclipi',
     title: 'DocLipi: An Intelligent Document Classifier and OCR Solution',
     intro: 'DocLipi is designed to streamline document management by automatically classifying documents and extracting text using OCR. It helps organize large volumes of documents efficiently.',
-    mainImageUrl: './images/doclipi.png', // Use the image you already have
-    supportingImages: [], // Add paths to smaller images if available
+    mainImageUrl: '/images/doclipi.png', // Use the image you already have
+    supportingImages: ['/images/doclipiDashboard.png'], // Add paths to smaller images if available
     sections: [
       {
         heading: 'Overview',
@@ -47,8 +47,8 @@ export const projectsData: Project[] = [
     id: 'tomatobot',
     title: 'TomatoBot: Eats all red tomatoes',
     intro: 'TomatoBot is an autonomous robot designed to identify and interact with ripe tomatoes in a controlled environment.',
-    mainImageUrl: './images/tomato-bot.jpg', // Use the image you already have
-    supportingImages: ['./images/tomato-bot-robot.jpg'], // Use the robot image as a supporting image
+    mainImageUrl: '/images/tomato-bot.jpg', // Use the image you already have
+    supportingImages: ['/images/tomato-bot-robot.jpg'], // Use the robot image as a supporting image
     sections: [
       {
         heading: 'Concept',
@@ -74,7 +74,7 @@ export const projectsData: Project[] = [
     id: 'jiffy',
     title: 'Jiffy: The AI Food Delivery App',
     intro: 'Jiffy is a concept for a food delivery app that uses AI to personalize recommendations and optimize delivery routes.',
-    mainImageUrl: './images/jiffy.png',
+    mainImageUrl: '/images/jiffy.png',
     supportingImages: [],
     sections: [
       {
@@ -101,7 +101,7 @@ export const projectsData: Project[] = [
     id: 'phulbari',
     title: 'Phulbari: Happy Flower Happy You',
     intro: 'Phulbari is a project focused on monitoring and maintaining optimal conditions for plant growth using sensors and automation.',
-    mainImageUrl: './images/phulbari.png',
+    mainImageUrl: '/images/phulbari.png',
     supportingImages: [],
     sections: [
       {
@@ -129,7 +129,7 @@ export const projectsData: Project[] = [
     id: 'resthat',
     title: 'RestHat: Simplify your Restaurant Experience',
     intro: 'RestHat is a platform designed to improve the dining experience for both customers and restaurants through digital tools.',
-    mainImageUrl: './images/resthat.png',
+    mainImageUrl: '/images/resthat.png',
     supportingImages: [],
     sections: [
       {
@@ -203,66 +203,5 @@ export const projectsData: Project[] = [
     liveLink: 'https://haitomns.com/redsoil', // Example live link
     githubLink: 'https://github.com/haitomnsg/RedSoil', // Example GitHub link
     developers: ['Ashish Gupta', 'Haitomns Groups Private Limited'], // Example developers
-  },
-  // Add other projects here following the same structure
-  // Example for Robotics projects (using IDs from Robotics.tsx):
-   {
-    id: 'face-tracking-robot',
-    title: 'Face and Human Tracking Robot',
-    intro: 'This robot captures live video feeds, processes them using AI to track human bodies and faces, and moves accordingly.',
-    mainImageUrl: './images/face-bot-robot.jpg',
-    supportingImages: [],
-    sections: [
-      {
-        heading: 'Functionality',
-        content: 'Features a dual-mode operation for versatile interaction: one for human/face tracking and another for detecting and following traffic signs.',
-      },
-      {
-        heading: 'Technologies Used',
-        content: ['Arduino', 'Motor Shield Driver', 'Motors', 'Battery', 'MU Sensor (AI Vision)'],
-      },
-    ],
-    developers: ['Ashish Gupta'],
-  },
-   {
-    id: 'disaster-rescue-vehicle',
-    title: 'Multi-Utility Disaster Rescue Vehicle',
-    intro: 'A versatile rescue vehicle designed for military and disaster relief operations.',
-    mainImageUrl: './images/rescue-bot-robot.jpg',
-    supportingImages: [],
-    sections: [
-      {
-        heading: 'Capabilities',
-        content: [
-          'Aids in rescuing victims using a robotic arm',
-          'Provides surveillance via drone and camera',
-          'Includes a fire extinguisher',
-          'Equipped with an automatic gun for battlefield utility',
-        ],
-      },
-      {
-        heading: 'Technologies Used',
-        content: ['Arduino', 'Robotic Arm', 'Motor Driver', 'Geared Motors', 'Camera', 'Servo', 'Water Pump Motor'],
-      },
-    ],
-    developers: ['Ashish Gupta'],
-  },
-   {
-    id: 'obstacle-avoider',
-    title: 'Arduino Obstacle Avoiding Car',
-    intro: 'A simple yet effective obstacle avoiding car using an ultrasonic sensor.',
-    mainImageUrl: './images/obstacle-bot-robot.jpg',
-    supportingImages: [],
-    sections: [
-      {
-        heading: 'How it Works',
-        content: 'Uses an ultrasonic sensor to detect nearby objects. If an obstacle is detected within a 5cm range, the car stops, scans its surroundings to find an open path, and then navigates towards the direction with the most space.',
-      },
-      {
-        heading: 'Technologies Used',
-        content: ['Arduino Uno', 'Ultrasonic Sensor', 'Motor Driver', 'Geared DC Motors'],
-      },
-    ],
-    developers: ['Ashish Gupta'],
   },
 ];
