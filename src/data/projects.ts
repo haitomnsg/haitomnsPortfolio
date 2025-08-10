@@ -10,7 +10,9 @@ export interface Project {
     heading: string;
     content: string | string[]; // Can be a paragraph or a list of points
   }[];
-  // Add fields for previous/next project links if needed later
+  liveLink?: string; // New: Optional link to live demo
+  githubLink?: string; // New: Optional link to GitHub repository
+  developers?: string[]; // New: Optional array of developer names
 }
 
 export const projectsData: Project[] = [
@@ -39,6 +41,7 @@ export const projectsData: Project[] = [
         content: ['Python', 'TensorFlow/PyTorch', 'OCR Libraries (e.g., Tesseract)', 'Web Framework (e.g., Flask/Django)'],
       },
     ],
+    githubLink: 'https://github.com/haitomnsg/DocLipi', // Example GitHub link
   },
   {
     id: 'tomatobot',
@@ -64,6 +67,8 @@ export const projectsData: Project[] = [
         content: ['Raspberry Pi', 'YOLO', 'OpenCV', 'Python', 'Motor Drivers', 'Servo Motors'],
       },
     ],
+    githubLink: 'https://github.com/haitomnsg/TomatoBot', // Example GitHub link
+    developers: ['Ashish Gupta'],
   },
    {
     id: 'jiffy',
@@ -90,6 +95,7 @@ export const projectsData: Project[] = [
         content: ['Machine Learning (for recommendations/optimization)', 'Mobile Development Framework (e.g., React Native)', 'Mapping APIs'],
       },
     ],
+    developers: ['Ashish Gupta'],
   },
   {
     id: 'phulbari',
@@ -116,6 +122,8 @@ export const projectsData: Project[] = [
         content: ['Arduino/ESP32', 'Various Sensors', 'Relays', 'Water Pump', 'Data Storage/Display'],
       },
     ],
+    githubLink: 'https://github.com/haitomnsg/Phulbari', // Example GitHub link
+    developers: ['Ashish Gupta'],
   },
    {
     id: 'resthat',
@@ -145,50 +153,116 @@ export const projectsData: Project[] = [
         content: ['Web Development (Frontend/Backend)', 'Database', 'Payment Gateway Integration'],
       },
     ],
+    githubLink: 'https://github.com/haitomnsg/RestHat', // Example GitHub link
+    developers: ['Ashish Gupta'],
   },
-{
-  id: 'redsoil',
-  title: 'RedSoil: Make your Blood Work Easy',
-  intro: 'RedSoil is an application designed to store the results of the blood banks and analyze them.',
-  mainImageUrl: './images/redsoil.jpg',
-  supportingImages: [
-    '../images/redsoil-dashboard.png',
-    '../images/redsoil-donation.png',
-    '../images/redsoil-find.png',
-    '../images/redsoil-account.png'
-  ],
-  sections: [
-    {
-      heading: 'Features',
-      content: [
-        'Interactive Dashboard to view the status of blood bank.',
-        'Real life form insertion for easiness.',
-        'Get all your record in a single page.',
-        'Backup and restore wherever you want.'
-      ]
-    },
-    {
-      heading: 'Requirement',
-      content: [
-        'RedSoil uses MySQL in the backend, so download and install MySQL Server, save the following configuration details:',
-        'MySQL Username',
-        'MySQL Password',
-        'MySQL Port Number',
-        'MySQL Installation Path'
-      ]
-    },
-    {
-      heading: 'Installation',
-      content: 'Download the latest installer of RedSoil from GitHub and install it. Configure and Register the application and you are ready to use it.'
-    },
-    {
-      heading: 'License',
-      content: 'This program is free software you can redistribute it or modify it under the terms of the Apache-2.0 License.'
-    },
-    {
-      heading: 'Developers',
-      content: 'RedSoil is developed by Ashish Gupta and maintained under Haitomns Groups Private Limited. We welcome developers wishing to contribute in this project improve it and resolve errors.'
-    }
-  ]
-}
+   {
+    id: 'redsoil',
+    title: 'RedSoil: Make your Blood Work Easy',
+    intro: 'RedSoil is an application designed to store the results of the blood banks and analyze them.',
+    mainImageUrl: 'https://user-images.githubusercontent.com/114091259/194717618-0320cb45-01a1-48ba-9bbb-b78eebdbfd00.png',
+    supportingImages: [
+      'https://user-images.githubusercontent.com/114091259/193549206-a2303652-5b10-4078-9fda-5e4d61d1c3cf.png', // Dashboard
+      'https://user-images.githubusercontent.com/114091259/193549311-53d6e702-76ee-422a-b4895f903060.png', // Blood Donation
+      'https://user-images.githubusercontent.com/114091259/193549360-44f346db-53bb-4431-b9b7-1532a19ab580.png', // Find Blood
+      'https://user-images.githubusercontent.com/114091259/194717625-73e5d370-c5b2-4034-8a66-60fbe17665ca.png', // User Account
+    ],
+    sections: [
+      {
+        heading: 'Features',
+        content: [
+          'Interactive Dashboard to view the status of blood bank.',
+          'Real life form insertion for easiness.',
+          'Get all your record in a single page.',
+          'Backup and restore wherever you want.',
+        ],
+      },
+      {
+        heading: 'Requirement',
+        content: [
+          'RedSoil uses MySQL in the backend, so download and install MySQL Server, save the following configuration details:',
+          'MySQL Username',
+          'MySQL Password',
+          'MySQL Port Number',
+          'MySQL Installation Path',
+        ],
+      },
+      {
+        heading: 'Installation',
+        content: 'Download the latest installer of RedSoil from GitHub and install it. Configure and Register the application and you are ready to use it.',
+      },
+      {
+        heading: 'License',
+        content: 'This program is free software: you can redistribute it and/or modify it under the terms of the Apache-2.0 License.',
+      },
+      {
+        heading: 'Developers',
+        content: 'RedSoil is developed and maintained under Haitomns Groups Private Limited. We welcome developers wishing to contribute in this project improve it and resolve errors.',
+      },
+    ],
+    liveLink: 'https://haitomns.com/redsoil', // Example live link
+    githubLink: 'https://github.com/haitomnsg/RedSoil', // Example GitHub link
+    developers: ['Ashish Gupta', 'Haitomns Groups Private Limited'], // Example developers
+  },
+  // Add other projects here following the same structure
+  // Example for Robotics projects (using IDs from Robotics.tsx):
+   {
+    id: 'face-tracking-robot',
+    title: 'Face and Human Tracking Robot',
+    intro: 'This robot captures live video feeds, processes them using AI to track human bodies and faces, and moves accordingly.',
+    mainImageUrl: './images/face-bot-robot.jpg',
+    supportingImages: [],
+    sections: [
+      {
+        heading: 'Functionality',
+        content: 'Features a dual-mode operation for versatile interaction: one for human/face tracking and another for detecting and following traffic signs.',
+      },
+      {
+        heading: 'Technologies Used',
+        content: ['Arduino', 'Motor Shield Driver', 'Motors', 'Battery', 'MU Sensor (AI Vision)'],
+      },
+    ],
+    developers: ['Ashish Gupta'],
+  },
+   {
+    id: 'disaster-rescue-vehicle',
+    title: 'Multi-Utility Disaster Rescue Vehicle',
+    intro: 'A versatile rescue vehicle designed for military and disaster relief operations.',
+    mainImageUrl: './images/rescue-bot-robot.jpg',
+    supportingImages: [],
+    sections: [
+      {
+        heading: 'Capabilities',
+        content: [
+          'Aids in rescuing victims using a robotic arm',
+          'Provides surveillance via drone and camera',
+          'Includes a fire extinguisher',
+          'Equipped with an automatic gun for battlefield utility',
+        ],
+      },
+      {
+        heading: 'Technologies Used',
+        content: ['Arduino', 'Robotic Arm', 'Motor Driver', 'Geared Motors', 'Camera', 'Servo', 'Water Pump Motor'],
+      },
+    ],
+    developers: ['Ashish Gupta'],
+  },
+   {
+    id: 'obstacle-avoider',
+    title: 'Arduino Obstacle Avoiding Car',
+    intro: 'A simple yet effective obstacle avoiding car using an ultrasonic sensor.',
+    mainImageUrl: './images/obstacle-bot-robot.jpg',
+    supportingImages: [],
+    sections: [
+      {
+        heading: 'How it Works',
+        content: 'Uses an ultrasonic sensor to detect nearby objects. If an obstacle is detected within a 5cm range, the car stops, scans its surroundings to find an open path, and then navigates towards the direction with the most space.',
+      },
+      {
+        heading: 'Technologies Used',
+        content: ['Arduino Uno', 'Ultrasonic Sensor', 'Motor Driver', 'Geared DC Motors'],
+      },
+    ],
+    developers: ['Ashish Gupta'],
+  },
 ];

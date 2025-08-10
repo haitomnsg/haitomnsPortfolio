@@ -1,20 +1,24 @@
-import React, { useState } from 'react'; // Import useState
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Project } from '@/data/projects'; // Import the Project type
+import { Project } from '@/data/projects';
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { ArrowLeft } from 'lucide-react';
-import { cn } from '@/lib/utils'; // Import cn for conditional classes
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"; // Import Dialog components
+import { ArrowLeft, Link as LinkIcon, Github, Users, X } from 'lucide-react'; // Import LinkIcon, Github, Users, X
 
 interface ProjectDetailProps {
   project: Project;
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
-  // Check if project data exists and has supporting images
+  // State to manage the currently displayed main image, initialized with the first supporting image
+  // and for the lightbox visibility
+  const [mainImage, setMainImage] = useState<string | undefined>(project.supportingImages?.[0]);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [currentLightboxImage, setCurrentLightboxImage] = useState<string | undefined>(undefined);
+
+  // Handle case where project or images are missing
   if (!project || !project.supportingImages || project.supportingImages.length === 0) {
-    // Handle case where project or images are missing
-    // Show a message and the back link
     return (
       <div className="space-y-8">
          <Link to="/projects" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors text-sm font-medium">
@@ -27,8 +31,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
     );
   }
 
-  // State to manage the currently displayed main image, initialized with the first supporting image
-  const [mainImage, setMainImage] = useState<string>(project.supportingImages[0]);
+  // Function to open lightbox with a specific image
+  const openLightbox = (imageUrl: string) => {
+    setCurrentLightboxImage(imageUrl);
+    setIsLightboxOpen(true);
+  };
 
   // Get the rest of the images for the thumbnail grid
   const thumbnailImages = project.supportingImages.slice(1);
@@ -56,10 +63,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
 
       {/* Main Project Image (using state, defaults to first supporting image) */}
       {mainImage && (
-        <Card className="shadow-xl overflow-hidden">
-          <AspectRatio ratio={16 / 9}> {/* Adjust ratio as needed */}
+        <Card className="shadow-xl overflow-hidden cursor-pointer" onClick={() => openLightbox(mainImage)}>
+          <AspectRatio ratio={16 / 9}>
             <img
-              src={mainImage} // Use the state variable
+              src={mainImage}
               alt={`${project.title} main image`}
               className="object-cover w-full h-full"
             />
@@ -69,18 +76,18 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
 
       {/* Supporting Images (Thumbnails) */}
       {thumbnailImages.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"> {/* Adjusted grid for more images */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {thumbnailImages.map((imgUrl, index) => (
             <Card
               key={index}
               className="shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300"
               onClick={() => setMainImage(imgUrl)} // Set main image on click
             >
-               <AspectRatio ratio={16 / 10}> {/* Adjust ratio as needed */}
+               <AspectRatio ratio={16 / 10}>
                 <img
                   src={imgUrl}
-                  alt={`${project.title} screenshot ${index + 2}`} // Alt text adjusted for index
-                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-110" // Added zoom effect
+                  alt={`${project.title} screenshot ${index + 2}`}
+                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
                 />
               </AspectRatio>
             </Card>
@@ -93,7 +100,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
         <CardContent className="p-6 md:p-8 space-y-8 text-base text-muted-foreground">
           {/* Intro Text */}
            <p className="text-lg text-foreground font-medium leading-relaxed">{project.intro}</p>
-           <div className="border-t border-border pt-8 space-y-8"> {/* Separator and space for sections */}
+           <div className="border-t border-border pt-8 space-y-8">
             {project.sections.map((section, index) => (
               <section key={index} className="space-y-3">
                 <h2 className="text-2xl font-semibold text-foreground">{section.heading}</h2>
@@ -122,15 +129,66 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
                 )}
               </section>
             ))}
+
+            {/* New: Project Links Section */}
+            {(project.liveLink || project.githubLink) && (
+              <section className="space-y-3">
+                <h2 className="text-2xl font-semibold text-foreground">Project Links</h2>
+                <ul className="list-disc list-outside space-y-2 pl-5">
+                  {project.liveLink && (
+                    <li>
+                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">
+                        <LinkIcon className="w-4 h-4 mr-2" /> Live Demo
+                      </a>
+                    </li>
+                  )}
+                  {project.githubLink && (
+                    <li>
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline inline-flex items-center">
+                        <Github className="w-4 h-4 mr-2" /> GitHub Repository
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              </section>
+            )}
+
+            {/* New: Developers Involved Section */}
+            {project.developers && project.developers.length > 0 && (
+              <section className="space-y-3">
+                <h2 className="text-2xl font-semibold text-foreground">Developers Involved</h2>
+                <ul className="list-disc list-outside space-y-2 pl-5">
+                  {project.developers.map((developer, index) => (
+                    <li key={index} className="text-muted-foreground inline-flex items-center">
+                      <Users className="w-4 h-4 mr-2" /> {developer}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
            </div>
         </CardContent>
       </Card>
 
-      {/* Previous/Next Navigation (Optional - can add later if needed) */}
-      {/* <div className="flex justify-between mt-8">
-        <Link to="#" className="text-primary hover:underline">&lt; Previous</Link>
-        <Link to="#" className="text-primary hover:underline">Next &gt; </Link>
-      </div> */}
+      {/* Image Lightbox/Modal */}
+      <Dialog open={isLightboxOpen} onOpenChange={setIsLightboxOpen}>
+        <DialogContent className="max-w-screen-lg max-h-screen-lg p-0 border-none bg-transparent shadow-none backdrop-blur-sm">
+          <button
+            onClick={() => setIsLightboxOpen(false)}
+            className="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors"
+            aria-label="Close"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          {currentLightboxImage && (
+            <img
+              src={currentLightboxImage}
+              alt="Full screen view"
+              className="max-w-full max-h-full object-contain mx-auto my-auto"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -15,6 +15,18 @@ interface RobotProject {
 }
 
 const robotProjectsData: RobotProject[] = [
+    {
+    id: 'tomatobotv2',
+    imageUrl: './images/tomato-bot-v2.jpg',
+    title: 'TomatoBot v2',
+    description: 'TomatoBot v2 is an upgraded version of TomatoBot with navigation and improved harvesting capabilities. It implements a segementation model that will segmentation on the path, perform line detection and use that line to navigate.',
+    features: [
+      'Autonomous Navigation using Segmentation and Line Detection',
+      'Implementation of Robotic Arm Using Inverse Kinematics',
+      'Tomato Grading using Robotic Arm and Obstacle Avoidance',
+    ],
+    technologies: ['U-Net', 'Deep Hough Transformer', 'Servo Driver', 'Servo Motors', 'Ultrasonic Sensors'],
+  },
   {
     id: 'tomatobot',
     imageUrl: './images/tomato-bot-robot.jpg',
