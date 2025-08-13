@@ -12,7 +12,7 @@ const academicEducation = [
   {
     degree: "Technical Education in Computer Engineering (2023)",
     institution: "Shree Nrisingh Madhyamika Vidyalaya, Birgunj",
-    duration: "3.48 GPA",
+    duration: "3.60 GPA",
   },
   {
     degree: "Technical Secondary Education Examination in Computer Engineering (2021)",
