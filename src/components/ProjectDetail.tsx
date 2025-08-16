@@ -173,13 +173,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
       {/* Image Lightbox/Modal */}
       <Dialog open={isLightboxOpen} onOpenChange={setIsLightboxOpen}>
         <DialogContent className="max-w-screen-lg max-h-screen-lg p-0 border-none bg-transparent shadow-none backdrop-blur-sm">
-          <button
-            onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-4 right-4 z-50 text-white hover:text-gray-300 transition-colors"
-            aria-label="Close"
-          >
-            <X className="w-8 h-8" />
-          </button>
+          {/* Removed white cross (close) button from lightbox */}
           {currentLightboxImage && (
             <img
               src={currentLightboxImage}
