@@ -1,18 +1,18 @@
 export interface Project {
   id: string;
   title: string;
-  category?: string; // Optional category
-  client?: string; // Optional client
+  category?: string;
+  client?: string;
   intro: string;
   mainImageUrl: string;
-  supportingImages?: string[]; // Optional array of smaller images
+  supportingImages?: string[];
   sections: {
     heading: string;
-    content: string | string[]; // Can be a paragraph or a list of points
+    content: string | string[];
   }[];
-  liveLink?: string; // New: Optional link to live demo
-  githubLink?: string; // New: Optional link to GitHub repository
-  developers?: string[]; // New: Optional array of developer names
+  liveLink?: string;
+  githubLink?: string;
+  developers?: string[];
 }
 
 export const projectsData: Project[] = [
@@ -68,14 +68,14 @@ export const projectsData: Project[] = [
         content: ['Next.js', 'React', 'Typescript', 'Tailwind CSS', 'MySQL', 'ShadCN UI'],
       },
     ],
-    githubLink: 'https://github.com/haitomnsg/arthaVidhi', // Example GitHub link
+    githubLink: 'https://github.com/haitomnsg/arthaVidhi',
   },
-   {
+  {
     id: 'jiffy',
     title: 'Jiffy: The AI Food Delivery App',
     intro: 'Jiffy is a concept for a food delivery app the AI, AR, Games and Shorts to give users a new Food Ordering Experience.',
     mainImageUrl: '/images/jiffy.png',
-    supportingImages: ['/images/jiffyApp.jpg'],
+    supportingImages: ['/images/jiffyApp.png'],
     sections: [
       {
         heading: 'Introduction',
@@ -102,7 +102,7 @@ export const projectsData: Project[] = [
     title: 'Phulbari: Happy Flower Happy You',
     intro: 'Phulbari is an AI Flower Classification & Moisture Detection app for flowers and plants.',
     mainImageUrl: '/images/phulbari.png',
-    supportingImages: ['/images/phulbariApp.jpg'],
+    supportingImages: ['/images/phulbariApp.png'],
     sections: [
       {
         heading: 'Introduction',
@@ -124,44 +124,46 @@ export const projectsData: Project[] = [
     ],
     githubLink: 'https://github.com/haitomnsg/phulbari',
   },
-   {
+  {
     id: 'resthat',
     title: 'RestHat: Simplify your Restaurant Experience',
     intro: 'RestHat is a platform designed to improve the dining experience for both customers and restaurants through digital tools.',
     mainImageUrl: '/images/resthat.png',
-    supportingImages: ['/images/restAppDashboard.png'],
+    supportingImages: ['/images/resthatDashboard.png'],
     sections: [
       {
-        heading: 'Concept',
-        content: 'To provide features like digital menus, online ordering, table reservations, and potentially loyalty programs.',
+        heading: 'Introduction',
+        content: 'RestHat, is an innovative platform designed to enhance the restaurant experience by streamlining operations and improving customer engagement. It is fully featured packed with all the modules needed to manage a restaurant effectively.',
       },
       {
-        heading: 'Features',
+        heading: 'Key Features',
         content: [
-          'Point of Sales (POS)',
-          'User Friendly',
-          'Table Management',
+          'Interactive Dashboard to view Live Orders',
           'Menu Management',
           'Waiter Order Module',
           'Kitchen Management',
           'IRD Certified',
+          'Reports Generation',
         ],
       },
       {
-        heading: 'Technologies Used (Conceptual)',
-        content: ['Web Development (Frontend/Backend)', 'Database', 'Payment Gateway Integration'],
+        heading: 'Technologies Used',
+        content: ['PHP', 'MySQL', 'HTML', 'JavaScript', 'CSS'],
       },
     ],
-    githubLink: 'https://github.com/haitomnsg/RestHat', // Example GitHub link
-    developers: ['Ashish Gupta'],
+    githubLink: 'https://github.com/haitomnsgroups/restHatWebsite',
   },
-   {
+  {
     id: 'redsoil',
     title: 'RedSoil: Make your Blood Work Easy',
     intro: 'RedSoil is an application designed to store the results of the blood banks and analyze them.',
-    mainImageUrl: 'https://user-images.githubusercontent.com/114091259/194717618-0320cb45-01a1-48ba-9bbb-b78eebdbfd00.png',
+    mainImageUrl: '/images/redSoilIcon.png',
     supportingImages: ['/images/redsoilDashboard.png'],
     sections: [
+      {
+        heading: 'Introduction',
+        content: 'RedSoil is an application designed to store the results of the blood banks and analyze them.',
+      },
       {
         heading: 'Features',
         content: [
@@ -172,30 +174,15 @@ export const projectsData: Project[] = [
         ],
       },
       {
-        heading: 'Requirement',
+        heading: 'Technologies Used',
         content: [
-          'RedSoil uses MySQL in the backend, so download and install MySQL Server, save the following configuration details:',
-          'MySQL Username',
-          'MySQL Password',
-          'MySQL Port Number',
-          'MySQL Installation Path',
+          'Java',
+          'JavaFX',
+          'MySQL',
+          'CSS',
         ],
       },
-      {
-        heading: 'Installation',
-        content: 'Download the latest installer of RedSoil from GitHub and install it. Configure and Register the application and you are ready to use it.',
-      },
-      {
-        heading: 'License',
-        content: 'This program is free software: you can redistribute it and/or modify it under the terms of the Apache-2.0 License.',
-      },
-      {
-        heading: 'Developers',
-        content: 'RedSoil is developed and maintained under Haitomns Groups Private Limited. We welcome developers wishing to contribute in this project improve it and resolve errors.',
-      },
     ],
-    liveLink: 'https://haitomns.com/redsoil', // Example live link
-    githubLink: 'https://github.com/haitomnsg/RedSoil', // Example GitHub link
-    developers: ['Ashish Gupta', 'Haitomns Groups Private Limited'], // Example developers
+    githubLink: 'https://github.com/haitomnsg/redsoil/',
   },
 ];
